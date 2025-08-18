@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_speed: float = 123.0
+var player_speed: float = 60.0
 
 var canvas_layer: CanvasLayer
 var display_label: Label

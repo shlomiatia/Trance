@@ -169,3 +169,5 @@ frame_progress = 0.837551
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jbuvh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
