@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 var _states: Dictionary = {}
 var _current_state: PlayerState
 

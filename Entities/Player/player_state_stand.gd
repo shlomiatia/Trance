@@ -1,7 +1,10 @@
 class_name PlayerStateStand extends PlayerState
 
+func enter() -> void:
+	player.animated_sprite_2d.animation = "default"
+
 func _physics_process(_delta: float) -> void:
-	if not player.is_on_floor():
+	if !player.is_on_floor():
 		player.change_state(PlayerStateEnum.Type.FALL)
 		return
 		
