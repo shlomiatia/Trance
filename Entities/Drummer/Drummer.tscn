@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvlxt7wiqng7i"]
+[gd_scene load_steps=16 format=3 uid="uid://bvlxt7wiqng7i"]
 
 [ext_resource type="Texture2D" uid="uid://bkmvgf302ktkk" path="res://Textures/drums.png" id="1_o37ni"]
+[ext_resource type="Script" path="res://Entities/Drummer/drummer.gd" id="1_yofpt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yrui"]
 atlas = ExtResource("1_o37ni")
@@ -61,7 +62,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,8 +112,9 @@ animations = [{
 }]
 
 [node name="Drummer" type="Node2D"]
+script = ExtResource("1_yofpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xprfx")
-animation = &"left"
 autoplay = "default"
+frame_progress = 0.445729
