@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://bvlxt7wiqng7i"]
+
+[ext_resource type="Texture2D" uid="uid://bkmvgf302ktkk" path="res://Textures/drums.png" id="1_o37ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yrui"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvobt"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwyke"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4itjq"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7vv2"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72rqx"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvuxs"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_decxi"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sh0q"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3rrk"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hndb"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojfqp"]
+atlas = ExtResource("1_o37ni")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xprfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yrui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvobt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwyke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4itjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7vv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72rqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwyke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvuxs")
+}],
+"loop": false,
+"name": &"left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_decxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sh0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3rrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hndb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_decxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojfqp")
+}],
+"loop": false,
+"name": &"right",
+"speed": 10.0
+}]
+
+[node name="Drummer" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xprfx")
+animation = &"left"
+autoplay = "default"

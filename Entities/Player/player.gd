@@ -23,5 +23,3 @@ func _physics_process(delta: float) -> void:
     velocity += get_gravity() * delta
     _current_state._physics_process(delta)
     move_and_slide()
-    if Input.is_action_just_pressed("ui_select"):
-        print(global_position)
