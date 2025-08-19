@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvmakink4dywe"]
+
+[ext_resource type="AudioStream" uid="uid://50wokan8hgsh" path="res://Music/1.mp3" id="1_3k37i"]
+[ext_resource type="Script" path="res://Entities/DJ/dj.gd" id="2_mjbxj"]
+
+[node name="DJ" type="AudioStreamPlayer"]
+stream = ExtResource("1_3k37i")
+autoplay = true
+script = ExtResource("2_mjbxj")

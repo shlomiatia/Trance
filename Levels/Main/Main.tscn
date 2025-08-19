@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://665vfjdqry7l" path="res://Textures/tiles.png" id="1_3hb2c"]
 [ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_5f5qv"]
-[ext_resource type="AudioStream" uid="uid://50wokan8hgsh" path="res://Music/1.mp3" id="3_3ub47"]
+[ext_resource type="PackedScene" uid="uid://cvmakink4dywe" path="res://Entities/DJ/DJ.tscn" id="3_dsah1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c37cd"]
 texture = ExtResource("1_3hb2c")
@@ -48,6 +48,5 @@ tile_set = SubResource("TileSet_kil7h")
 [node name="Player" parent="." instance=ExtResource("2_5f5qv")]
 position = Vector2(319, 304)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_3ub47")
-autoplay = true
+[node name="DJ" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_dsah1")]
+player = NodePath("../Player")
