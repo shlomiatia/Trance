@@ -20,17 +20,17 @@ func _process(_delta: float) -> void:
         
         match current_track.file_name:
             "start.wav":
-                if playback_pos >= 0.5 and last_trigger_point < 0.5:
+                if playback_pos >= 0.5 && last_trigger_point < 0.5:
                     last_trigger_point = 0.5
                     play_side_animation()
             "loop1.wav":
-                if playback_pos >= 10.0 and last_trigger_point < 10.0:
+                if playback_pos >= 10.0 && last_trigger_point < 10.0:
                     last_trigger_point = 10.0
                     play_side_animation()
-                elif playback_pos >= 6.5 and last_trigger_point < 6.5:
+                elif playback_pos >= 6.5 && last_trigger_point < 6.5:
                     last_trigger_point = 6.5
                     play_side_animation()
-                elif playback_pos >= 3.0 and last_trigger_point < 3.0:
+                elif playback_pos >= 3.0 && last_trigger_point < 3.0:
                     last_trigger_point = 3.0
                     play_side_animation()
 

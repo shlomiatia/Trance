@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37vrm7c6epfv"]
+[gd_scene load_steps=17 format=3 uid="uid://b37vrm7c6epfv"]
 
 [ext_resource type="Texture2D" uid="uid://bsfl87us55wlx" path="res://Textures/guitar.png" id="1_colml"]
+[ext_resource type="Script" path="res://Entities/Guitarist/guitarist.gd" id="1_qhsn7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8bj4"]
 atlas = ExtResource("1_colml")
@@ -9,6 +10,14 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_atlwm"]
 atlas = ExtResource("1_colml")
 region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25v1c"]
+atlas = ExtResource("1_colml")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p28pp"]
+atlas = ExtResource("1_colml")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnpcl"]
 atlas = ExtResource("1_colml")
@@ -56,7 +65,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_atlwm")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default_left",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25v1c")
+}],
+"loop": true,
+"name": &"default_middle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p28pp")
+}],
+"loop": true,
+"name": &"default_right",
 "speed": 1.0
 }, {
 "frames": [{
@@ -112,10 +137,9 @@ animations = [{
 }]
 
 [node name="Guitarist" type="Node2D"]
+script = ExtResource("1_qhsn7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gwy7q")
-animation = &"right"
-autoplay = "default"
-frame = 3
-frame_progress = 1.0
+animation = &"default_right"
+autoplay = "default_left"

@@ -116,5 +116,7 @@ script = ExtResource("1_yofpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xprfx")
+animation = &"left"
 autoplay = "default"
-frame_progress = 0.38189
+frame = 5
+frame_progress = 1.0
