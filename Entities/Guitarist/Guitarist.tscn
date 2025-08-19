@@ -99,7 +99,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"left",
-"speed": 7.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -141,5 +141,7 @@ script = ExtResource("1_qhsn7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gwy7q")
-animation = &"default_right"
+animation = &"left"
 autoplay = "default_left"
+frame = 3
+frame_progress = 1.0
