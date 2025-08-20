@@ -95,7 +95,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4itjq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kwyke")
+"texture": SubResource("AtlasTexture_i7vv2")
 }],
 "loop": false,
 "name": &"left_fast",
@@ -132,7 +132,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3sh0q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_decxi")
+"texture": SubResource("AtlasTexture_a3rrk")
 }],
 "loop": false,
 "name": &"right_fast",
@@ -144,5 +144,5 @@ script = ExtResource("1_yofpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xprfx")
-animation = &"left_fast"
+animation = &"right_fast"
 autoplay = "default"
