@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://c3m1g5kpmn0md"]
+[gd_scene load_steps=9 format=4 uid="uid://c3m1g5kpmn0md"]
 
 [ext_resource type="Texture2D" uid="uid://665vfjdqry7l" path="res://Textures/tiles.png" id="1_3hb2c"]
 [ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_5f5qv"]
 [ext_resource type="PackedScene" uid="uid://cvmakink4dywe" path="res://Entities/DJ/DJ.tscn" id="3_dsah1"]
 [ext_resource type="PackedScene" uid="uid://bvlxt7wiqng7i" path="res://Entities/Drummer/Drummer.tscn" id="4_b53he"]
+[ext_resource type="PackedScene" uid="uid://c2uddxnwq70fo" path="res://Entities/Singer/Singer.tscn" id="5_b2mlr"]
 [ext_resource type="PackedScene" uid="uid://b37vrm7c6epfv" path="res://Entities/Guitarist/Guitarist.tscn" id="5_dt3cx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c37cd"]
@@ -57,6 +58,11 @@ player = NodePath("../Player")
 
 [node name="Guitarist" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_dt3cx")]
 position = Vector2(-320, 316)
+dj = NodePath("../DJ")
+player = NodePath("../Player")
+
+[node name="Singer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_b2mlr")]
+position = Vector2(-187, 306)
 dj = NodePath("../DJ")
 player = NodePath("../Player")
 
