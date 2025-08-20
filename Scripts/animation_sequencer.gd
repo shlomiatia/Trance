@@ -40,8 +40,7 @@ func process_triggers(current_track_name: String, playback_pos: float) -> String
     if playback_pos >= 0.0 && last_trigger_point < 0.0:
         for position in positions:
             if position.file_name == current_track_name:
-                #character.global_position.x = player.global_position.x + 320 + position.offset
-                character.global_position.x = player.global_position.x + position.offset
+                character.global_position.x = player.global_position.x + 320 + position.offset
                 last_trigger_point = 0.0
                 break
         
