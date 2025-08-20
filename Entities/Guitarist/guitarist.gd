@@ -11,20 +11,24 @@ func _ready() -> void:
     animated_sprite_2d.animation_finished.connect(_on_animation_finished)
     
     sequencer = AnimationSequencer.new()
+    sequencer.setup(self, animated_sprite_2d, player)
     sequencer.add_position("loop1toguitarloop1.wav", 64)
     sequencer.add_position("singer1.wav", 64)
     
     sequencer.add_trigger("loop1toguitarloop1.wav", "left", 3.0)
     
     sequencer.add_trigger("guitarloop1.wav", "middle", 2.0)
-    sequencer.add_trigger("guitarloop1.wav", "middle", 2.2)
-    sequencer.add_trigger("guitarloop1.wav", "left", 2.4)
+    sequencer.add_trigger("guitarloop1.wav", "middle_fast", 2.2)
+    sequencer.add_trigger("guitarloop1.wav", "middle_fast", 2.35)
+    sequencer.add_trigger("guitarloop1.wav", "left_fast", 2.6)
     sequencer.add_trigger("guitarloop1.wav", "right", 5.5)
-    sequencer.add_trigger("guitarloop1.wav", "right", 5.7)
-    sequencer.add_trigger("guitarloop1.wav", "middle", 5.9)
+    sequencer.add_trigger("guitarloop1.wav", "right_fast", 5.7)
+    sequencer.add_trigger("guitarloop1.wav", "right_fast", 5.85)
+    sequencer.add_trigger("guitarloop1.wav", "middle_fast", 6)
     sequencer.add_trigger("guitarloop1.wav", "middle", 9.0)
-    sequencer.add_trigger("guitarloop1.wav", "middle", 9.2)
-    sequencer.add_trigger("guitarloop1.wav", "left", 9.4)
+    sequencer.add_trigger("guitarloop1.wav", "middle_fast", 9.2)
+    sequencer.add_trigger("guitarloop1.wav", "middle_fast", 9.35)
+    sequencer.add_trigger("guitarloop1.wav", "left_fast", 9.5)
     
     sequencer.add_trigger("singer1.wav", "left", 2.4)
     
@@ -54,10 +58,6 @@ func _process(_delta: float) -> void:
     var current_track = dj.tracks[dj.current_track_index]
     var playback_pos = dj.get_playback_position()
     
-    var offset = sequencer.get_position(current_track.file_name)
-    if offset > 0:
-        global_position.x = player.global_position.x + 320 + offset
-    
     if animated_sprite_2d.animation.begins_with("default"):
         var animation = sequencer.process_triggers(current_track.file_name, playback_pos)
         if animation != "":
@@ -73,3 +73,6 @@ func _on_animation_finished() -> void:
             "left": animated_sprite_2d.play("default_left")
             "middle": animated_sprite_2d.play("default_middle")
             "right": animated_sprite_2d.play("default_right")
+            "left_fast": animated_sprite_2d.play("default_left")
+            "middle_fast": animated_sprite_2d.play("default_middle")
+            "right_fast": animated_sprite_2d.play("default_right")

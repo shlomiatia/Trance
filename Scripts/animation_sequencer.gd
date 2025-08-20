@@ -18,9 +18,17 @@ class PositionTrigger:
         file_name = p_file_name
         offset = p_offset
 
+var character: Node2D
+var animated_sprite_2d: AnimatedSprite2D
+var player: Player
 var triggers: Array[AnimationTrigger] = []
 var positions: Array[PositionTrigger] = []
 var last_trigger_point := -1.0
+
+func setup(p_character: Node2D, p_animated_sprite_2d: AnimatedSprite2D, p_player: Player) -> void:
+    character = p_character
+    animated_sprite_2d = p_animated_sprite_2d
+    player = p_player
 
 func add_trigger(file_name: String, animation: String, playback_pos: float) -> void:
     triggers.append(AnimationTrigger.new(file_name, animation, playback_pos))
@@ -28,6 +36,14 @@ func add_trigger(file_name: String, animation: String, playback_pos: float) -> v
 func process_triggers(current_track_name: String, playback_pos: float) -> String:
     if playback_pos < last_trigger_point:
         last_trigger_point = -1.0
+    
+    # Handle position setting
+    if playback_pos >= 0.0 && last_trigger_point < 0.0:
+        for position in positions:
+            if position.file_name == current_track_name:
+                character.global_position.x = player.global_position.x + 320 + position.offset
+                last_trigger_point = 0.0
+                break
         
     var animation_to_play := ""
     
@@ -42,9 +58,3 @@ func process_triggers(current_track_name: String, playback_pos: float) -> String
 
 func add_position(file_name: String, offset: float) -> void:
     positions.append(PositionTrigger.new(file_name, offset))
-
-func get_position(current_track_name: String) -> float:
-    for position in positions:
-        if position.file_name == current_track_name:
-            return position.offset
-    return 0.0

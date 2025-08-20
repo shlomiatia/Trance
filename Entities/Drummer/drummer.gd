@@ -11,6 +11,7 @@ func _ready() -> void:
     animated_sprite_2d.animation_finished.connect(_on_animation_finished)
     
     sequencer = AnimationSequencer.new()
+    sequencer.setup(self, animated_sprite_2d, player)
     sequencer.add_position("loop1toguitarloop1.wav", 32)
     sequencer.add_position("singer1.wav", 32)
     
@@ -89,10 +90,6 @@ func _process(_delta: float) -> void:
     if animated_sprite_2d.animation == "default":
         var current_track = dj.tracks[dj.current_track_index]
         var playback_pos = dj.get_playback_position()
-
-        var offset = sequencer.get_position(current_track.file_name)
-        if offset > 0:
-            global_position.x = player.global_position.x + 320 + offset
         
         var animation = sequencer.process_triggers(current_track.file_name, playback_pos)
         if animation != "":

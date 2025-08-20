@@ -103,6 +103,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fnpcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7n1q")
+}],
+"loop": false,
+"name": &"left_fast",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jplun")
 }, {
 "duration": 1.0,
@@ -120,6 +131,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jplun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qksc5")
+}],
+"loop": false,
+"name": &"middle_fast",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mpodu")
 }, {
 "duration": 1.0,
@@ -134,6 +156,17 @@ animations = [{
 "loop": false,
 "name": &"right",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpodu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1le7q")
+}],
+"loop": false,
+"name": &"right_fast",
+"speed": 8.0
 }]
 
 [node name="Guitarist" type="Node2D"]
@@ -141,7 +174,5 @@ script = ExtResource("1_qhsn7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gwy7q")
-animation = &"left"
+animation = &"right_fast"
 autoplay = "default_left"
-frame = 3
-frame_progress = 1.0
