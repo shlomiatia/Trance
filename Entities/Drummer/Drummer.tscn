@@ -89,6 +89,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kwyke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4itjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwyke")
+}],
+"loop": false,
+"name": &"left_fast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_decxi")
 }, {
 "duration": 1.0,
@@ -109,6 +123,20 @@ animations = [{
 "loop": false,
 "name": &"right",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_decxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sh0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_decxi")
+}],
+"loop": false,
+"name": &"right_fast",
+"speed": 10.0
 }]
 
 [node name="Drummer" type="Node2D"]
@@ -116,7 +144,5 @@ script = ExtResource("1_yofpt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xprfx")
-animation = &"left"
+animation = &"left_fast"
 autoplay = "default"
-frame = 5
-frame_progress = 1.0

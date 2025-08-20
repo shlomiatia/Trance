@@ -15,11 +15,11 @@ func _ready() -> void:
     sequencer.add_position("singer1.wav", 96)
     
     sequencer.add_trigger("singer1.wav", "start_sing", 3.0)
-    sequencer.add_trigger("singer1.wav", "continue_sing", 7.0)
-    sequencer.add_trigger("singer1.wav", "continue_sing", 11.0)
+    sequencer.add_trigger("singer1.wav", "continue_sing", 6.7)
+    sequencer.add_trigger("singer1.wav", "continue_sing", 10.5)
     sequencer.add_trigger("singer1.wav", "end_sing", 16.5)
     sequencer.add_trigger("singer1.wav", "start_sing", 18.0)
-    sequencer.add_trigger("singer1.wav", "end_sing", 24)
+    sequencer.add_trigger("singer1.wav", "end_sing", 23.5)
     sequencer.add_trigger("singer1.wav", "start_sing", 25.0)
     sequencer.add_trigger("singer1.wav", "end_sing", 29)
 

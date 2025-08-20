@@ -176,3 +176,5 @@ script = ExtResource("1_qhsn7")
 sprite_frames = SubResource("SpriteFrames_gwy7q")
 animation = &"right_fast"
 autoplay = "default_left"
+frame = 1
+frame_progress = 1.0
