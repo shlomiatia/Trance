@@ -73,6 +73,22 @@ func _on_finished() -> void:
                 waiting_for_mouse_buttons = false
                 advance_track()
 
+func get_playback_position_relative_to(track_name: String) -> float:
+    var track_index = -1
+    for i in range(tracks.size()):
+        if tracks[i].file_name == track_name:
+            track_index = i
+            break
+    
+    if current_track_index == track_index:
+        return get_playback_position()
+    elif current_track_index == track_index - 1:
+        return -stream.get_length() + get_playback_position()
+    elif current_track_index == track_index + 1:
+        return tracks[track_index].audio_stream.get_length() + get_playback_position()
+    else:
+        return INF
+
 func advance_track() -> void:
     current_track_index += 1
     if current_track_index >= tracks.size():

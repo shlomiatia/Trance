@@ -6,14 +6,19 @@ class_name Beat extends Node2D
 var target_time: float
 var start_time: float
 var end_time: float
+var track_name: String
 
-func _ready() -> void:
-    position = Vector2(320, -8)
+func init(p_track_name: String, p_target_time: float) -> void:
+    track_name = p_track_name
+    target_time = p_target_time
     start_time = target_time - Constants.beat_appear_time
     end_time = target_time + Constants.beat_appear_time
 
+func _ready() -> void:
+    position = Vector2(320, -8)
+
 func _process(_delta: float) -> void:
-    var current_time = dj.get_playback_position()
+    var current_time = dj.get_playback_position_relative_to(track_name)
     
     if current_time >= start_time && current_time <= end_time:
         var progress = (current_time - start_time) / Constants.beat_appear_time / 2
