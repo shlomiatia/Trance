@@ -24,10 +24,10 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    #Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    #Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    #Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    #Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
     Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_MOUSE_BUTTONS, preload("res://Music/singer1tosong1.wav")),
     Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav"))
 ]
@@ -50,7 +50,7 @@ func _process(_delta: float) -> void:
             
             TrackType.WAIT_FOR_MOUSE_BUTTONS:
                 if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-                    if waiting_for_mouse_buttons and not playing:
+                    if waiting_for_mouse_buttons and !playing:
                         waiting_for_mouse_buttons = false
                         advance_track()
 
@@ -87,7 +87,7 @@ func get_playback_position_relative_to(track_name: String) -> float:
     elif current_track_index == track_index + 1:
         return tracks[track_index].audio_stream.get_length() + get_playback_position()
     else:
-        return INF
+        return -INF
 
 func advance_track() -> void:
     current_track_index += 1
@@ -98,4 +98,5 @@ func advance_track() -> void:
     stream_paused = false
     stream = track.audio_stream
     play()
+    prints("Now playing", track.file_name, player.global_position)
     track_changed.emit(track.file_name)
