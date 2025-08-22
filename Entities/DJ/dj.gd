@@ -49,8 +49,11 @@ func _process(_delta: float) -> void:
                     advance_track()
             
             TrackType.WAIT_FOR_MOUSE_BUTTONS:
+                if waiting_for_mouse_buttons && !playing:
+                    get_tree().paused = true
                 if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
                     if waiting_for_mouse_buttons && !playing:
+                        get_tree().paused = false
                         waiting_for_mouse_buttons = false
                         advance_track()
 
@@ -69,9 +72,6 @@ func _on_finished() -> void:
         
         TrackType.WAIT_FOR_MOUSE_BUTTONS:
             waiting_for_mouse_buttons = true
-            if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-                waiting_for_mouse_buttons = false
-                advance_track()
 
 func get_playback_position_relative_to(track_name: String) -> float:
     var track_index = -1
