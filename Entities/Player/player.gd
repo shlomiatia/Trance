@@ -30,4 +30,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_track_changed(track_name: String) -> void:
     if track_name == "singer1tosong1.wav":
+        global_position.x = 4080
         change_state(PlayerStateEnum.Type.SPRINT)
