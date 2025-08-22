@@ -110,7 +110,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_be2i1"]
 radius = 8.0
 
-[node name="Beat" type="Node2D"]
+[node name="Beat" type="Node2D" groups=["beats"]]
 script = ExtResource("1_e2716")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
