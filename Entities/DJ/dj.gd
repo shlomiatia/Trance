@@ -2,6 +2,8 @@ class_name DJ extends AudioStreamPlayer
 
 @export var player: Player
 
+signal track_changed(track_name: String)
+
 enum TrackType {
     ADVANCE_AUTO,
     LOOP_UNTIL_POSITION,
@@ -22,12 +24,12 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    #Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    #Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    #Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    #Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
     Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_MOUSE_BUTTONS, preload("res://Music/singer1tosong1.wav")),
-    Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav"))
+    #Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav"))
 ]
 
 var current_track_index: int = -1
@@ -55,7 +57,6 @@ func _process(_delta: float) -> void:
                         advance_track()
 
 func _on_finished() -> void:
-    print(player.global_position)
     var current_track = tracks[current_track_index]
     
     match current_track.type:
@@ -88,3 +89,4 @@ func advance_track() -> void:
     stream_paused = false
     stream = track.audio_stream
     play()
+    track_changed.emit(track.file_name)

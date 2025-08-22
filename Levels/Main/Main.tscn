@@ -66,5 +66,13 @@ position = Vector2(-187, 306)
 dj = NodePath("../DJ")
 player = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("2_5f5qv")]
+[node name="Player" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("2_5f5qv")]
 position = Vector2(320, 304)
+dj = NodePath("../DJ")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+points = PackedVector2Array(0, 180, 640, 180)
+width = 1.0
+default_color = Color(0.0627451, 0.0705882, 0.109804, 1)
