@@ -15,7 +15,6 @@ func _ready() -> void:
         PlayerStateEnum.Type.SPRINT: PlayerStateSprint.new(self)
     }
     change_state(PlayerStateEnum.Type.STAND)
-    print("player.ready", dj)
     dj.track_changed.connect(_on_track_changed)
 
 func change_state(state_type: PlayerStateEnum.Type) -> void:
@@ -30,6 +29,5 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 func _on_track_changed(track_name: String) -> void:
-    prints(track_name, track_name == "singer1tosong1.wav")
     if track_name == "singer1tosong1.wav":
         change_state(PlayerStateEnum.Type.SPRINT)

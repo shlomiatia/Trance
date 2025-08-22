@@ -46,13 +46,11 @@ func _process(_delta: float) -> void:
         match current_track.type:
             TrackType.LOOP_UNTIL_POSITION:
                 if player.global_position.x > current_track.position_threshold and not playing:
-                    print("Position threshold reached for track: ", current_track.file_name)
                     advance_track()
             
             TrackType.WAIT_FOR_MOUSE_BUTTONS:
                 if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
                     if waiting_for_mouse_buttons and not playing:
-                        print("Mouse buttons pressed, advancing from track: ", current_track.file_name)
                         waiting_for_mouse_buttons = false
                         advance_track()
 
@@ -61,31 +59,26 @@ func _on_finished() -> void:
     
     match current_track.type:
         TrackType.ADVANCE_AUTO:
-            print("Auto advancing from track: ", current_track.file_name)
             advance_track()
         
         TrackType.LOOP_UNTIL_POSITION:
             if player.global_position.x <= current_track.position_threshold:
                 play()
             else:
-                print("Position threshold reached for track: ", current_track.file_name)
                 advance_track()
         
         TrackType.WAIT_FOR_MOUSE_BUTTONS:
             waiting_for_mouse_buttons = true
             if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-                print("Mouse buttons already pressed, advancing from track: ", current_track.file_name)
                 waiting_for_mouse_buttons = false
                 advance_track()
 
 func advance_track() -> void:
     current_track_index += 1
     if current_track_index >= tracks.size():
-        print("Playlist finished!")
         return
         
     var track = tracks[current_track_index]
-    print("Playing track: ", track.file_name)
     stream_paused = false
     stream = track.audio_stream
     play()
