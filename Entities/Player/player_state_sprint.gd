@@ -1,6 +1,6 @@
 class_name PlayerStateSprint extends PlayerState
 
-var beats = [0.5, 1.6, 2.5, 3.4, 4.3, 5.2, 5.65, 6.1, 6.55, 7.0, 7.45, 7.9, 8.12, 8.34, 8.56, 8.78, 9.00, 9.22, 9.44, 9.66, 9.88, 10.10, 10.32, 10.54, 10.76, 10.98, 11.20, 11.31, 11.42, 11.53, 11.64, 11.75, 11.86, 11.97, 12.08, 12.19, 12.30, 12.41, 12.52, 12.63, 12.74, 12.85, 12.96, 13.07, 13.18, 13.29, 13.40, 13.51, 13.62, 13.73, 13.84, 13.95, 14.06, 14.17]
+var beats = [1.6, 2.5, 3.4, 4.3, 5.2, 5.65, 6.1, 6.55, 7.0, 7.45, 7.9, 8.12, 8.34, 8.56, 8.78, 9.00, 9.22, 9.44, 9.66, 9.88, 10.10, 10.32, 10.54, 10.76, 10.98, 11.20, 11.35, 11.50, 11.65, 11.80, 11.95, 12.10, 12.25, 12.40, 12.55, 12.70, 12.85, 13.00, 13.15, 13.30, 13.45, 13.60, 13.75, 13.90, 14.05, 14.20]
 var beat_circles: Array[Beat] = []
 var beat_scene: PackedScene = preload("res://Entities/Beat/beat.tscn")
 
@@ -56,4 +56,5 @@ func handle_input() -> void:
             var target_time = circle.target_time;
             
             if abs(current_time - target_time) <= Constants.beat_click_threshold:
-                circle.modulate = Color.GREEN
+                circle.hit()
+                return
