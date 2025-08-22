@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://clhybq0rr5bky"]
+
+[ext_resource type="Script" path="res://Entities/Beat/beat.gd" id="1_e2716"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be2i1"]
+radius = 8.0
+
+[node name="Beat" type="Node2D"]
+script = ExtResource("1_e2716")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_be2i1")
