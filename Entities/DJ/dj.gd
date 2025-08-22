@@ -49,8 +49,8 @@ func _process(_delta: float) -> void:
                     advance_track()
             
             TrackType.WAIT_FOR_MOUSE_BUTTONS:
-                if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-                    if waiting_for_mouse_buttons and !playing:
+                if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+                    if waiting_for_mouse_buttons && !playing:
                         waiting_for_mouse_buttons = false
                         advance_track()
 
