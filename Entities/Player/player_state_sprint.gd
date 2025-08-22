@@ -28,7 +28,7 @@ func create_beat(target_time: float) -> void:
     beat.position = Vector2(320, -8)
     beat.target_time = target_time
     
-    player.get_parent().get_node("CanvasLayer").add_child(beat)
+    player.get_parent().get_node("Rhythm").add_child(beat)
     beats.append(beat)
 
 func update_beat_circles() -> void:

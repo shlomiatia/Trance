@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvlxt7wiqng7i" path="res://Entities/Drummer/Drummer.tscn" id="4_b53he"]
 [ext_resource type="PackedScene" uid="uid://c2uddxnwq70fo" path="res://Entities/Singer/Singer.tscn" id="5_b2mlr"]
 [ext_resource type="PackedScene" uid="uid://b37vrm7c6epfv" path="res://Entities/Guitarist/Guitarist.tscn" id="5_dt3cx"]
-[ext_resource type="PackedScene" uid="uid://bicl4hudk4v2c" path="res://Entities/Rhythm/Rhythm.tscn" id="7_dxv3p"]
+[ext_resource type="PackedScene" uid="uid://bhg5mhxagc76c" path="res://Entities/Rhythm/Rhythm.tscn" id="7_dxv3p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c37cd"]
 texture = ExtResource("1_3hb2c")
