@@ -25,15 +25,15 @@ var track_beats = {
         19.07: "left", 19.31: "right", 19.93: "left", 20.18: "right", 20.80: "left", 21.04: "right", 21.93: "left",
         22.39: "right", 22.81: "left", 23.21: "right", 23.65: "left", 24.03: "right", 24.40: "left", 24.88: "right", 25.07: "left", 25.28: "right", 25.48: "left",
         25.68: "right", 25.90: "left", 26.10: "right", 26.27: "left", 26.44: "right",
-        27.12: "left", 27.35: "right", 27.56: "left", 27.79: "right", 28.21: "left",
-        30.61: "right", 30.89: "left", 31.18: "right", 31.50: "left", 31.83: "right",
-        34.08: "left", 34.36: "right", 34.76: "left", 35.09: "right", 35.53: "left",
-        37.58: "right", 37.85: "left", 38.19: "right", 38.55: "left", 38.87: "right",
-        41.04: "left", 41.28: "right", 41.55: "left", 41.84: "right", 42.14: "left",
-        44.54: "right", 44.86: "left", 45.16: "right", 45.45: "left", 45.81: "right",
-        48.03: "left", 48.29: "right", 48.64: "left", 48.93: "right", 49.36: "left",
-        51.68: "right", 51.99: "left", 52.31: "right", 52.59: "left", 52.92: "right",
-        54.95: "left", 55.18: "right", 55.42: "left", 55.61: "right", 55.00: "left"
+        27.12: "left", 27.35: "right", 27.56: "left", 27.79: "right",
+        30.61: "right", 30.89: "left", 31.18: "right", 31.50: "left",
+        34.08: "left", 34.36: "right", 34.76: "left", 35.09: "right",
+        37.58: "right", 37.85: "left", 38.19: "right", 38.55: "left",
+        41.04: "left", 41.28: "right", 41.55: "left", 41.84: "right",
+        44.54: "right", 44.86: "left", 45.16: "right", 45.45: "left",
+        48.03: "left", 48.29: "right", 48.64: "left", 48.93: "right",
+        51.68: "right", 51.99: "left", 52.31: "right", 52.59: "left",
+        54.95: "left", 55.18: "right", 55.42: "left", 55.61: "right",
     }
 }
 

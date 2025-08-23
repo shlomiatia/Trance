@@ -14,7 +14,6 @@ func _ready() -> void:
         PlayerStateEnum.Type.FALL: PlayerStateFall.new(self),
         PlayerStateEnum.Type.SPRINT: PlayerStateSprint.new(self),
         PlayerStateEnum.Type.JUMP: PlayerStateJump.new(self),
-        PlayerStateEnum.Type.DASH: PlayerStateDash.new(self)
     }
     change_state(PlayerStateEnum.Type.STAND)
     dj.track_changed.connect(_on_track_changed)

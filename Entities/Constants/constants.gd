@@ -3,7 +3,7 @@ extends Node2D
 var player_speed: float = 60.0
 var player_sprint_speed: float = 120.0
 var beat_appear_time: float = 1
-var beat_click_threshold: float = 0.2
+var beat_click_threshold: float = 0.3
 
 var canvas_layer: CanvasLayer
 var display_label: Label
