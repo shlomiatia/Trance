@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=3 uid="uid://12qrpdet2kua"]
+
+[ext_resource type="Script" path="res://Entities/Sahi/sahi.gd" id="1_8pyyy"]
+[ext_resource type="Texture2D" uid="uid://qjonneid54hh" path="res://Textures/sahi.png" id="1_10b0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkrvf"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyq1q"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fia0o"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ms5"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq3xp"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ldnw"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ka06"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnqdb"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkwei"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j35de"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyxo7"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q15bt"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8t0t"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1t3t"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oakc"]
+atlas = ExtResource("1_10b0f")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ymkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkrvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyq1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fia0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ms5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq3xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ldnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ka06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnqdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwei")
+}],
+"loop": false,
+"name": &"end_shout",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j35de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyxo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q15bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8t0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1t3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oakc")
+}],
+"loop": true,
+"name": &"shout",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnqdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ka06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ldnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq3xp")
+}],
+"loop": false,
+"name": &"start_shout",
+"speed": 14.0
+}]
+
+[node name="Sahi" type="Node2D"]
+script = ExtResource("1_8pyyy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5ymkr")
+animation = &"shout"
+autoplay = "default"
+frame_progress = 0.849971
