@@ -4,6 +4,9 @@ class_name Beat extends Node2D
 @export var player: Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+const WIDTH := 640.0
+const HEIGHT := 360.0
+
 var target_time: float
 var start_time: float
 var end_time: float
@@ -13,8 +16,8 @@ var direction: String
 func init(p_track_name: String, p_target_time: float, p_direction: String) -> void:
     track_name = p_track_name
     target_time = p_target_time
-    start_time = target_time - Constants.beat_appear_time
-    end_time = target_time + Constants.beat_appear_time
+    start_time = target_time - Constants.beat_appear_time * 1.5
+    end_time = target_time + Constants.beat_appear_time / 2
     direction = p_direction
 
 func _ready() -> void:
@@ -25,13 +28,13 @@ func _process(_delta: float) -> void:
     
     if is_on_screen(current_time):
         var progress = (current_time - start_time) / Constants.beat_appear_time / 2
-        var y = lerp(0.0, 368.0, progress)
+        var y = lerp(0.0, HEIGHT + 8, progress)
         if direction == "none":
             position.y = y
         else:
             if global_position.x == 320:
                 set_initial_position()
-            global_position.y = player.global_position.y - 188 + y
+            global_position.y = player.global_position.y - HEIGHT * 3 / 4 - 8 + y
             
     elif current_time > end_time:
         queue_free()
@@ -54,11 +57,11 @@ func set_initial_position() -> void:
         center_x = beats[-1].global_position.x
 
     if direction == "left":
-        global_position.x = center_x - 160
+        global_position.x = center_x - WIDTH / 4
     else:
-        global_position.x = center_x + 160
+        global_position.x = center_x + WIDTH / 4
     
-    global_position.y = player.global_position.y - 188
+    global_position.y = player.global_position.y - HEIGHT * 3 / 4 - 8
 
 func hit() -> void:
     animated_sprite_2d.modulate = Color("#26854c")
