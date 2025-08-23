@@ -153,4 +153,4 @@ script = ExtResource("1_8pyyy")
 sprite_frames = SubResource("SpriteFrames_5ymkr")
 animation = &"shout"
 autoplay = "default"
-frame_progress = 0.849971
+frame_progress = 0.717692

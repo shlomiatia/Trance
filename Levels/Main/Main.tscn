@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://c3m1g5kpmn0md"]
+[gd_scene load_steps=9 format=4 uid="uid://c3m1g5kpmn0md"]
 
 [ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_5f5qv"]
 [ext_resource type="TileSet" uid="uid://dh7igq8sgj3y1" path="res://Levels/Main/TileSet.tres" id="2_yljta"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c2uddxnwq70fo" path="res://Entities/Singer/Singer.tscn" id="5_b2mlr"]
 [ext_resource type="PackedScene" uid="uid://b37vrm7c6epfv" path="res://Entities/Guitarist/Guitarist.tscn" id="5_dt3cx"]
 [ext_resource type="PackedScene" uid="uid://bhg5mhxagc76c" path="res://Entities/Rhythm/Rhythm.tscn" id="7_dxv3p"]
+[ext_resource type="PackedScene" uid="uid://12qrpdet2kua" path="res://Entities/Sahi/Sahi.tscn" id="8_fcbxn"]
 
 [node name="Main" type="Node2D"]
 
@@ -34,6 +35,11 @@ player = NodePath("../Player")
 
 [node name="Singer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_b2mlr")]
 position = Vector2(-187, 306)
+dj = NodePath("../DJ")
+player = NodePath("../Player")
+
+[node name="Sahi" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("8_fcbxn")]
+position = Vector2(6728, 307)
 dj = NodePath("../DJ")
 player = NodePath("../Player")
 

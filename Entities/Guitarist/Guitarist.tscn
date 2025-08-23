@@ -174,5 +174,6 @@ script = ExtResource("1_qhsn7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gwy7q")
-animation = &"right"
+animation = &"default_left"
 autoplay = "default_left"
+frame_progress = 0.276411
