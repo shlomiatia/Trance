@@ -13,6 +13,7 @@ func _init(p_player: Player) -> void:
     super._init(p_player)
 
 func enter() -> void:
+    print(player.global_position)
     player.animated_sprite_2d.play("dash")
     target_beats.clear()
     dash_timer = 0.0
@@ -47,7 +48,9 @@ func handle_input() -> void:
             direction = last_direction
             
         var beat = player.get_beat()
-        if beat && ((direction < 0 && beat.global_position.x < player.global_position.x) || (direction > 0 && beat.global_position.x > player.global_position.x)):
+        if beat && beat.direction == "center":
+            beat.hit()
+        elif beat && ((direction < 0 && beat.global_position.x < player.global_position.x) || (direction > 0 && beat.global_position.x > player.global_position.x)):
             if target_beats.is_empty():
                 initial_dash_x = player.global_position.x
                 dash_timer = 0.0

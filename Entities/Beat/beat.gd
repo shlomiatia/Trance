@@ -58,8 +58,10 @@ func set_initial_position() -> void:
 
     if direction == "left":
         global_position.x = center_x - WIDTH / 4
-    else:
+    elif direction == "right":
         global_position.x = center_x + WIDTH / 4
+    elif direction == "center":
+        global_position.x = center_x
     
     global_position.y = player.global_position.y - HEIGHT * 3 / 4 - 8
 

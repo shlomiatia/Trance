@@ -17,23 +17,20 @@ var track_beats = {
         13.60: "none", 13.75: "none", 13.90: "none", 14.05: "none"
     },
     "song1.wav": {
-        #0.40: "left", 0.84: "right", 1.26: "left", 1.68: "right", 2.12: "left", 2.56: "right", 3.00: "left", 3.44: "left",
         3.87: "right", 4.30: "left", 4.74: "right", 5.17: "left", 5.61: "right", 6.06: "left", 6.50: "right", 6.91: "right",
         7.34: "left", 7.78: "right", 8.21: "left", 8.65: "right", 9.09: "left", 9.53: "right", 9.95: "left", 10.41: "left",
-        10.82: "right", 11.28: "left", 11.69: "right", 12.13: "left", 12.56: "right", 12.89: "left", 13.20: "right", 13.53: "left", 13.85: "right",
-        14.73: "left", 14.95: "right", 15.59: "left", 15.82: "right", 16.36: "left", 16.68: "right", 17.33: "left", 17.57: "right", 18.20: "left", 18.43: "right",
-        19.07: "left", 19.31: "right", 19.93: "left", 20.18: "right", 20.80: "left", 21.04: "right", 21.93: "left",
-        22.39: "right", 22.81: "left", 23.21: "right", 23.65: "left", 24.03: "right", 24.40: "left", 24.88: "right", 25.07: "left", 25.28: "right", 25.48: "left",
-        25.68: "right", 25.90: "left", 26.10: "right", 26.27: "left", 26.44: "right",
-        27.12: "left", 27.35: "right", 27.56: "left", 27.79: "right",
-        30.61: "right", 30.89: "left", 31.18: "right", 31.50: "left",
-        34.08: "left", 34.36: "right", 34.76: "left", 35.09: "right",
-        37.58: "right", 37.85: "left", 38.19: "right", 38.55: "left",
-        41.04: "left", 41.28: "right", 41.55: "left", 41.84: "right",
-        44.54: "right", 44.86: "left", 45.16: "right", 45.45: "left",
-        48.03: "left", 48.29: "right", 48.64: "left", 48.93: "right",
-        51.68: "right", 51.99: "left", 52.31: "right", 52.59: "left",
-        54.95: "left", 55.18: "right", 55.42: "left", 55.61: "right",
+        10.82: "right", 11.28: "left", 11.69: "right", 12.13: "left", 12.56: "right", # 12.89: "left", 13.20: "right", 13.53: "left", 13.85: "right",
+        14.73: "left", 14.95: "right", 15.59: "left", 15.82: "right", 16.36: "left", 16.68: "right", 17.33: "left", 17.57: "right", 18.20: "left", 18.43: "right", 19.07: "left", 19.31: "right", 19.93: "left", 20.18: "right", 20.80: "left", 21.04: "right",
+        21.93: "left", 22.39: "right", 22.81: "left", 23.21: "right", 23.65: "left", 24.03: "right", 24.40: "left",
+        24.88: "center", 25.07: "center", 25.28: "center", 25.48: "center", 25.68: "center", 25.90: "center", 26.10: "center", 26.27: "center", 26.44: "center",
+        30.81: "right", 31.09: "left", 31.38: "right", 31.70: "left",
+        34.28: "left", 34.56: "right", 34.96: "left", 35.29: "right",
+        37.78: "right", 38.05: "left", 38.39: "right", 38.75: "left",
+        41.24: "left", 41.48: "right", 41.75: "left", 42.04: "right",
+        44.74: "right", 45.06: "left", 45.36: "right", 45.65: "left",
+        48.23: "left", 48.49: "right", 48.84: "left", 49.13: "right",
+        51.88: "right", 52.19: "left", 52.51: "right", 52.79: "left",
+        
     }
 }
 
