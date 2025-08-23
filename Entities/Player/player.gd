@@ -33,7 +33,7 @@ func _on_track_changed(track_name: String) -> void:
     if track_name == "singer1tosong1.wav":
         global_position.x = 4080
         change_state(PlayerStateEnum.Type.SPRINT)
-    elif track_name == "song1.wav":
+    elif track_name == "song1.wav" || track_name == "song2.wav":
         #global_position.x = 5600
         #change_state(PlayerStateEnum.Type.FALL)
         change_state(PlayerStateEnum.Type.JUMP)

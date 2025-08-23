@@ -40,6 +40,23 @@ var track_beats = {
         4.32: "none", 4.64: "none", 4.95: "none", 5.27: "none", 5.59: "none", 5.91: "none", 6.23: "none", 6.55: "none", 6.86: "none", 7.18: "none",
         7.73: "none", 7.96: "none", 8.19: "none", 8.42: "none", 8.65: "none", 8.88: "none", 9.12: "none", 9.35: "none", 9.58: "none", 9.81: "none", 10.04: "none", 10.27: "none",
         10.65: "none", 10.80: "none", 10.95: "none", 11.10: "none", 11.25: "none", 11.40: "none", 11.55: "none", 11.70: "none", 11.85: "none", 12.00: "none", 12.15: "none", 12.30: "none", 12.45: "none", 12.60: "none", 12.75: "none", 12.90: "none"
+    },
+    "song2.wav": {
+        #0.00: "left", 1.38: "right", 1.82: "left", 2.25: "right", 2.70: "left", 3.12: "right", 3.57: "left",
+        4.44: "right", 4.86: "left", 5.30: "right", 5.73: "left", 6.18: "right", 6.60: "left", 7.05: "right", 7.50: "left",
+        7.91: "right", 8.34: "left", 8.77: "right", 9.21: "left", 9.64: "right", 10.08: "left", 10.53: "right",
+        11.38: "left", 11.82: "right", 12.25: "left", 12.69: "right",
+        14.87: "left", 15.31: "right", 15.73: "left", 16.18: "right", 16.60: "left", 17.05: "right", 17.48: "left", 17.93: "right",
+        18.34: "left", 18.78: "right", 19.21: "left", 19.65: "right", 20.09: "left", 20.52: "right",
+        20.96: "left", 21.41: "right", 21.82: "left", 22.26: "right", 22.69: "left", 23.13: "right", 23.56: "left", 24.06: "right", 24.44: "left", 24.89: "right",
+        28.79: "left", 29.22: "right", 29.64: "left", 30.09: "right", 30.52: "left", 30.96: "right", 31.38: "left", 31.83: "right",
+        32.26: "left", 32.69: "right", 33.13: "left", 33.57: "right", 34.00: "left", 34.44: "right", 34.86: "left", 35.31: "right",
+        35.74: "left", 36.17: "right", 36.60: "left", 37.05: "right", 37.47: "left", 37.92: "right", 38.34: "left", 38.78: "right",
+        39.22: "left", 39.64: "right", 40.09: "left", 40.52: "right",
+        42.70: "left", 43.13: "right", 43.57: "left", 44.00: "right", 44.44: "left", 44.87: "right", 45.29: "left", 45.74: "right",
+        46.18: "left", 46.60: "right", 47.04: "left", 47.48: "right", 47.91: "left", 48.35: "right", 48.78: "left",
+        49.64: "right", 49.96: "left", 50.23: "right", 50.52: "left", 50.85: "right", 51.12: "left", 51.39: "right", 51.72: "left", 51.99: "right", 52.26: "left",
+        53.13: "right", 53.31: "left", 53.57: "right"
     }
 }
 
@@ -61,7 +78,8 @@ func create_beat(track_name: String, target_time: float, direction: String) -> v
 
 
 func _on_track_changed(track_name: String) -> void:
-    if track_name in track_beats:
-        line_2d.visible = true
-    else:
-        line_2d.visible = false
+    pass
+    #if track_name in track_beats:
+    #    line_2d.visible = true
+    #else:
+    #    line_2d.visible = false

@@ -33,7 +33,8 @@ var tracks: Array[Track] = [
     #Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
     Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
     Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
-    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav"))
+    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
+    Track.new("song2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2.wav"))
 ]
 
 var current_track_index: int = -1
