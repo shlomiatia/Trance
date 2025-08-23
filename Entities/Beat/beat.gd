@@ -46,7 +46,8 @@ func set_initial_position() -> void:
     
     var center_x
     if beats.size() == 0:
-        center_x = 5550
+        #center_x = 5400
+        center_x = player.global_position.x
     else:
         center_x = beats[-1].global_position.x
 
