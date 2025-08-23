@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var area2d: Area2D = $Area2D
+@onready var area_2d: Area2D = $Area2D
 
 @export var dj: DJ
 
@@ -18,6 +18,7 @@ func _ready() -> void:
     }
     change_state(PlayerStateEnum.Type.STAND)
     dj.track_changed.connect(_on_track_changed)
+    area_2d.body_entered.connect(_on_area_2d_body_entered)
 
 func change_state(state_type: PlayerStateEnum.Type) -> void:
     if _current_state:
@@ -43,3 +44,6 @@ func get_beat() -> Beat:
     if beats.size() > 0:
         return beats[0]
     return null
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+    body.get_parent().hit()
