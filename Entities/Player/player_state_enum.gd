@@ -5,5 +5,6 @@ enum Type {
 	WALK,
 	FALL,
 	SPRINT,
-	JUMP
+	JUMP,
+	DASH
 }

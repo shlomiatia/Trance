@@ -16,5 +16,5 @@ func handle_input() -> void:
         var direction := Input.get_axis("left", "right")
         var beat = player.get_beat()
         
-        if ((direction < 0 && beat.global_position.x < player.global_position.x) || (direction > 0 && beat.global_position.x > player.global_position.x)):
-            pass
+        if beat && ((direction < 0 && beat.global_position.x < player.global_position.x) || (direction > 0 && beat.global_position.x > player.global_position.x)):
+            player.change_state(PlayerStateEnum.Type.DASH)
