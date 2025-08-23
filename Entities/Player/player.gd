@@ -34,9 +34,9 @@ func _on_track_changed(track_name: String) -> void:
         global_position.x = 4080
         change_state(PlayerStateEnum.Type.SPRINT)
     elif track_name == "song1.wav":
-        global_position.x = 5600
-        change_state(PlayerStateEnum.Type.FALL)
-        #change_state(PlayerStateEnum.Type.JUMP)
+        #global_position.x = 5600
+        #change_state(PlayerStateEnum.Type.FALL)
+        change_state(PlayerStateEnum.Type.JUMP)
     elif track_name == "song1tosahi.wav":
         global_position = Vector2(6320, 304)
         
