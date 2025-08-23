@@ -34,6 +34,12 @@ var track_beats = {
         59.4: "center", 59.871: "center", 60.343: "center", 60.814: "center", 61.286: "center", 61.757: "center", 62.229: "center", 62.7: "center",
         63.173: "center", 63.411: "center", 63.649: "center", 63.887: "center", 64.125: "center", 64.363: "center", 64.601: "center", 64.839: "center", 65.077: "center", 65.315: "center", 65.553: "center", 65.791: "center", 66.029: "center", 66.267: "center", 66.5: "center",
         66.735: "center", 66.885: "center", 67.035: "center", 67.185: "center", 67.335: "center", 67.485: "center", 67.635: "center", 67.785: "center", 67.935: "center", 68.085: "center", 68.235: "center", 68.385: "center", 68.535: "center", 68.685: "center", 68.835: "center", 68.985: "center", 69.135: "center", 69.285: "center", 69.435: "center", 69.585: "center", 69.735: "center", 69.885: "center"
+    },
+    "sahi2.wav": {
+        1.00: "none", 1.43: "none", 1.86: "none", 2.29: "none", 2.71: "none", 3.14: "none", 3.57: "none", 4.00: "none",
+        4.32: "none", 4.64: "none", 4.95: "none", 5.27: "none", 5.59: "none", 5.91: "none", 6.23: "none", 6.55: "none", 6.86: "none", 7.18: "none",
+        7.73: "none", 7.96: "none", 8.19: "none", 8.42: "none", 8.65: "none", 8.88: "none", 9.12: "none", 9.35: "none", 9.58: "none", 9.81: "none", 10.04: "none", 10.27: "none",
+        10.65: "none", 10.80: "none", 10.95: "none", 11.10: "none", 11.25: "none", 11.40: "none", 11.55: "none", 11.70: "none", 11.85: "none", 12.00: "none", 12.15: "none", 12.30: "none", 12.45: "none", 12.60: "none", 12.75: "none", 12.90: "none"
     }
 }
 

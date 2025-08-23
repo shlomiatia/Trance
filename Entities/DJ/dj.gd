@@ -7,7 +7,8 @@ signal track_changed(track_name: String)
 enum TrackType {
     ADVANCE_AUTO,
     LOOP_UNTIL_POSITION,
-    WAIT_FOR_JUMP
+    WAIT_FOR_JUMP,
+    WAIT_UNTIL_POSITION,
 }
 
 class Track:
@@ -30,9 +31,9 @@ var tracks: Array[Track] = [
     #Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
     #Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
     #Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
-    Track.new("song1tosahi.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1tosahi.wav"))
-    Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1tosahi.wav"))
-    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/song1tosahi.wav"))
+    Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
+    Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
+    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav"))
 ]
 
 var current_track_index: int = -1
@@ -48,7 +49,11 @@ func _process(_delta: float) -> void:
         
         match current_track.type:
             TrackType.LOOP_UNTIL_POSITION:
-                if player.global_position.x > current_track.position_threshold and not playing:
+                if player.global_position.x > current_track.position_threshold && !playing:
+                    advance_track()
+
+            TrackType.WAIT_UNTIL_POSITION:
+                if player.global_position.x > current_track.position_threshold && !playing:
                     advance_track()
             
             TrackType.WAIT_FOR_JUMP:
@@ -104,4 +109,5 @@ func advance_track() -> void:
     stream_paused = false
     stream = track.audio_stream
     play()
+    print(player.global_position)
     track_changed.emit(track.file_name)
