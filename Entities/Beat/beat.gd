@@ -57,9 +57,9 @@ func set_initial_position() -> void:
         center_x = beats[-1].global_position.x
 
     if direction == "left":
-        global_position.x = center_x - WIDTH / 4
+        global_position.x = center_x - WIDTH / 8
     elif direction == "right":
-        global_position.x = center_x + WIDTH / 4
+        global_position.x = center_x + WIDTH / 8
     elif direction == "center":
         global_position.x = center_x
     
