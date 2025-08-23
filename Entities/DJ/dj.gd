@@ -29,7 +29,8 @@ var tracks: Array[Track] = [
     #Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
     #Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
     #Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_MOUSE_BUTTONS, preload("res://Music/singer1tosong1.wav")),
-    Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav"))
+    Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
+    Track.new("song1tosahi.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1tosahi.wav"))
 ]
 
 var current_track_index: int = -1
@@ -79,6 +80,8 @@ func get_playback_position_relative_to(track_name: String) -> float:
         if tracks[i].file_name == track_name:
             track_index = i
             break
+    if track_index == -1:
+        return -INF
     
     if current_track_index == track_index:
         return get_playback_position()

@@ -33,10 +33,13 @@ func _on_track_changed(track_name: String) -> void:
     if track_name == "singer1tosong1.wav":
         global_position.x = 4080
         change_state(PlayerStateEnum.Type.SPRINT)
-    if track_name == "song1.wav":
+    elif track_name == "song1.wav":
         global_position.x = 5600
         change_state(PlayerStateEnum.Type.FALL)
         #change_state(PlayerStateEnum.Type.JUMP)
+    elif track_name == "song1tosahi.wav":
+        global_position = Vector2(6320, 304)
+        
 
 func get_beat() -> Beat:
     var beats = get_tree().get_nodes_in_group("beats").filter(func(b): return b.can_hit())
