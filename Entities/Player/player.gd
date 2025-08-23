@@ -43,6 +43,8 @@ func _on_track_changed(track_name: String) -> void:
     elif track_name == "sahi2.wav":
         global_position.x = 7104
         change_state(PlayerStateEnum.Type.SPRINT)
+    elif track_name == "song2toguitarloop2.wav":
+        global_position = Vector2(9312, 304)
         
 
 func get_beat() -> Beat:
