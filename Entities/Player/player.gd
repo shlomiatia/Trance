@@ -12,7 +12,8 @@ func _ready() -> void:
         PlayerStateEnum.Type.STAND: PlayerStateStand.new(self),
         PlayerStateEnum.Type.WALK: PlayerStateWalk.new(self),
         PlayerStateEnum.Type.FALL: PlayerStateFall.new(self),
-        PlayerStateEnum.Type.SPRINT: PlayerStateSprint.new(self)
+        PlayerStateEnum.Type.SPRINT: PlayerStateSprint.new(self),
+        PlayerStateEnum.Type.JUMP: PlayerStateJump.new(self)
     }
     change_state(PlayerStateEnum.Type.STAND)
     dj.track_changed.connect(_on_track_changed)
@@ -33,5 +34,4 @@ func _on_track_changed(track_name: String) -> void:
         global_position.x = 4080
         change_state(PlayerStateEnum.Type.SPRINT)
     if track_name == "song1.wav":
-        velocity = Vector2(120, -120)
-        change_state(PlayerStateEnum.Type.FALL)
+        change_state(PlayerStateEnum.Type.JUMP)

@@ -4,5 +4,6 @@ enum Type {
 	STAND,
 	WALK,
 	FALL,
-	SPRINT
+	SPRINT,
+	JUMP
 }
