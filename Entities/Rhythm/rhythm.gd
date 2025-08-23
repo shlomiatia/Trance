@@ -43,20 +43,22 @@ var track_beats = {
     },
     "song2.wav": {
         #0.00: "left", 1.38: "right", 1.82: "left", 2.25: "right", 2.70: "left", 3.12: "right", 3.57: "left",
-        4.44: "right", 4.86: "left", 5.30: "right", 5.73: "left", 6.18: "right", 6.60: "left", 7.05: "right", 7.50: "left",
-        7.91: "right", 8.34: "left", 8.77: "right", 9.21: "left", 9.64: "right", 10.08: "left", 10.53: "right",
-        11.38: "left", 11.82: "right", 12.25: "left", 12.69: "right",
-        14.87: "left", 15.31: "right", 15.73: "left", 16.18: "right", 16.60: "left", 17.05: "right", 17.48: "left", 17.93: "right",
-        18.34: "left", 18.78: "right", 19.21: "left", 19.65: "right", 20.09: "left", 20.52: "right",
-        20.96: "left", 21.41: "right", 21.82: "left", 22.26: "right", 22.69: "left", 23.13: "right", 23.56: "left", 24.06: "right", 24.44: "left", 24.89: "right",
-        28.79: "left", 29.22: "right", 29.64: "left", 30.09: "right", 30.52: "left", 30.96: "right", 31.38: "left", 31.83: "right",
-        32.26: "left", 32.69: "right", 33.13: "left", 33.57: "right", 34.00: "left", 34.44: "right", 34.86: "left", 35.31: "right",
-        35.74: "left", 36.17: "right", 36.60: "left", 37.05: "right", 37.47: "left", 37.92: "right", 38.34: "left", 38.78: "right",
-        39.22: "left", 39.64: "right", 40.09: "left", 40.52: "right",
-        42.70: "left", 43.13: "right", 43.57: "left", 44.00: "right", 44.44: "left", 44.87: "right", 45.29: "left", 45.74: "right",
-        46.18: "left", 46.60: "right", 47.04: "left", 47.48: "right", 47.91: "left", 48.35: "right", 48.78: "left",
-        49.64: "right", 49.96: "left", 50.23: "right", 50.52: "left", 50.85: "right", 51.12: "left", 51.39: "right", 51.72: "left", 51.99: "right", 52.26: "left",
-        53.13: "right", 53.31: "left", 53.57: "right"
+        4.44: "right", 4.86: "left", 5.30: "right", 5.73: "left", 6.18: "right", 6.60: "left", 7.05: "right", 7.50: "right",
+        7.91: "left", 8.34: "right", 8.77: "left", 9.21: "right", 9.64: "left", 10.08: "right", 10.53: "center",
+        11.38: "right", 11.82: "left", 12.25: "right", 12.69: "left",
+        14.00: "center", 14.45: "center",
+        14.87: "left", 15.31: "right", 15.73: "left", 16.18: "right", 16.60: "left", 17.05: "right", 17.48: "left", 17.93: "left",
+        18.34: "right", 18.78: "left", 19.21: "right", 19.65: "left", 20.09: "right", 20.52: "left", 20.96: "right", 21.41: "right", 21.82: "right",
+        22.26: "left", 22.69: "right", 23.13: "left", 23.56: "right", 24.06: "left", 24.44: "right", 24.89: "right",
+        28.79: "left", 29.22: "left", 29.64: "left", 30.09: "left", 30.52: "left", 30.96: "left", 31.38: "left", 31.83: "left",
+        32.26: "right", 32.69: "right", 33.13: "right", 33.57: "right", 34.00: "right", 34.44: "right", 34.86: "right", 35.31: "right",
+        35.74: "left", 36.17: "left", 36.60: "left", 37.05: "left", 37.47: "left", 37.92: "left", 38.34: "left", 38.78: "left",
+        39.22: "right", 39.64: "left", 40.09: "right", 40.52: "left",
+        42.70: "right", 43.13: "right", 43.57: "right", 44.00: "right", 44.44: "right", 44.87: "right", 45.29: "right", 45.74: "right",
+        46.18: "left", 46.60: "left", 47.04: "left", 47.48: "left", 47.91: "left", 48.35: "left", 48.78: "left",
+        49.64: "center", 49.96: "center", 50.23: "center", 50.52: "center", 50.85: "center", 51.12: "center", 51.39: "center", 51.72: "center", 51.99: "center", 52.26: "center", 52.5: "center",
+        53.00: "center", 53.23: "center", 53.45: "center", 53.68: "center", 53.91: "center", 54.14: "center", 54.36: "center", 54.59: "center", 54.82: "center", 55.05: "center", 55.27: "center", 55.50: "center",
+        55.60: "center", 55.70: "center", 55.80: "center", 55.90: "center",
     }
 }
 
@@ -78,8 +80,7 @@ func create_beat(track_name: String, target_time: float, direction: String) -> v
 
 
 func _on_track_changed(track_name: String) -> void:
-    pass
-    #if track_name in track_beats:
-    #    line_2d.visible = true
-    #else:
-    #    line_2d.visible = false
+    if track_name in track_beats:
+        line_2d.visible = true
+    else:
+        line_2d.visible = false
