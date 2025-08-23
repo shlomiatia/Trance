@@ -5,7 +5,7 @@ var _initial_y: float
 func enter() -> void:
 	_initial_y = player.global_position.y
 	player.velocity = Vector2(120, -120)
-	player.animated_sprite_2d.play("jump")
+	player.animated_sprite_2d.play("dash")
 
 func _physics_process(_delta: float) -> void:
 	if player.global_position.y > _initial_y:

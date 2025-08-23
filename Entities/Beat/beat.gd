@@ -23,7 +23,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     var current_time = dj.get_playback_position_relative_to(track_name)
     
-    if is_playing():
+    if is_on_screen(current_time):
         var progress = (current_time - start_time) / Constants.beat_appear_time / 2
         var y = lerp(0.0, 368.0, progress)
         if direction == "none":
@@ -36,8 +36,11 @@ func _process(_delta: float) -> void:
     elif current_time > end_time:
         queue_free()
 
-func is_playing() -> bool:
+func can_hit() -> bool:
     var current_time = dj.get_playback_position_relative_to(track_name)
+    return is_on_screen(current_time) && animated_sprite_2d.animation == "default" && abs(current_time - target_time) <= Constants.beat_click_threshold
+
+func is_on_screen(current_time: float) -> bool:
     return current_time >= start_time && current_time <= end_time
 
 func set_initial_position() -> void:
@@ -46,7 +49,6 @@ func set_initial_position() -> void:
     
     var center_x
     if beats.size() == 0:
-        #center_x = 5400
         center_x = player.global_position.x
     else:
         center_x = beats[-1].global_position.x

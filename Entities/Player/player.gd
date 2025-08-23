@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var area2d: Area2D = $Area2D
 
 @export var dj: DJ
 
@@ -35,3 +36,10 @@ func _on_track_changed(track_name: String) -> void:
         change_state(PlayerStateEnum.Type.SPRINT)
     if track_name == "song1.wav":
         change_state(PlayerStateEnum.Type.JUMP)
+
+func get_beat() -> Beat:
+    var beats = get_tree().get_nodes_in_group("beats").filter(func(b): return b.can_hit())
+    beats.sort_custom(func(a: Beat, b: Beat): return a.target_time < b.target_time)
+    if beats.size() > 0:
+        return beats[0]
+    return null
