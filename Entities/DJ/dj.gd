@@ -7,7 +7,7 @@ signal track_changed(track_name: String)
 enum TrackType {
     ADVANCE_AUTO,
     LOOP_UNTIL_POSITION,
-    WAIT_FOR_MOUSE_BUTTONS
+    WAIT_FOR_JUMP
 }
 
 class Track:
@@ -28,9 +28,11 @@ var tracks: Array[Track] = [
     #Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
     #Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
     #Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
-    #Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_MOUSE_BUTTONS, preload("res://Music/singer1tosong1.wav")),
+    #Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
     #Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
     Track.new("song1tosahi.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1tosahi.wav"))
+    Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1tosahi.wav"))
+    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/song1tosahi.wav"))
 ]
 
 var current_track_index: int = -1
@@ -49,7 +51,7 @@ func _process(_delta: float) -> void:
                 if player.global_position.x > current_track.position_threshold and not playing:
                     advance_track()
             
-            TrackType.WAIT_FOR_MOUSE_BUTTONS:
+            TrackType.WAIT_FOR_JUMP:
                 if waiting_for_mouse_buttons && !playing:
                     get_tree().paused = true
                 if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
@@ -71,7 +73,7 @@ func _on_finished() -> void:
             else:
                 advance_track()
         
-        TrackType.WAIT_FOR_MOUSE_BUTTONS:
+        TrackType.WAIT_FOR_JUMP:
             waiting_for_mouse_buttons = true
 
 func get_playback_position_relative_to(track_name: String) -> float:
