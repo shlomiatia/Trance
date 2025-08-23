@@ -38,7 +38,7 @@ var waiting_for_mouse_buttons: bool = false
 func _ready() -> void:
     finished.connect(_on_finished)
     advance_track()
-
+    
 func _process(_delta: float) -> void:
     if current_track_index >= 0 and current_track_index < tracks.size():
         var current_track = tracks[current_track_index]
@@ -98,5 +98,4 @@ func advance_track() -> void:
     stream_paused = false
     stream = track.audio_stream
     play()
-    prints("Now playing", track.file_name, player.global_position)
     track_changed.emit(track.file_name)

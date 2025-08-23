@@ -41,5 +41,6 @@ player = NodePath("../Player")
 position = Vector2(320, 304)
 dj = NodePath("../DJ")
 
-[node name="Rhythm" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("7_dxv3p")]
+[node name="Rhythm" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("7_dxv3p")]
 dj = NodePath("../DJ")
+player = NodePath("../Player")

@@ -14,10 +14,9 @@ func _physics_process(_delta: float) -> void:
 func handle_input() -> void:
     if Input.is_action_just_pressed("dash"):
         var current_time = player.dj.get_playback_position()
-        var beats = player.get_tree().get_nodes_in_group("beats")
+        var beats = player.get_tree().get_nodes_in_group("beats").filter(func(b): return b.is_playing() && abs(current_time - b.target_time) <= Constants.beat_click_threshold)
         beats.sort_custom(func(a: Beat, b: Beat): return a.target_time < b.target_time)
+        print(beats)
         
-        for beat in beats:
-            if abs(current_time - beat.target_time) <= Constants.beat_click_threshold:
-                beat.hit()
-                return
+        if beats.size() > 0:
+            beats[0].hit()
