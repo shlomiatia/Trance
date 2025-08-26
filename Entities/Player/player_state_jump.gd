@@ -9,6 +9,5 @@ func enter() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if player.global_position.y > _initial_y:
-		print("hello")
 		player.velocity.x = 0
 		player.change_state(PlayerStateEnum.Type.FALL)
