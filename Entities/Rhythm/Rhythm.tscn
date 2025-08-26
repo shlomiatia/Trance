@@ -4,9 +4,3 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0kcqn")
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-points = PackedVector2Array(0, 270, 640, 270)
-width = 1.0
-default_color = Color(0.0627451, 0.0705882, 0.109804, 1)

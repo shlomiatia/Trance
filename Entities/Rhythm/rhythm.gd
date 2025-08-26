@@ -2,7 +2,6 @@ class_name Rhythm extends CanvasLayer
 
 @export var dj: DJ
 @export var player: Player
-@onready var line_2d: Line2D = $Line2D
 
 var beat_scene: PackedScene = preload("res://Entities/Beat/Beat.tscn")
 var track_beats = {
@@ -63,7 +62,6 @@ var track_beats = {
 }
 
 func _ready() -> void:
-    dj.track_changed.connect(_on_track_changed)
     for track_name in track_beats:
         for beat_time in track_beats[track_name]:
             create_beat(track_name, beat_time, track_beats[track_name][beat_time])
@@ -77,10 +75,3 @@ func create_beat(track_name: String, target_time: float, direction: String) -> v
         add_child(beat)
     else:
         get_parent().add_child.call_deferred(beat)
-
-
-func _on_track_changed(track_name: String) -> void:
-    if track_name in track_beats:
-        line_2d.visible = true
-    else:
-        line_2d.visible = false

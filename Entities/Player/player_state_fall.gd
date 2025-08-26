@@ -1,6 +1,6 @@
 class_name PlayerStateFall extends PlayerState
 
-const DASH_DURATION := 0.05
+const DASH_DURATION := 0.1
 const DIRECTION_BUFFER_TIME := 0.2
 
 var target_beats: Array[Beat] = []
@@ -50,6 +50,7 @@ func handle_input() -> void:
         if beat && beat.direction == "center":
             beat.hit()
         elif beat && ((direction < 0 && beat.global_position.x < player.global_position.x) || (direction > 0 && beat.global_position.x > player.global_position.x)):
+            player.animated_sprite_2d.flip_h = direction > 0
             if target_beats.is_empty():
                 initial_dash_x = player.global_position.x
                 dash_timer = 0.0
