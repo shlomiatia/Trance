@@ -1,13 +1,21 @@
 class_name PlayerStateJump extends PlayerState
 
 var _initial_y: float
+var _jump_duration: float = 0.96
+var _elapsed_time: float
 
 func enter() -> void:
-	_initial_y = player.global_position.y
-	player.velocity = Vector2(240, -120)
-	player.animated_sprite_2d.play("dash")
+    _initial_y = player.global_position.y
+    player.velocity = Vector2(240, -120)
+    player.animated_sprite_2d.play("dash")
+    _elapsed_time = 0.0
 
-func _physics_process(_delta: float) -> void:
-	if player.global_position.y > _initial_y:
-		player.velocity.x = 0
-		player.change_state(PlayerStateEnum.Type.FALL)
+func _physics_process(delta: float) -> void:
+    _elapsed_time += delta
+    
+    var progress = _elapsed_time / _jump_duration
+    player.velocity.x = lerpf(240, 0.0, progress)
+    
+    if player.global_position.y > _initial_y:
+        player.velocity.x = 0
+        player.change_state(PlayerStateEnum.Type.FALL)
