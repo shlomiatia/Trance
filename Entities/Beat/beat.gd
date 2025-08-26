@@ -25,7 +25,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
     var current_time = dj.get_playback_position_relative_to(track_name)
+
+    modulate = Color(1, 1, 1, 0.5)
+    if can_hit():
+        modulate = Color(1, 1, 1, 1)
     
+
     if is_on_screen(current_time):
         var progress = (current_time - start_time) / Constants.beat_appear_time / 2
         var y = lerp(0.0, HEIGHT + 8, progress)
@@ -41,7 +46,8 @@ func _process(_delta: float) -> void:
 
 func can_hit() -> bool:
     var current_time = dj.get_playback_position_relative_to(track_name)
-    return is_on_screen(current_time) && animated_sprite_2d.animation == "default" && abs(current_time - target_time) <= Constants.beat_click_threshold
+    var diff = target_time - current_time
+    return is_on_screen(current_time) && animated_sprite_2d.animation == "default" && diff >= 0 && diff <= Constants.beat_click_threshold
 
 func is_on_screen(current_time: float) -> bool:
     return current_time >= start_time && current_time <= end_time
