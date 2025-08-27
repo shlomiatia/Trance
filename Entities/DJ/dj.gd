@@ -38,7 +38,8 @@ var tracks: Array[Track] = [
     # Track.new("song2toguitarloop2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2toguitarloop2.wav")),
     # Track.new("guitarloop2.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop2.wav"), 700.0),
     # Track.new("singer2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2.wav")),
-    Track.new("singer2tosong3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2tosong3.wav")),
+    # Track.new("singer2tosong3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2tosong3.wav")),
+    Track.new("song3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song3.wav")),
 
 ]
 
