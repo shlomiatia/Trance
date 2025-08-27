@@ -47,7 +47,7 @@ func _on_track_changed(track_name: String) -> void:
         global_position = Vector2(0, -472750)
         velocity = Vector2.ZERO
     elif track_name == "song3.wav":
-        global_position.x = 5600
+        #global_position.x = 5600
         change_state(PlayerStateEnum.Type.FALL)
         
 

@@ -64,10 +64,17 @@ var track_beats = {
     "song3.wav": {
         1.82: "right", 2.36: "left", 2.79: "right", 3.23: "left", 3.66: "right", 4.10: "left", 4.53: "right", 4.99: "center", 5.42: "left", 5.84: "right", 6.27: "left", 6.71: "right", 7.14: "left", 7.58: "right", 8.01: "left",
         8.88: "right", 9.32: "left", 9.75: "right", 10.19: "left", 10.62: "right", 11.06: "left", 11.49: "right", 11.95: "center", 12.38: "left", 12.79: "right", 13.23: "left", 13.66: "right", 14.10: "left", 14.42: "right",
-        15.73: "left", 16.28: "right", 16.71: "left", 17.12: "right", 17.58: "left", 18.02: "right", 18.45: "left", 18.88: "center", 19.32: "right", 19.75: "left", 20.19: "right", 20.62: "left", 21.06: "right", 21.38: "left", 21.88: "right", 22.30: "center",
-        22.77: "left", 23.23: "right", 23.67: "left", 24.08: "right", 24.54: "left", 24.97: "right", 25.38: "left", 25.82: "center", 26.27: "right", 26.71: "left", 27.15: "right", 27.58: "left",
-        29.73: "right", 30.19: "left", 30.62: "right", 30.96: "left", 31.49: "right", 31.93: "left", 32.36: "right", 32.79: "center", 33.23: "left", 33.67: "right", 34.10: "left", 34.54: "right", 34.97: "left", 35.40: "right", 35.80: "left", 36.15: "center",
-        36.69: "right", 37.14: "left", 37.58: "right", 38.01: "left", 38.45: "right", 38.88: "left", 39.32: "right", 39.75: "center", 40.14: "left", 40.62: "right", 41.06: "left", 41.49: "right"
+        15.73: "left", 16.28: "right", 16.71: "left", 17.12: "right", 17.58: "left", 18.02: "right", 18.45: "center", 18.88: "left", 19.32: "right", 19.75: "left", 20.19: "right", 20.62: "left", 21.06: "right", 21.38: "left", 21.88: "right", 22.30: "right",
+        22.77: "left", 23.23: "right", 23.67: "left", 24.08: "right", 24.54: "left", 24.97: "right", 25.38: "center", 25.82: "left", 26.27: "right", 26.71: "left", 27.15: "right", 27.58: "left", 28.9: "center",
+        29.73: "right", 30.19: "left", 30.62: "right", 30.96: "left", 31.49: "right", 31.93: "left", 32.36: "center", 32.79: "right", 33.23: "left", 33.67: "right", 34.10: "left", 34.54: "right", 34.97: "left", 35.40: "right", 35.80: "left", 36.15: "left",
+        36.69: "right", 37.14: "left", 37.58: "right", 38.01: "left", 38.45: "right", 38.88: "left", 39.32: "center", 39.75: "right", 40.14: "left", 40.62: "right", 41.06: "left", 41.49: "right",
+        42.9: "center", 43.35: "center", 43.8: "center",
+        46.3: "center", 46.75: "center", 47.2: "center",
+        49.5: "center", 49.95: "center",
+        50.5: "center", 51.4: "center", 52.3: "center", 53.2: "center",
+        54.3: "center", 54.69: "center", 55.08: "center", 55.47: "center", 55.86: "center", 56.25: "center", 56.64: "center", 57.03: "center",
+        57.5: "center", 57.65: "center", 57.8: "center", 57.95: "center", 58.1: "center", 58.25: "center", 58.4: "center", 58.55: "center", 58.7: "center", 58.85: "center", 59: "center", 59.15: "center", 59.3: "center", 59.45: "center", 59.6: "center", 59.75: "center", 59.9: "center", 60.05: "center", 60.2: "center", 60.35: "center", 60.5: "center", 60.65: "center", 60.8: "center", 60.95: "center", 61.1: "center", 61.25: "center", 61.4: "center", 61.55: "center", 61.7: "center", 61.85: "center", 62: "center", 62.15: "center", 62.3: "center", 62.45: "center", 62.6: "center", 62.75: "center", 62.9: "center", 63: "center",
+        63.1: "center", 63.2: "center", 63.3: "center", 63.4: "center", 63.5: "center", 63.6: "center", 63.7: "center", 63.8: "center", 63.9: "center", 64: "center"
     }
 }
 
