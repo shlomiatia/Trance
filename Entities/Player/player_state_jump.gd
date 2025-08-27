@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
         player.change_state(PlayerStateEnum.Type.FALL)
         return
         
-    
     var progress = _elapsed_time / _jump_duration
     player.velocity.x = lerpf(240, 0.0, progress)
     

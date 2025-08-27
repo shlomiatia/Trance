@@ -12,8 +12,10 @@ func _ready() -> void:
     
     sequencer = AnimationSequencer.new()
     sequencer.setup(self, animated_sprite_2d, player)
-    sequencer.add_position("loop1toguitarloop1.wav", 64)
-    sequencer.add_position("singer1.wav", 64)
+    sequencer.add_position("loop1toguitarloop1.wav", 64, 300)
+    sequencer.add_position("singer1.wav", 64, 300)
+    sequencer.add_position("song2toguitarloop2.wav", 0, -472612)
+    sequencer.add_position("singer2.wav", 32, -472612)
     
     sequencer.add_trigger("loop1toguitarloop1.wav", "left", 3.0)
     
@@ -59,6 +61,51 @@ func _ready() -> void:
     sequencer.add_trigger("singer1.wav", "middle_fast", 26.6)
     sequencer.add_trigger("singer1.wav", "middle_fast", 26.75)
     sequencer.add_trigger("singer1.wav", "left_fast", 26.9)
+
+    sequencer.add_trigger("song2toguitarloop2.wav", "left", 1.5)
+    
+    sequencer.add_trigger("guitarloop2.wav", "middle", 0.7)
+    sequencer.add_trigger("guitarloop2.wav", "middle_fast", 0.9)
+    sequencer.add_trigger("guitarloop2.wav", "middle_fast", 1.05)
+    sequencer.add_trigger("guitarloop2.wav", "left_fast", 1.3)
+    sequencer.add_trigger("guitarloop2.wav", "right", 4.2)
+    sequencer.add_trigger("guitarloop2.wav", "right_fast", 4.4)
+    sequencer.add_trigger("guitarloop2.wav", "right_fast", 4.55)
+    sequencer.add_trigger("guitarloop2.wav", "middle_fast", 4.7)
+    sequencer.add_trigger("guitarloop2.wav", "middle", 7.7)
+    sequencer.add_trigger("guitarloop2.wav", "middle_fast", 7.9)
+    sequencer.add_trigger("guitarloop2.wav", "middle_fast", 8.05)
+    sequencer.add_trigger("guitarloop2.wav", "left_fast", 8.2)
+
+    sequencer.add_trigger("singer2.wav", "left", 2)
+
+    sequencer.add_trigger("singer2.wav", "middle", 4.5)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 4.7)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 4.85)
+    sequencer.add_trigger("singer2.wav", "left_fast", 5.1)
+    sequencer.add_trigger("singer2.wav", "right", 8.0)
+    sequencer.add_trigger("singer2.wav", "right_fast", 8.2)
+    sequencer.add_trigger("singer2.wav", "right_fast", 8.35)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 8.5)
+    sequencer.add_trigger("singer2.wav", "middle", 11.5)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 11.7)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 11.85)
+    sequencer.add_trigger("singer2.wav", "left_fast", 12.0)
+
+    sequencer.add_trigger("singer2.wav", "left", 16.0)
+
+    sequencer.add_trigger("singer2.wav", "middle", 18.5)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 18.7)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 18.85)
+    sequencer.add_trigger("singer2.wav", "left_fast", 19.1)
+    sequencer.add_trigger("singer2.wav", "right", 22.0)
+    sequencer.add_trigger("singer2.wav", "right_fast", 22.2)
+    sequencer.add_trigger("singer2.wav", "right_fast", 22.35)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 22.5)
+    sequencer.add_trigger("singer2.wav", "middle", 25.5)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 25.7)
+    sequencer.add_trigger("singer2.wav", "middle_fast", 25.85)
+    sequencer.add_trigger("singer2.wav", "left_fast", 26.0)
     
 
 func _process(_delta: float) -> void:

@@ -33,18 +33,16 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 func _on_track_changed(track_name: String) -> void:
-    if track_name == "singer1tosong1.wav":
+    if track_name == "singer1tosong1.wav" || track_name == "sahi2.wav" || track_name == "singer2tosong3.wav":
         change_state(PlayerStateEnum.Type.SPRINT)
     elif track_name == "song1.wav" || track_name == "song2.wav":
         #global_position.x = 5600
-        global_position.x = 8600
-        change_state(PlayerStateEnum.Type.FALL)
+        #global_position.x = 8600
+        #change_state(PlayerStateEnum.Type.FALL)
         change_state(PlayerStateEnum.Type.JUMP)
     elif track_name == "song1tosahi.wav":
         global_position = Vector2(6320, 0)
         velocity = Vector2.ZERO
-    elif track_name == "sahi2.wav":
-        change_state(PlayerStateEnum.Type.SPRINT)
     elif track_name == "song2toguitarloop2.wav":
         global_position = Vector2(0, -472750)
         velocity = Vector2.ZERO

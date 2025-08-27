@@ -41,7 +41,6 @@ var track_beats = {
         10.65: "none", 10.80: "none", 10.95: "none", 11.10: "none", 11.25: "none", 11.40: "none", 11.55: "none", 11.70: "none", 11.85: "none", 12.00: "none", 12.15: "none", 12.30: "none", 12.45: "none", 12.60: "none", 12.75: "none", 12.90: "none"
     },
     "song2.wav": {
-        #0.00: "left", 1.38: "right", 1.82: "left", 2.25: "right", 2.70: "left", 3.12: "right", 3.57: "left",
         4.44: "right", 4.86: "left", 5.30: "right", 5.73: "left", 6.18: "right", 6.60: "left", 7.05: "right", 7.50: "right",
         7.91: "left", 8.34: "right", 8.77: "left", 9.21: "right", 9.64: "left", 10.08: "right", 10.53: "center",
         11.38: "right", 11.82: "left", 12.25: "right", 12.69: "left",
@@ -58,6 +57,9 @@ var track_beats = {
         49.64: "center", 49.96: "center", 50.23: "center", 50.52: "center", 50.85: "center", 51.12: "center", 51.39: "center", 51.72: "center", 51.99: "center", 52.26: "center", 52.5: "center",
         53.00: "center", 53.23: "center", 53.45: "center", 53.68: "center", 53.91: "center", 54.14: "center", 54.36: "center", 54.59: "center", 54.82: "center", 55.05: "center", 55.27: "center", 55.50: "center",
         55.60: "center", 55.70: "center", 55.80: "center", 55.90: "center",
+    },
+    "singer2tosong3.wav": {
+        0.50: "none", 0.89: "none", 1.28: "none", 1.67: "none", 2.06: "none", 2.44: "none", 2.83: "none", 3.22: "none", 3.61: "none", 4.00: "none", 4.32: "none", 4.64: "none", 4.95: "none", 5.27: "none", 5.59: "none", 5.91: "none", 6.23: "none", 6.55: "none", 6.86: "none", 7.18: "none", 7.50: "none", 7.79: "none", 8.08: "none", 8.38: "none", 8.67: "none", 8.96: "none", 9.25: "none", 9.54: "none", 9.83: "none", 10.12: "none", 10.42: "none", 10.71: "none", 11.00: "none", 11.25: "none", 11.50: "none", 11.75: "none", 12.00: "none", 12.25: "none", 12.50: "none", 12.75: "none", 13.00: "none", 13.25: "none", 13.50: "none", 13.75: "none", 14.00: "none", 14.25: "none", 14.50: "none", 14.75: "none", 15.00: "none", 15.25: "none", 15.50: "none", 15.75: "none", 16.00: "none", 16.25: "none", 16.50: "none", 16.75: "none", 17.00: "none", 17.25: "none", 17.50: "none", 17.69: "none", 17.89: "none", 18.08: "none", 18.28: "none", 18.47: "none", 18.67: "none", 18.86: "none", 19.06: "none", 19.25: "none", 19.44: "none", 19.64: "none", 19.83: "none", 20.03: "none", 20.22: "none", 20.42: "none", 20.61: "none", 20.81: "none", 21.00: "none", 21.16: "none", 21.32: "none", 21.48: "none", 21.64: "none", 21.80: "none", 21.95: "none", 22.11: "none", 22.27: "none", 22.43: "none", 22.59: "none", 22.75: "none", 22.91: "none", 23.07: "none", 23.23: "none", 23.39: "none", 23.55: "none", 23.70: "none", 23.86: "none", 24.02: "none", 24.18: "none", 24.34: "none", 24.50: "none", 24.65: "none", 24.81: "none", 24.96: "none", 25.12: "none", 25.27: "none", 25.42: "none", 25.58: "none", 25.73: "none", 25.88: "none", 26.04: "none", 26.19: "none", 26.35: "none", 26.50: "none", 26.65: "none", 26.81: "none", 26.96: "none", 27.12: "none", 27.27: "none", 27.42: "none", 27.58: "none", 27.73: "none", 27.88: "none", 28.04: "none", 28.19: "none", 28.35: "none", 28.50: "none"
     }
 }
 

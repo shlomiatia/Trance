@@ -12,8 +12,10 @@ func _ready() -> void:
     
     sequencer = AnimationSequencer.new()
     sequencer.setup(self, animated_sprite_2d, player)
-    sequencer.add_position("loop1toguitarloop1.wav", 32)
-    sequencer.add_position("singer1.wav", 32)
+    sequencer.add_position("loop1toguitarloop1.wav", 32, 300)
+    sequencer.add_position("singer1.wav", 32, 300)
+    sequencer.add_position("song2toguitarloop2.wav", 32, -472612)
+    sequencer.add_position("singer2.wav", 64, -472612)
     
     sequencer.add_trigger("start.wav", "left", 0.5)
     sequencer.add_trigger("loop1.wav", "right", 3.0)
@@ -85,6 +87,45 @@ func _ready() -> void:
     sequencer.add_trigger("singer1.wav", "left", 29.0)
     sequencer.add_trigger("singer1.wav", "left_fast", 29.8)
     sequencer.add_trigger("singer1.wav", "right_fast", 30.3)
+
+    sequencer.add_trigger("guitarloop2.wav", "left", 1.7)
+    sequencer.add_trigger("guitarloop2.wav", "right", 5.2)
+
+    sequencer.add_trigger("singer2.wav", "left", 5.5)
+    sequencer.add_trigger("singer2.wav", "right", 9)
+    sequencer.add_trigger("singer2.wav", "left", 12.5)
+
+    sequencer.add_trigger("singer2.wav", "left", 15.7)
+    sequencer.add_trigger("singer2.wav", "left_fast", 16.4)
+    sequencer.add_trigger("singer2.wav", "right_fast", 16.8)
+    sequencer.add_trigger("singer2.wav", "left_fast", 17.0)
+    sequencer.add_trigger("singer2.wav", "left", 17.4)
+    sequencer.add_trigger("singer2.wav", "left_fast", 18.2)
+    sequencer.add_trigger("singer2.wav", "right_fast", 18.7)
+    
+    sequencer.add_trigger("singer2.wav", "left", 19.3)
+    sequencer.add_trigger("singer2.wav", "left_fast", 20.0)
+    sequencer.add_trigger("singer2.wav", "right_fast", 20.4)
+    sequencer.add_trigger("singer2.wav", "left_fast", 20.6)
+    sequencer.add_trigger("singer2.wav", "left", 21.0)
+    sequencer.add_trigger("singer2.wav", "left_fast", 21.8)
+    sequencer.add_trigger("singer2.wav", "right_fast", 22.3)
+
+    sequencer.add_trigger("singer2.wav", "left", 22.7)
+    sequencer.add_trigger("singer2.wav", "left_fast", 23.4)
+    sequencer.add_trigger("singer2.wav", "right_fast", 23.8)
+    sequencer.add_trigger("singer2.wav", "left_fast", 24.0)
+    sequencer.add_trigger("singer2.wav", "left", 24.4)
+    sequencer.add_trigger("singer2.wav", "left_fast", 25.2)
+    sequencer.add_trigger("singer2.wav", "right_fast", 25.7)
+
+    sequencer.add_trigger("singer2.wav", "left", 26.3)
+    sequencer.add_trigger("singer2.wav", "left_fast", 27.0)
+    sequencer.add_trigger("singer2.wav", "right_fast", 27.4)
+    sequencer.add_trigger("singer2.wav", "left_fast", 27.6)
+    sequencer.add_trigger("singer2.wav", "left", 28.0)
+    sequencer.add_trigger("singer2.wav", "left_fast", 28.8)
+    sequencer.add_trigger("singer2.wav", "right_fast", 29.3)
 
 func _process(_delta: float) -> void:
     if animated_sprite_2d.animation == "default":

@@ -13,10 +13,12 @@ class AnimationTrigger:
 class PositionTrigger:
     var file_name: String
     var offset: float
+    var y: float
     
-    func _init(p_file_name: String, p_offset: float):
+    func _init(p_file_name: String, p_offset: float, p_y: float):
         file_name = p_file_name
         offset = p_offset
+        y = p_y
 
 var character: Node2D
 var animated_sprite_2d: AnimatedSprite2D
@@ -41,6 +43,7 @@ func process_triggers(current_track_name: String, playback_pos: float) -> String
         for position in positions:
             if position.file_name == current_track_name:
                 character.global_position.x = player.global_position.x + 320 + position.offset
+                character.global_position.y = position.y
                 last_trigger_point = 0.0
                 break
         
@@ -55,5 +58,5 @@ func process_triggers(current_track_name: String, playback_pos: float) -> String
     
     return animation_to_play
 
-func add_position(file_name: String, offset: float) -> void:
-    positions.append(PositionTrigger.new(file_name, offset))
+func add_position(file_name: String, offset: float, y: float) -> void:
+    positions.append(PositionTrigger.new(file_name, offset, y))

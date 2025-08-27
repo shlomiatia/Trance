@@ -12,7 +12,8 @@ func _ready() -> void:
     
     sequencer = AnimationSequencer.new()
     sequencer.setup(self, animated_sprite_2d, player)
-    sequencer.add_position("singer1.wav", 96)
+    sequencer.add_position("singer1.wav", 96, 290)
+    sequencer.add_position("singer2.wav", 96, -472622)
     
     sequencer.add_trigger("singer1.wav", "start_sing", 3.0)
     sequencer.add_trigger("singer1.wav", "continue_sing", 6.7)
@@ -22,6 +23,15 @@ func _ready() -> void:
     sequencer.add_trigger("singer1.wav", "end_sing", 23.5)
     sequencer.add_trigger("singer1.wav", "start_sing", 25.0)
     sequencer.add_trigger("singer1.wav", "end_sing", 29)
+
+    sequencer.add_trigger("singer2.wav", "start_sing", 2.0)
+    sequencer.add_trigger("singer2.wav", "continue_sing", 5.7)
+    sequencer.add_trigger("singer2.wav", "continue_sing", 9.5)
+    sequencer.add_trigger("singer2.wav", "end_sing", 15.5)
+    sequencer.add_trigger("singer2.wav", "start_sing", 17.0)
+    sequencer.add_trigger("singer2.wav", "end_sing", 22.5)
+    sequencer.add_trigger("singer2.wav", "start_sing", 24.0)
+    sequencer.add_trigger("singer2.wav", "end_sing", 28)
 
 func _process(_delta: float) -> void:
     var current_track = dj.tracks[dj.current_track_index]
