@@ -25,7 +25,10 @@ func change_state(state_type: PlayerStateEnum.Type) -> void:
     _current_state.enter()
 
 func _physics_process(delta: float) -> void:
-    velocity += get_gravity() * delta
+    var gravity = Vector2(0, 250)
+    if dj.get_current_track() == "song2.wav":
+        gravity = Vector2(0, -250)
+    velocity += gravity * delta
     _current_state._physics_process(delta)
     move_and_slide()
 
@@ -38,12 +41,13 @@ func _on_track_changed(track_name: String) -> void:
         #change_state(PlayerStateEnum.Type.FALL)
         change_state(PlayerStateEnum.Type.JUMP)
     elif track_name == "song1tosahi.wav":
-        global_position = Vector2(6320, 304)
+        global_position = Vector2(6320, 0)
+        velocity = Vector2.ZERO
     elif track_name == "sahi2.wav":
-        #global_position.x = 7104
         change_state(PlayerStateEnum.Type.SPRINT)
     elif track_name == "song2toguitarloop2.wav":
-        global_position = Vector2(9312, 304)
+        global_position = Vector2(9312, 0)
+        velocity = Vector2.ZERO
         
 
 func get_beat() -> Beat:

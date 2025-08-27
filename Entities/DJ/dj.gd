@@ -114,3 +114,6 @@ func advance_track() -> void:
     stream = track.audio_stream
     play()
     track_changed.emit(track.file_name)
+
+func get_current_track() -> String:
+    return tracks[player.dj.current_track_index].file_name
