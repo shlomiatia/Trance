@@ -12,13 +12,13 @@ func enter() -> void:
     elif track_name == "sahi2.wav":
         flat_end_position = 7440
     elif track_name == "singer2tosong3.wav":
-        flat_end_position = 2944 - 944 * sqrt(2)
+        flat_end_position = -320
     player.animated_sprite_2d.play("run")
     player.animated_sprite_2d.flip_h = true
     var starting_position = player.position.x
-    var flat_distance = max(0, flat_end_position - starting_position)
-    var inclined_distance = 944 * sqrt(2)
-    var total_distance = flat_distance + inclined_distance
+    var total_distance = flat_end_position - starting_position
+    if track_name == "singer1tosong1.wav" || track_name == "sahi2.wav":
+        total_distance += 944 * sqrt(2)
     var required_velocity = total_distance / track_length
     player.velocity.x = required_velocity
 

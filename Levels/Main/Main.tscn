@@ -101,10 +101,9 @@ position = Vector2(6728, 307)
 dj = NodePath("../DJ")
 player = NodePath("../Player")
 
-[node name="Player" parent="." node_paths=PackedStringArray("dj", "tile_map_layer") instance=ExtResource("2_5f5qv")]
+[node name="Player" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("2_5f5qv")]
 position = Vector2(320, 304)
 dj = NodePath("../DJ")
-tile_map_layer = NodePath("../TileMapLayer")
 
 [node name="Rhythm" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("7_dxv3p")]
 dj = NodePath("../DJ")
