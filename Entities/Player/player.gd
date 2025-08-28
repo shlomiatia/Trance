@@ -2,8 +2,10 @@ class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 @export var dj: DJ
+@export var tile_map_layer: TileMapLayer
 
 var _states: Dictionary = {}
 var _current_state: PlayerState
@@ -29,6 +31,13 @@ func change_state(state_type: PlayerStateEnum.Type) -> void:
 func _physics_process(delta: float) -> void:
     if dj.get_current_track() == "song3.wav":
         collision_shape_2d.disabled = true
+    
+    if dj.get_current_track() == "singer2tosong3.wav":
+        var track_position = dj.get_playback_position()
+        var track_length = dj.get_stream().get_length()
+        var progress = track_position / track_length
+        tile_map_layer.modulate.a = lerp(1.0, 0.0, progress)
+    
     var gravity = Vector2(0, 250)
     if dj.get_current_track() == "song2.wav":
         gravity = Vector2(0, -250)
@@ -41,9 +50,9 @@ func _on_track_changed(track_name: String) -> void:
         change_state(PlayerStateEnum.Type.SPRINT)
     elif track_name == "song1.wav" || track_name == "song2.wav":
         #global_position.x = 5600
-        global_position.x = 8600
-        change_state(PlayerStateEnum.Type.FALL)
-        #change_state(PlayerStateEnum.Type.JUMP)
+        # global_position.x = 8600
+        # change_state(PlayerStateEnum.Type.FALL)
+        change_state(PlayerStateEnum.Type.JUMP)
     elif track_name == "song1tosahi.wav":
         global_position = Vector2(6320, 0)
         velocity.y = 125

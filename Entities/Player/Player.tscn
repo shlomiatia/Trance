@@ -245,3 +245,4 @@ shape = SubResource("CapsuleShape2D_jbuvh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -90)
+ignore_rotation = false
