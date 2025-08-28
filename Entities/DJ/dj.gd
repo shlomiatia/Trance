@@ -25,21 +25,22 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
-    Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
-    Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
-    Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
-    Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
-    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
+    # Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    # Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    # Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    # Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    # Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
+    # Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
+    # Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
+    # Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
+    # Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
     Track.new("song2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2.wav")),
     Track.new("song2toguitarloop2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2toguitarloop2.wav")),
     Track.new("guitarloop2.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop2.wav"), 700.0),
     Track.new("singer2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2.wav")),
     Track.new("singer2tosong3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2tosong3.wav")),
     Track.new("song3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song3.wav")),
+    Track.new("song3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song4.wav")),
 
 ]
 
