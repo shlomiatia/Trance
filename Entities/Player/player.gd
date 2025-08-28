@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @export var dj: DJ
 
@@ -17,6 +18,7 @@ func _ready() -> void:
     }
     change_state(PlayerStateEnum.Type.STAND)
     dj.track_changed.connect(_on_track_changed)
+    animated_sprite_2d.flip_h = true
 
 func change_state(state_type: PlayerStateEnum.Type) -> void:
     if _current_state:
@@ -25,6 +27,8 @@ func change_state(state_type: PlayerStateEnum.Type) -> void:
     _current_state.enter()
 
 func _physics_process(delta: float) -> void:
+    if dj.get_current_track() == "song3.wav":
+        collision_shape_2d.disabled = true
     var gravity = Vector2(0, 250)
     if dj.get_current_track() == "song2.wav":
         gravity = Vector2(0, -250)
@@ -42,10 +46,10 @@ func _on_track_changed(track_name: String) -> void:
         change_state(PlayerStateEnum.Type.JUMP)
     elif track_name == "song1tosahi.wav":
         global_position = Vector2(6320, 0)
-        velocity = Vector2.ZERO
+        velocity.y = 125
     elif track_name == "song2toguitarloop2.wav":
         global_position = Vector2(0, -472750)
-        velocity = Vector2.ZERO
+        velocity.y = 125
     elif track_name == "song3.wav":
         #global_position.x = 5600
         change_state(PlayerStateEnum.Type.FALL)

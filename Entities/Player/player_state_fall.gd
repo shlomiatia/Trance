@@ -13,6 +13,7 @@ func _init(p_player: Player) -> void:
     super._init(p_player)
 
 func enter() -> void:
+    player.velocity.x = 0
     player.animated_sprite_2d.play("dash")
     target_beats.clear()
     dash_timer = 0.0
