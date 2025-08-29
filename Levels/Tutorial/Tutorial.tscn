@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh8u4p6q7r2gx"]
+
+[ext_resource type="Script" path="res://Levels/Tutorial/tutorial.gd" id="1_r4k3l"]
+[ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_njh7k"]
+[ext_resource type="PackedScene" uid="uid://cvmakink4dywe" path="res://Entities/DJ/DJ.tscn" id="3_5p8kq"]
+[ext_resource type="PackedScene" uid="uid://bhg5mhxagc76c" path="res://Entities/Rhythm/Rhythm.tscn" id="4_sia0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5w7p"]
+size = Vector2(640, 20)
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_r4k3l")
+
+[node name="DJ" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_5p8kq")]
+player = NodePath("../Player")
+is_tutorial = true
+
+[node name="Player" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("2_njh7k")]
+position = Vector2(320, 320)
+dj = NodePath("../DJ")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(320, 340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_u5w7p")
+
+[node name="CanvasLayer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("4_sia0j")]
+dj = NodePath("../DJ")
+player = NodePath("../Player")

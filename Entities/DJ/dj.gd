@@ -1,6 +1,7 @@
 class_name DJ extends AudioStreamPlayer
 
 @export var player: Player
+@export var is_tutorial: bool
 
 signal track_changed(track_name: String)
 
@@ -25,29 +26,36 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    # Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    # Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    # Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    # Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
-    # Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
-    # Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
-    # Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
-    # Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
-    # Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
-    # Track.new("song2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2.wav")),
+    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
+    Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
+    Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
+    Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
+    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
+    Track.new("song2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2.wav")),
     Track.new("song2toguitarloop2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2toguitarloop2.wav")),
     Track.new("guitarloop2.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop2.wav"), 700.0),
     Track.new("singer2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2.wav")),
     Track.new("singer2tosong3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2tosong3.wav")),
     Track.new("song3.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song3.wav")),
     Track.new("song4.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song4.wav")),
+]
 
+var tutorial_tracks: Array[Track] = [
+    Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/tutorial1.wav"), 900.0),
+    Track.new("tutorial2.mp3", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/tutorial2.mp3"), 900.0),
+    Track.new("tutorial3.mp3", TrackType.WAIT_FOR_JUMP, preload("res://Music/tutorial3.mp3"), 900.0),
 ]
 
 var current_track_index: int = -1
 var waiting_for_mouse_buttons: bool = false
 
 func _ready() -> void:
+    if is_tutorial:
+        tracks = tutorial_tracks
     finished.connect(_on_finished)
     advance_track()
     
@@ -119,4 +127,4 @@ func advance_track() -> void:
     track_changed.emit(track.file_name)
 
 func get_current_track() -> String:
-    return tracks[player.dj.current_track_index].file_name
+    return tracks[current_track_index].file_name

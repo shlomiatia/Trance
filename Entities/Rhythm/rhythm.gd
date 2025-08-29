@@ -5,6 +5,9 @@ class_name Rhythm extends CanvasLayer
 
 var beat_scene: PackedScene = preload("res://Entities/Beat/Beat.tscn")
 var track_beats = {
+    "tutorial1.wav": {
+        1.3: "none", 1.75: "none", 2.20: "none", 2.65: "none", 3.10: "none", 3.55: "none", 4.00: "none", 4.45: "none",
+    },
     "singer1tosong1.wav": {
         0.70: "none", 1.60: "none", 2.50: "none", 3.40: "none", 4.30: "none", 5.20: "none",
         5.65: "none", 6.10: "none", 6.55: "none", 7.00: "none", 7.45: "none", 7.90: "none",

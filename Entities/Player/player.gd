@@ -27,12 +27,13 @@ func change_state(state_type: PlayerStateEnum.Type) -> void:
     _current_state.enter()
 
 func _physics_process(delta: float) -> void:
-    collision_shape_2d.disabled = dj.get_current_track() == "song3.wav" && dj.get_playback_position() < 1
-    
     var gravity = Vector2(0, 250)
-    if dj.get_current_track() == "song2.wav":
+    var current_track = dj.get_current_track()
+    collision_shape_2d.disabled = current_track == "song3.wav" && dj.get_playback_position() < 1
+    
+    if current_track == "song2.wav":
         gravity = Vector2(0, -250)
-    if dj.get_current_track() == "song3.wav":
+    if current_track == "song3.wav":
         gravity = Vector2(0, 230)
     velocity += gravity * delta
     _current_state._physics_process(delta)
@@ -42,9 +43,6 @@ func _on_track_changed(track_name: String) -> void:
     if track_name == "singer1tosong1.wav" || track_name == "sahi2.wav" || track_name == "singer2tosong3.wav":
         change_state(PlayerStateEnum.Type.SPRINT)
     elif track_name == "song1.wav" || track_name == "song2.wav":
-        #global_position.x = 5600
-        # global_position.x = 8600
-        # change_state(PlayerStateEnum.Type.FALL)
         change_state(PlayerStateEnum.Type.JUMP)
     elif track_name == "song1tosahi.wav":
         global_position = Vector2(6320, 0)
@@ -53,7 +51,6 @@ func _on_track_changed(track_name: String) -> void:
         global_position = Vector2(0, -472750)
         velocity.y = 125
     elif track_name == "song3.wav":
-        #global_position.x = 5600
         change_state(PlayerStateEnum.Type.FALL)
     elif track_name == "song4.wav":
         velocity.y = 125
