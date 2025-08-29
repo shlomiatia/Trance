@@ -86,8 +86,6 @@ func setup_palette_swap() -> void:
     shader_material.set_shader_parameter("replace_9", Color(pants_colors[0]))
     shader_material.set_shader_parameter("replace_10", Color(pants_colors[1]))
     shader_material.set_shader_parameter("replace_11", Color(pants_colors[2]))
-    
-    shader_material.set_shader_parameter("is_disabled", false)
 
 func _ready() -> void:
     dj = get_node("/root/Main/DJ")

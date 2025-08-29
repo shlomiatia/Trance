@@ -12,7 +12,7 @@ func enter() -> void:
     elif track_name == "sahi2.wav":
         flat_end_position = 7440
     elif track_name == "singer2tosong3.wav":
-        flat_end_position = -320
+        flat_end_position = 0
     player.animated_sprite_2d.play("run")
     player.animated_sprite_2d.flip_h = true
     var starting_position = player.position.x
