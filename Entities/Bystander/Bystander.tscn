@@ -18,6 +18,7 @@ shader_parameter/original_7 = null
 shader_parameter/original_8 = null
 shader_parameter/original_9 = null
 shader_parameter/original_10 = null
+shader_parameter/original_11 = null
 shader_parameter/replace_0 = null
 shader_parameter/replace_1 = null
 shader_parameter/replace_2 = null
@@ -29,6 +30,7 @@ shader_parameter/replace_7 = null
 shader_parameter/replace_8 = null
 shader_parameter/replace_9 = null
 shader_parameter/replace_10 = null
+shader_parameter/replace_11 = null
 shader_parameter/modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1uwn"]
