@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://Shaders/pallete_swap.gdshader" id="2_s0ko0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53u4p"]
+resource_local_to_scene = true
 shader = ExtResource("2_s0ko0")
 shader_parameter/is_disabled = null
 shader_parameter/original_0 = null

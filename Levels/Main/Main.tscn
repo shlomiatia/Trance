@@ -82,6 +82,26 @@ texture = ExtResource("16_mt1oq")
 position = Vector2(6782, 204)
 texture = ExtResource("17_o73po")
 
+[node name="Drummer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("4_b53he")]
+position = Vector2(628, 300)
+dj = NodePath("../DJ")
+player = NodePath("../Player")
+
+[node name="Guitarist" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_dt3cx")]
+position = Vector2(-320, 300)
+dj = NodePath("../DJ")
+player = NodePath("../Player")
+
+[node name="Singer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_b2mlr")]
+position = Vector2(-320, 290)
+dj = NodePath("../DJ")
+player = NodePath("../Player")
+
+[node name="Sahi" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("8_fcbxn")]
+position = Vector2(6728, 307)
+dj = NodePath("../DJ")
+player = NodePath("../Player")
+
 [node name="Bystanders" type="Node2D" parent="."]
 
 [node name="Bystander" parent="Bystanders" instance=ExtResource("18_1bvcw")]
@@ -303,25 +323,14 @@ position = Vector2(2718, -472664)
 [node name="Bystander73" parent="Bystanders" instance=ExtResource("18_1bvcw")]
 position = Vector2(2816, -472711)
 
-[node name="Drummer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("4_b53he")]
-position = Vector2(628, 300)
-dj = NodePath("../DJ")
-player = NodePath("../Player")
+[node name="Bystander74" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(7216, 307)
 
-[node name="Guitarist" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_dt3cx")]
-position = Vector2(-320, 300)
-dj = NodePath("../DJ")
-player = NodePath("../Player")
+[node name="Bystander75" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(7243, 290)
 
-[node name="Singer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("5_b2mlr")]
-position = Vector2(-320, 290)
-dj = NodePath("../DJ")
-player = NodePath("../Player")
-
-[node name="Sahi" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("8_fcbxn")]
-position = Vector2(6728, 307)
-dj = NodePath("../DJ")
-player = NodePath("../Player")
+[node name="Bystander76" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(7377, 296)
 
 [node name="Player" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("2_5f5qv")]
 position = Vector2(320, 304)
@@ -330,12 +339,3 @@ dj = NodePath("../DJ")
 [node name="Rhythm" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("7_dxv3p")]
 dj = NodePath("../DJ")
 player = NodePath("../Player")
-
-[node name="Bystander9" parent="." instance=ExtResource("18_1bvcw")]
-position = Vector2(7216, 307)
-
-[node name="Bystander10" parent="." instance=ExtResource("18_1bvcw")]
-position = Vector2(7243, 290)
-
-[node name="Bystander11" parent="." instance=ExtResource("18_1bvcw")]
-position = Vector2(7377, 296)
