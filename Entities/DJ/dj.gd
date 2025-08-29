@@ -26,10 +26,10 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    # Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    # Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    # Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    # Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
     Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
     Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
     Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
@@ -75,7 +75,7 @@ func _process(_delta: float) -> void:
             TrackType.WAIT_FOR_JUMP:
                 if waiting_for_mouse_buttons && !playing:
                     get_tree().paused = true
-                if Input.is_action_just_pressed("ui_up"):
+                if Input.is_action_just_pressed("jump"):
                     if waiting_for_mouse_buttons && !playing:
                         get_tree().paused = false
                         waiting_for_mouse_buttons = false

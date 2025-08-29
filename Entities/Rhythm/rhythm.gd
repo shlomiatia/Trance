@@ -4,6 +4,7 @@ class_name Rhythm extends CanvasLayer
 @export var player: Player
 
 var beat_scene: PackedScene = preload("res://Entities/Beat/Beat.tscn")
+var track_stats = {}
 var track_beats = {
     "tutorial1.wav": {
         1.3: "none", 1.75: "none", 2.20: "none", 2.65: "none", 3.10: "none", 3.55: "none", 4.00: "none", 4.45: "none",
@@ -82,6 +83,7 @@ var track_beats = {
 
 func _ready() -> void:
     for track_name in track_beats:
+        track_stats[track_name] = 0
         for beat_time in track_beats[track_name]:
             create_beat(track_name, beat_time, track_beats[track_name][beat_time])
 
@@ -90,7 +92,11 @@ func create_beat(track_name: String, target_time: float, direction: String) -> v
     beat.dj = dj
     beat.player = player
     beat.init(track_name, target_time, direction)
+    beat.beat_result.connect(_on_beat_result)
     if direction == "none":
         add_child(beat)
     else:
         get_parent().add_child.call_deferred(beat)
+
+func _on_beat_result(track_name: String) -> void:
+    track_stats[track_name] += 1

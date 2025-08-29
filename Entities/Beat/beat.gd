@@ -1,5 +1,7 @@
 class_name Beat extends Node2D
 
+signal beat_result(track_name: String)
+
 @export var dj: DJ
 @export var player: Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -74,3 +76,4 @@ func set_initial_position() -> void:
 func hit() -> void:
     animated_sprite_2d.modulate = Color("#26854c")
     animated_sprite_2d.play("hit")
+    beat_result.emit(track_name)
