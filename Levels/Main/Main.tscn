@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c3m1g5kpmn0md"]
+[gd_scene load_steps=19 format=4 uid="uid://c3m1g5kpmn0md"]
 
 [ext_resource type="Texture2D" uid="uid://csfjg5i52ddur" path="res://Textures/parallax0.png" id="1_ek1rf"]
 [ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_5f5qv"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ddrbffbjsdx4c" path="res://Textures/tree3.png" id="15_hhaw2"]
 [ext_resource type="Texture2D" uid="uid://c5tmik3ik2pyx" path="res://Textures/tree4.png" id="16_mt1oq"]
 [ext_resource type="Texture2D" uid="uid://bstufdvlnybon" path="res://Textures/tree5.png" id="17_o73po"]
+[ext_resource type="PackedScene" uid="uid://bmy1vc0cyk4xo" path="res://Entities/Bystander/Bystander.tscn" id="18_1bvcw"]
 
 [node name="Main" type="Node2D"]
 
@@ -81,6 +82,227 @@ texture = ExtResource("16_mt1oq")
 position = Vector2(6782, 204)
 texture = ExtResource("17_o73po")
 
+[node name="Bystanders" type="Node2D" parent="."]
+
+[node name="Bystander" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(217, 303)
+
+[node name="Bystander2" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(233, 304)
+
+[node name="Bystander3" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(611, 303)
+
+[node name="Bystander4" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(642, 303)
+
+[node name="Bystander5" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(659, 300)
+
+[node name="Bystander6" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1183, 307)
+
+[node name="Bystander7" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1205, 301)
+
+[node name="Bystander8" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2088, 298)
+
+[node name="Bystander9" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3365, 297)
+
+[node name="Bystander10" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3394, 304)
+
+[node name="Bystander11" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3381, 297)
+
+[node name="Bystander12" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3374, 306)
+
+[node name="Bystander13" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6749, 297)
+
+[node name="Bystander14" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6803, 292)
+
+[node name="Bystander15" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6710, 293)
+
+[node name="Bystander16" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6694, 307)
+
+[node name="Bystander17" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6842, 306)
+
+[node name="Bystander18" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6904, 291)
+
+[node name="Bystander19" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6973, 308)
+
+[node name="Bystander20" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(7140, 294)
+
+[node name="Bystander21" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(430, 301)
+
+[node name="Bystander22" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(840, 302)
+
+[node name="Bystander23" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1026, 298)
+
+[node name="Bystander24" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1427, 303)
+
+[node name="Bystander25" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1653, 302)
+
+[node name="Bystander26" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1676, 302)
+
+[node name="Bystander27" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1828, 300)
+
+[node name="Bystander28" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2026, 300)
+
+[node name="Bystander29" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2154, 300)
+
+[node name="Bystander30" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2433, 301)
+
+[node name="Bystander31" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2518, 299)
+
+[node name="Bystander32" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2732, 299)
+
+[node name="Bystander33" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2929, 297)
+
+[node name="Bystander34" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3016, 299)
+
+[node name="Bystander35" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3313, 297)
+
+[node name="Bystander36" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3528, 298)
+
+[node name="Bystander37" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3763, 301)
+
+[node name="Bystander38" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(3910, 298)
+
+[node name="Bystander39" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(4079, 295)
+
+[node name="Bystander40" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(4127, 297)
+
+[node name="Bystander41" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(6580, 298)
+
+[node name="Bystander42" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(363, -472665)
+
+[node name="Bystander43" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(113, -472648)
+
+[node name="Bystander44" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(195, -472679)
+
+[node name="Bystander45" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(382, -472663)
+
+[node name="Bystander46" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(557, -472675)
+
+[node name="Bystander47" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(697, -472677)
+
+[node name="Bystander48" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(718, -472707)
+
+[node name="Bystander49" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(759, -472681)
+
+[node name="Bystander50" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(891, -472645)
+
+[node name="Bystander51" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1070, -472694)
+
+[node name="Bystander52" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1091, -472695)
+
+[node name="Bystander53" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1229, -472665)
+
+[node name="Bystander54" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1266, -472695)
+
+[node name="Bystander55" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1336, -472698)
+
+[node name="Bystander56" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1375, -472724)
+
+[node name="Bystander57" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1457, -472648)
+
+[node name="Bystander58" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1560, -472711)
+
+[node name="Bystander59" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1598, -472743)
+
+[node name="Bystander60" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1701, -472650)
+
+[node name="Bystander61" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1785, -472665)
+
+[node name="Bystander62" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1921, -472664)
+
+[node name="Bystander63" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(1978, -472728)
+
+[node name="Bystander64" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2088, -472744)
+
+[node name="Bystander65" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2134, -472823)
+
+[node name="Bystander66" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2168, -472837)
+
+[node name="Bystander67" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2238, -472777)
+
+[node name="Bystander68" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2333, -472743)
+
+[node name="Bystander69" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2376, -472678)
+
+[node name="Bystander70" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2423, -472661)
+
+[node name="Bystander71" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2531, -472648)
+
+[node name="Bystander72" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2718, -472664)
+
+[node name="Bystander73" parent="Bystanders" instance=ExtResource("18_1bvcw")]
+position = Vector2(2816, -472711)
+
 [node name="Drummer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("4_b53he")]
 position = Vector2(628, 300)
 dj = NodePath("../DJ")
@@ -108,3 +330,12 @@ dj = NodePath("../DJ")
 [node name="Rhythm" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("7_dxv3p")]
 dj = NodePath("../DJ")
 player = NodePath("../Player")
+
+[node name="Bystander9" parent="." instance=ExtResource("18_1bvcw")]
+position = Vector2(7216, 307)
+
+[node name="Bystander10" parent="." instance=ExtResource("18_1bvcw")]
+position = Vector2(7243, 290)
+
+[node name="Bystander11" parent="." instance=ExtResource("18_1bvcw")]
+position = Vector2(7377, 296)
