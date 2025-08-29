@@ -32,15 +32,12 @@ func get_random_color_sequence(shade_name: String, count: int = 3) -> Array:
     var start_idx = randi() % (colors.size() - count + 1)
     return colors.slice(start_idx, start_idx + count)
 
-func pick_unique_shade(excluded_shades: Array) -> String:
+func pick_unique_shade() -> String:
     var available_shades = COLOR_SETS.keys()
-    available_shades = available_shades.filter(func(shade): return not excluded_shades.has(shade))
     return available_shades[randi() % available_shades.size()]
 
 func setup_palette_swap() -> void:
     var shader_material = animated_sprite_2d.material as ShaderMaterial
-    if not shader_material:
-        return
     
     shader_material.set_shader_parameter("original_0", Color("000000"))
     shader_material.set_shader_parameter("original_1", Color("191a21"))
@@ -58,23 +55,20 @@ func setup_palette_swap() -> void:
     shader_material.set_shader_parameter("original_10", Color("3e5caa"))
     shader_material.set_shader_parameter("original_11", Color("4688d5"))
     
-    var used_shades = []
-    
     var hair_shade = HAIR_COLOR_SETS[randi() % HAIR_COLOR_SETS.size()]
-    
-    used_shades.append(hair_shade)
+    if global_position.y < 0:
+        hair_shade = pick_unique_shade()
     var hair_colors = get_random_color_sequence(hair_shade)
     
-    prints(hair_shade, hair_colors)
     var skin_shade = SKIN_COLOR_SETS[randi() % SKIN_COLOR_SETS.size()]
-    used_shades.append(skin_shade)
+    if global_position.y < 0:
+        skin_shade = pick_unique_shade()
     var skin_colors = get_random_color_sequence(skin_shade)
     
-    var shirt_shade = pick_unique_shade(used_shades)
-    used_shades.append(shirt_shade)
+    var shirt_shade = pick_unique_shade()
     var shirt_colors = get_random_color_sequence(shirt_shade)
     
-    var pants_shade = pick_unique_shade(used_shades)
+    var pants_shade = pick_unique_shade()
     var pants_colors = get_random_color_sequence(pants_shade)
     
     shader_material.set_shader_parameter("replace_0", Color(hair_colors[0]))
@@ -99,6 +93,7 @@ func _ready() -> void:
     dj = get_node("/root/Main/DJ")
     player = get_node("/root/Main/Player")
     animated_sprite_2d.animation_finished.connect(_on_animation_finished)
+    play_animation("default")
     setup_palette_swap()
     
     sequencer = AnimationSequencer.new()
