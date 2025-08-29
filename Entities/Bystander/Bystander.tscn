@@ -1,7 +1,35 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmy1vc0cyk4xo"]
+[gd_scene load_steps=15 format=3 uid="uid://bmy1vc0cyk4xo"]
 
 [ext_resource type="Texture2D" uid="uid://cgbiykkb4ucdr" path="res://Textures/bystander.png" id="1_llgv5"]
 [ext_resource type="Script" path="res://Entities/Bystander/bystander.gd" id="1_vei4y"]
+[ext_resource type="Shader" path="res://Shaders/pallete_swap.gdshader" id="2_s0ko0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53u4p"]
+shader = ExtResource("2_s0ko0")
+shader_parameter/is_disabled = null
+shader_parameter/original_0 = null
+shader_parameter/original_1 = null
+shader_parameter/original_2 = null
+shader_parameter/original_3 = null
+shader_parameter/original_4 = null
+shader_parameter/original_5 = null
+shader_parameter/original_6 = null
+shader_parameter/original_7 = null
+shader_parameter/original_8 = null
+shader_parameter/original_9 = null
+shader_parameter/original_10 = null
+shader_parameter/replace_0 = null
+shader_parameter/replace_1 = null
+shader_parameter/replace_2 = null
+shader_parameter/replace_3 = null
+shader_parameter/replace_4 = null
+shader_parameter/replace_5 = null
+shader_parameter/replace_6 = null
+shader_parameter/replace_7 = null
+shader_parameter/replace_8 = null
+shader_parameter/replace_9 = null
+shader_parameter/replace_10 = null
+shader_parameter/modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1uwn"]
 atlas = ExtResource("1_llgv5")
@@ -139,6 +167,7 @@ animations = [{
 script = ExtResource("1_vei4y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_53u4p")
 sprite_frames = SubResource("SpriteFrames_pbm60")
 animation = &"shout_fast"
 autoplay = "default"
