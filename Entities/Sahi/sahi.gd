@@ -19,7 +19,6 @@ func _ready() -> void:
     sequencer.add_trigger("sahi1.wav", "end_shout", 5.25)
 
 func _process(_delta: float) -> void:
-    var current_track = dj.tracks[dj.current_track_index]
     var playback_pos = dj.get_playback_position()
     
     if animated_sprite_2d.animation in ["default", "shout"]:

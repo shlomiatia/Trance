@@ -225,8 +225,8 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbuvh"]
-radius = 2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccrwh"]
+size = Vector2(2, 30)
 
 [node name="Player" type="CharacterBody2D"]
 floor_stop_on_slope = false
@@ -241,7 +241,7 @@ animation = &"jump"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_jbuvh")
+shape = SubResource("RectangleShape2D_ccrwh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -90)

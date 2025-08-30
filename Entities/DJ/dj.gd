@@ -83,6 +83,7 @@ func _process(_delta: float) -> void:
                     if waiting_for_jump && !playing:
                         get_tree().paused = false
                         waiting_for_jump = false
+                        rhythm.get_node("Label").hide()
                         advance_track()
 
 func _on_finished() -> void:
@@ -100,6 +101,7 @@ func _on_finished() -> void:
         
         TrackType.WAIT_FOR_JUMP:
             waiting_for_jump = true
+            rhythm.get_node("Label").show()
             
         TrackType.LOOP_UNTIL_TUTORIAL:
             var track_name = current_track.file_name
