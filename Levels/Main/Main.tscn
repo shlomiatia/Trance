@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c3m1g5kpmn0md"]
+[gd_scene load_steps=22 format=4 uid="uid://c3m1g5kpmn0md"]
 
 [ext_resource type="Script" path="res://Levels/Main/main.gd" id="1_aj71e"]
 [ext_resource type="Texture2D" uid="uid://csfjg5i52ddur" path="res://Textures/parallax0.png" id="1_ek1rf"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bstufdvlnybon" path="res://Textures/tree5.png" id="17_o73po"]
 [ext_resource type="PackedScene" uid="uid://bmy1vc0cyk4xo" path="res://Entities/Bystander/Bystander.tscn" id="18_1bvcw"]
 [ext_resource type="FontFile" uid="uid://cvhl3wiujkm4b" path="res://Fonts/Minecraft.ttf" id="20_yhxwx"]
+[ext_resource type="PackedScene" uid="uid://bhrn8pbxg0v5j" path="res://Entities/Bird/Bird.tscn" id="21_ru5vx"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_aj71e")
@@ -372,3 +373,6 @@ theme_override_fonts/normal_font = ExtResource("20_yhxwx")
 bbcode_enabled = true
 text = "[center]Hit space/right mouse button[/center]"
 fit_content = true
+
+[node name="Bird" parent="Rhythm" node_paths=PackedStringArray("dj") instance=ExtResource("21_ru5vx")]
+dj = NodePath("../../DJ")

@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhrn8pbxg0v5j"]
+
+[ext_resource type="Texture2D" uid="uid://4bdiquj5ith0" path="res://Textures/bird.png" id="1_d33d4"]
+[ext_resource type="Script" path="res://Entities/Bird/bird.gd" id="1_fkbdi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2nnc"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jctlh"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmgoo"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wg2y"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub5u8"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bduga"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcvtf"]
+atlas = ExtResource("1_d33d4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jh8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2nnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jctlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmgoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wg2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub5u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bduga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcvtf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_o5d7l"]
+resource_name = "Default"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(672, 238), Vector2(-32, 238)]
+}
+
+[sub_resource type="Animation" id="Animation_vivwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(656, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y71g1"]
+_data = {
+"Default": SubResource("Animation_o5d7l"),
+"RESET": SubResource("Animation_vivwt")
+}
+
+[node name="Bird" type="Node2D"]
+script = ExtResource("1_fkbdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(656, 270)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1jh8a")
+autoplay = "default"
+frame_progress = 0.83329
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y71g1")
+}

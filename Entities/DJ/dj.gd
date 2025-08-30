@@ -172,7 +172,7 @@ func advance_track() -> void:
         
         var total_percent = float(total_hits) / float(total_beats) * 100.0
         score_text += "\nScore: %d/%d (%.1f%%)\n\n" % [total_hits, total_beats, total_percent]
-        score_text += "Press ESC to skip sections\nPress R to restart[/center]"
+        score_text += "Press ESC to skip sections[/center]"
         
         rhythm.get_node("Label").text = score_text
         rhythm.get_node("Label").show()
