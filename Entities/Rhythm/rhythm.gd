@@ -105,6 +105,8 @@ func create_beat(track_name: String, target_time: float, direction: String) -> v
         get_parent().add_child.call_deferred(beat)
 
 func get_total_beats(track_name: String) -> int:
+    if !track_beats.has(track_name):
+        return 0
     return track_beats[track_name].keys().size()
 
 func _on_beat_result(track_name: String) -> void:

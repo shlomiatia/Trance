@@ -64,6 +64,20 @@ func _ready() -> void:
         advance_track()
     
 func _process(_delta: float) -> void:
+    if Input.is_action_just_pressed("ui_cancel"):
+        if is_tutorial:
+            get_tree().change_scene_to_file("res://Levels/Main/Main.tscn")
+            return
+        else:
+            var next_track_with_beats = find_next_track_with_beats()
+            if next_track_with_beats == -1 || next_track_with_beats == current_track_index:
+                return
+            var target_track = next_track_with_beats - 1
+            var target_pos = tracks[target_track].audio_stream.get_length() - 2.0
+            current_track_index = target_track - 1
+            advance_track()
+            seek(target_pos)
+                
     if current_track_index >= 0 and current_track_index < tracks.size():
         var current_track = tracks[current_track_index]
         
@@ -148,3 +162,11 @@ func get_current_track() -> String:
     if current_track_index < 0 or current_track_index >= tracks.size():
         return ""
     return tracks[current_track_index].file_name
+
+func find_next_track_with_beats() -> int:
+    var next_index = current_track_index
+    while next_index < tracks.size():
+        if rhythm.get_total_beats(tracks[next_index].file_name) > 0:
+            return next_index
+        next_index += 1
+    return -1
