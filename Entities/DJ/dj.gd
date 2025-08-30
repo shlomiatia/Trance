@@ -45,13 +45,12 @@ var tracks: Array[Track] = [
 ]
 
 var tutorial_tracks: Array[Track] = [
-    Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/tutorial1.wav"), 900.0),
-    Track.new("tutorial2.mp3", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/tutorial2.mp3"), 900.0),
-    Track.new("tutorial3.mp3", TrackType.WAIT_FOR_JUMP, preload("res://Music/tutorial3.mp3"), 900.0),
+    Track.new("tutorial1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/tutorial1.wav"), 900.0),
+    Track.new("tutorial2.mp3", TrackType.ADVANCE_AUTO, preload("res://Music/tutorial2.mp3"), 900.0),
 ]
 
 var current_track_index: int = -1
-var waiting_for_mouse_buttons: bool = false
+var waiting_for_jump: bool = false
 
 func _ready() -> void:
     if is_tutorial:
@@ -73,12 +72,12 @@ func _process(_delta: float) -> void:
                     advance_track()
             
             TrackType.WAIT_FOR_JUMP:
-                if waiting_for_mouse_buttons && !playing:
+                if waiting_for_jump && !playing:
                     get_tree().paused = true
                 if Input.is_action_just_pressed("jump"):
-                    if waiting_for_mouse_buttons && !playing:
+                    if waiting_for_jump && !playing:
                         get_tree().paused = false
-                        waiting_for_mouse_buttons = false
+                        waiting_for_jump = false
                         advance_track()
 
 func _on_finished() -> void:
@@ -95,7 +94,7 @@ func _on_finished() -> void:
                 advance_track()
         
         TrackType.WAIT_FOR_JUMP:
-            waiting_for_mouse_buttons = true
+            waiting_for_jump = true
 
 func get_playback_position_relative_to(track_name: String) -> float:
     var track_index = -1
@@ -127,4 +126,6 @@ func advance_track() -> void:
     track_changed.emit(track.file_name)
 
 func get_current_track() -> String:
+    if current_track_index < 0 or current_track_index >= tracks.size():
+        return ""
     return tracks[current_track_index].file_name
