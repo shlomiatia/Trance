@@ -17,6 +17,8 @@ size = Vector2(640, 20)
 script = ExtResource("1_r4k3l")
 
 [node name="DJ" parent="." node_paths=PackedStringArray("player", "rhythm") instance=ExtResource("3_5p8kq")]
+process_mode = 3
+autoplay = false
 player = NodePath("../Player")
 rhythm = NodePath("../CanvasLayer")
 is_tutorial = true

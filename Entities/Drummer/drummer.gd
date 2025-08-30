@@ -129,10 +129,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
     if animated_sprite_2d.animation == "default":
-        var current_track = dj.tracks[dj.current_track_index]
         var playback_pos = dj.get_playback_position()
         
-        var animation = sequencer.process_triggers(current_track.file_name, playback_pos)
+        var animation = sequencer.process_triggers(dj.get_current_track(), playback_pos)
         if animation != "":
             animated_sprite_2d.play(animation)
 

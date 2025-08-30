@@ -29,7 +29,7 @@ func change_state(state_type: PlayerStateEnum.Type) -> void:
 func _physics_process(delta: float) -> void:
     var gravity = Vector2(0, 250)
     var current_track = dj.get_current_track()
-    collision_shape_2d.disabled = current_track == "song3.wav" && dj.get_playback_position() < 1
+    collision_shape_2d.disabled = (current_track == "song3.wav" || current_track == "tutorial2.wav") && dj.get_playback_position() < 1
     
     if current_track == "song2.wav":
         gravity = Vector2(0, -250)
@@ -50,7 +50,7 @@ func _on_track_changed(track_name: String) -> void:
     elif track_name == "song2toguitarloop2.wav":
         global_position = Vector2(0, -472750)
         velocity.y = 125
-    elif track_name == "song3.wav":
+    elif track_name == "song3.wav" || track_name == "tutorial2.wav":
         change_state(PlayerStateEnum.Type.FALL)
     elif track_name == "song4.wav":
         velocity.y = 125

@@ -6,7 +6,7 @@ func _init(p_player: Player) -> void:
 func enter() -> void:
     var track_name = player.dj.tracks[player.dj.current_track_index].file_name
     var track_length = player.dj.stream.get_length()
-    var flat_end_position
+    var flat_end_position = 0
     if track_name == "singer1tosong1.wav":
         flat_end_position = 4448
     elif track_name == "sahi2.wav":

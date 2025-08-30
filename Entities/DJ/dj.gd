@@ -5,6 +5,7 @@ class_name DJ extends AudioStreamPlayer
 @export var is_tutorial: bool
 
 signal track_changed(track_name: String)
+signal playlist_finished()
 
 enum TrackType {
     ADVANCE_AUTO,
@@ -28,10 +29,10 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    # Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    # Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    # Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    # Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
     Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
     Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
     Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
@@ -47,18 +48,20 @@ var tracks: Array[Track] = [
 ]
 
 var tutorial_tracks: Array[Track] = [
-    Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial1.wav"), 900.0),
-    Track.new("tutorial2.mp3", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial2.mp3"), 900.0),
+    Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial1.wav")),
+    Track.new("tutorial0.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/start.wav")),
+    Track.new("tutorial2.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial2.wav")),
 ]
 
 var current_track_index: int = -1
 var waiting_for_jump: bool = false
 
 func _ready() -> void:
+    finished.connect(_on_finished)
     if is_tutorial:
         tracks = tutorial_tracks
-    finished.connect(_on_finished)
-    advance_track()
+    else:
+        advance_track()
     
 func _process(_delta: float) -> void:
     if current_track_index >= 0 and current_track_index < tracks.size():
@@ -102,7 +105,7 @@ func _on_finished() -> void:
             var track_name = current_track.file_name
             var total_beats = rhythm.get_total_beats(track_name)
             var hit_beats = rhythm.track_stats[track_name]
-            
+
             if hit_beats >= total_beats:
                 advance_track()
             else:
@@ -130,6 +133,7 @@ func get_playback_position_relative_to(track_name: String) -> float:
 func advance_track() -> void:
     current_track_index += 1
     if current_track_index >= tracks.size():
+        playlist_finished.emit()
         return
         
     var track = tracks[current_track_index]
