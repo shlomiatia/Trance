@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c3m1g5kpmn0md"]
+[gd_scene load_steps=20 format=4 uid="uid://c3m1g5kpmn0md"]
 
 [ext_resource type="Script" path="res://Levels/Main/main.gd" id="1_aj71e"]
 [ext_resource type="Texture2D" uid="uid://csfjg5i52ddur" path="res://Textures/parallax0.png" id="1_ek1rf"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://c5tmik3ik2pyx" path="res://Textures/tree4.png" id="16_mt1oq"]
 [ext_resource type="Texture2D" uid="uid://bstufdvlnybon" path="res://Textures/tree5.png" id="17_o73po"]
 [ext_resource type="PackedScene" uid="uid://bmy1vc0cyk4xo" path="res://Entities/Bystander/Bystander.tscn" id="18_1bvcw"]
-[ext_resource type="FontFile" uid="uid://cvhl3wiujkm4b" path="res://Fonts/Minecraft.ttf" id="19_mosnc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_aj71e")
@@ -356,18 +355,18 @@ dj = NodePath("../DJ")
 dj = NodePath("../DJ")
 player = NodePath("../Player")
 
-[node name="Label" type="Label" parent="Rhythm"]
+[node name="Label" type="RichTextLabel" parent="Rhythm"]
 visible = false
+custom_minimum_size = Vector2(640, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -0.5
+offset_right = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("19_mosnc")
-text = "Hit space/right mouse button"
+bbcode_enabled = true
+text = "[center]Hit space/right mouse button[/center]"
+fit_content = true
