@@ -1,18 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh8u4p6q7r2gx"]
+[gd_scene load_steps=9 format=3 uid="uid://dh8u4p6q7r2gx"]
 
 [ext_resource type="Script" path="res://Levels/Tutorial/tutorial.gd" id="1_r4k3l"]
 [ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_njh7k"]
 [ext_resource type="PackedScene" uid="uid://cvmakink4dywe" path="res://Entities/DJ/DJ.tscn" id="3_5p8kq"]
 [ext_resource type="PackedScene" uid="uid://bhg5mhxagc76c" path="res://Entities/Rhythm/Rhythm.tscn" id="4_sia0j"]
+[ext_resource type="FontFile" uid="uid://cvhl3wiujkm4b" path="res://Fonts/Minecraft.ttf" id="5_y6c4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5w7p"]
 size = Vector2(640, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3vo7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cwgg"]
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_r4k3l")
 
-[node name="DJ" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_5p8kq")]
+[node name="DJ" parent="." node_paths=PackedStringArray("player", "rhythm") instance=ExtResource("3_5p8kq")]
 player = NodePath("../Player")
+rhythm = NodePath("../CanvasLayer")
 is_tutorial = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("2_njh7k")]
@@ -25,6 +31,22 @@ position = Vector2(320, 340)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_u5w7p")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2(310, -20)
+shape = SubResource("RectangleShape2D_g3vo7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-310, -20)
+shape = SubResource("RectangleShape2D_1cwgg")
+
 [node name="CanvasLayer" parent="." node_paths=PackedStringArray("dj", "player") instance=ExtResource("4_sia0j")]
 dj = NodePath("../DJ")
 player = NodePath("../Player")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 127.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("5_y6c4d")
+text = "WASD to move"

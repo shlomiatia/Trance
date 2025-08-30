@@ -1,6 +1,7 @@
 class_name DJ extends AudioStreamPlayer
 
 @export var player: Player
+@export var rhythm: Rhythm
 @export var is_tutorial: bool
 
 signal track_changed(track_name: String)
@@ -10,6 +11,7 @@ enum TrackType {
     LOOP_UNTIL_POSITION,
     WAIT_FOR_JUMP,
     WAIT_UNTIL_POSITION,
+    LOOP_UNTIL_TUTORIAL,
 }
 
 class Track:
@@ -45,8 +47,8 @@ var tracks: Array[Track] = [
 ]
 
 var tutorial_tracks: Array[Track] = [
-    Track.new("tutorial1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/tutorial1.wav"), 900.0),
-    Track.new("tutorial2.mp3", TrackType.ADVANCE_AUTO, preload("res://Music/tutorial2.mp3"), 900.0),
+    Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial1.wav"), 900.0),
+    Track.new("tutorial2.mp3", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial2.mp3"), 900.0),
 ]
 
 var current_track_index: int = -1
@@ -95,6 +97,17 @@ func _on_finished() -> void:
         
         TrackType.WAIT_FOR_JUMP:
             waiting_for_jump = true
+            
+        TrackType.LOOP_UNTIL_TUTORIAL:
+            var track_name = current_track.file_name
+            var total_beats = rhythm.get_total_beats(track_name)
+            var hit_beats = rhythm.track_stats[track_name]
+            
+            if hit_beats >= total_beats:
+                advance_track()
+            else:
+                rhythm.create_track_beats(track_name)
+                play()
 
 func get_playback_position_relative_to(track_name: String) -> float:
     var track_index = -1

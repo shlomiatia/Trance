@@ -7,7 +7,7 @@ var beat_scene: PackedScene = preload("res://Entities/Beat/Beat.tscn")
 var track_stats = {}
 var track_beats = {
     "tutorial1.wav": {
-        1.3: "none", 1.75: "none", 2.20: "none", 2.65: "none", 3.10: "none", 3.55: "none", 4.00: "none", 4.45: "none",
+        1.6: "none", 2.05: "none", 2.50: "none", 2.95: "none", 3.40: "none", 3.85: "none", 4.30: "none", 4.75: "none",
     },
     "singer1tosong1.wav": {
         0.70: "none", 1.60: "none", 2.50: "none", 3.40: "none", 4.30: "none", 5.20: "none",
@@ -83,9 +83,12 @@ var track_beats = {
 
 func _ready() -> void:
     for track_name in track_beats:
-        track_stats[track_name] = 0
-        for beat_time in track_beats[track_name]:
-            create_beat(track_name, beat_time, track_beats[track_name][beat_time])
+        create_track_beats(track_name)
+
+func create_track_beats(track_name: String) -> void:
+    track_stats[track_name] = 0
+    for beat_time in track_beats[track_name]:
+        create_beat(track_name, beat_time, track_beats[track_name][beat_time])
 
 func create_beat(track_name: String, target_time: float, direction: String) -> void:
     var beat = beat_scene.instantiate() as Beat
@@ -97,6 +100,9 @@ func create_beat(track_name: String, target_time: float, direction: String) -> v
         add_child(beat)
     else:
         get_parent().add_child.call_deferred(beat)
+
+func get_total_beats(track_name: String) -> int:
+    return track_beats[track_name].keys().size()
 
 func _on_beat_result(track_name: String) -> void:
     track_stats[track_name] += 1
