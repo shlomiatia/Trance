@@ -157,6 +157,25 @@ func advance_track() -> void:
     stream = track.audio_stream
     play()
     track_changed.emit(track.file_name)
+    
+    if track.file_name == "song4.wav":
+        var total_hits = 0
+        var total_beats = 0
+        var score_text = "[center]"
+        
+        var sections = ["singer1tosong1.wav", "song1.wav", "sahi2.wav", "song2.wav", "singer2tosong3.wav", "song3.wav"]
+        for section in sections:
+            var section_hits = rhythm.track_stats.get(section, 0)
+            var section_total = rhythm.get_total_beats(section)
+            total_hits += section_hits
+            total_beats += section_total
+        
+        var total_percent = float(total_hits) / float(total_beats) * 100.0
+        score_text += "\nScore: %d/%d (%.1f%%)\n\n" % [total_hits, total_beats, total_percent]
+        score_text += "Press ESC to skip sections\nPress R to restart[/center]"
+        
+        rhythm.get_node("Label").text = score_text
+        rhythm.get_node("Label").show()
 
 func get_current_track() -> String:
     if current_track_index < 0 or current_track_index >= tracks.size():
