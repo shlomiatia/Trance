@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 
 func _on_track_changed(track_name: String) -> void:
-    if track_name == "tutorial0.wav":
+    if track_name == "tutorial1.5.wav":
         label.text = "Hit space when time stops"
     if track_name == "tutorial2.wav":
         label.text = "Hit shift + A/D on the beat"

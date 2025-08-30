@@ -49,7 +49,7 @@ var tracks: Array[Track] = [
 
 var tutorial_tracks: Array[Track] = [
     Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial1.wav")),
-    Track.new("tutorial0.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/start.wav")),
+    Track.new("tutorial1.5.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/tutorial1.5.wav")),
     Track.new("tutorial2.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial2.wav")),
 ]
 
