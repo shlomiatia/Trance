@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 @export var dj: DJ
 
@@ -30,6 +31,28 @@ func _physics_process(delta: float) -> void:
     var gravity = Vector2(0, 250)
     var current_track = dj.get_current_track()
     collision_shape_2d.disabled = (current_track == "song3.wav" || current_track == "tutorial2.wav") && dj.get_playback_position() < 1
+
+    if current_track == "singer2tosong3.wav":
+        if dj.get_playback_position() <= 1:
+            var progress = dj.get_playback_position()
+            if progress > 1:
+                progress = 1
+            camera_2d.offset = lerp(Vector2(0, -90), Vector2(90, 0), progress)
+            rotation_degrees = lerpf(0, 90.0, progress)
+            animated_sprite_2d.rotation_degrees = lerpf(0, -90.0, progress)
+        elif dj.get_playback_position() > dj.stream.get_length() - 1:
+            var progress = dj.get_playback_position() - (dj.stream.get_length() - 1)
+            if progress > 1:
+                progress = 1
+            
+            camera_2d.offset = lerp(Vector2(90, 0), Vector2(0, -90), progress)
+            rotation_degrees = lerpf(90, 0.0, progress)
+            animated_sprite_2d.rotation_degrees = lerpf(-90, 0.0, progress)
+            prints(progress, camera_2d.offset, rotation_degrees, animated_sprite_2d.rotation_degrees)
+        else:
+            camera_2d.offset = Vector2(90, 0)
+            rotation_degrees = 90
+            animated_sprite_2d.rotation_degrees = -90
     
     if current_track == "song2.wav":
         gravity = Vector2(0, -250)
