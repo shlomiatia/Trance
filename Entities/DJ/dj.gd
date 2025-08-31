@@ -3,6 +3,7 @@ class_name DJ extends AudioStreamPlayer
 @export var player: Player
 @export var rhythm: Rhythm
 @export var is_tutorial: bool
+@export var rhythm_label: RichTextLabel
 
 signal track_changed(track_name: String)
 signal playlist_finished()
@@ -97,7 +98,8 @@ func _process(_delta: float) -> void:
                     if waiting_for_jump && !playing:
                         get_tree().paused = false
                         waiting_for_jump = false
-                        rhythm.get_node("Label").hide()
+                        if !is_tutorial:
+                            rhythm_label.hide()
                         advance_track()
 
 func _on_finished() -> void:
@@ -115,7 +117,7 @@ func _on_finished() -> void:
         
         TrackType.WAIT_FOR_JUMP:
             waiting_for_jump = true
-            rhythm.get_node("Label").show()
+            rhythm_label.show()
             
         TrackType.LOOP_UNTIL_TUTORIAL:
             var track_name = current_track.file_name
@@ -174,8 +176,8 @@ func advance_track() -> void:
         score_text += "\nScore: %d/%d (%.1f%%)\n\n" % [total_hits, total_beats, total_percent]
         score_text += "Press ESC to skip sections[/center]"
         
-        rhythm.get_node("Label").text = score_text
-        rhythm.get_node("Label").show()
+        rhythm_label.text = score_text
+        rhythm_label.show()
 
 func get_current_track() -> String:
     if current_track_index < 0 or current_track_index >= tracks.size():

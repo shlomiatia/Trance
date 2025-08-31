@@ -54,10 +54,11 @@ scroll_offset = Vector2(0, 640)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax2D4"]
 texture = ExtResource("4_e2n4t")
 
-[node name="DJ" parent="." node_paths=PackedStringArray("player", "rhythm") instance=ExtResource("3_dsah1")]
+[node name="DJ" parent="." node_paths=PackedStringArray("player", "rhythm", "rhythm_label") instance=ExtResource("3_dsah1")]
 process_mode = 3
 player = NodePath("../Player")
 rhythm = NodePath("../Rhythm")
+rhythm_label = NodePath("../Rhythm/Label")
 
 [node name="BackgroundTileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAUARQAAAABAAQAAAAUARMAAAABAAQAAADPARQAAAABAAQAAADPARMAAAABAAQAAAAVARMAAAABAAQAAAAUARIAAAABAAQAAAAVARIAAAABAAQAAAAWARIAAAABAAQAAAAUAREAAAABAAAAAAAVAREAAAABAAAAAAAWAREAAAABAAAAAADQARMAAAABAAQAAADPARIAAAABAAQAAADQARIAAAACAAUAAADRARIAAAABAAQAAADPAREAAAABAAAAAADQAREAAAABAAAAAADRAREAAAABAAAAAAA=")

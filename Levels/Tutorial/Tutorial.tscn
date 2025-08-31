@@ -29,20 +29,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.243137, 0.231373, 0.396078, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 127.0
+offset_right = 604.0
 offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("5_y6c4d")
+theme_override_fonts/normal_font = ExtResource("5_y6c4d")
 text = "WASD to move"
 
-[node name="DJ" parent="." node_paths=PackedStringArray("player", "rhythm") instance=ExtResource("3_5p8kq")]
+[node name="DJ" parent="." node_paths=PackedStringArray("player", "rhythm", "rhythm_label") instance=ExtResource("3_5p8kq")]
 process_mode = 3
 autoplay = false
 player = NodePath("../Player")
 rhythm = NodePath("../CanvasLayer")
 is_tutorial = true
+rhythm_label = NodePath("../CanvasLayer/Label")
 
 [node name="Player" parent="." node_paths=PackedStringArray("dj") instance=ExtResource("2_njh7k")]
 position = Vector2(320, 320)

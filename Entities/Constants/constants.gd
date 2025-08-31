@@ -12,7 +12,7 @@ var properties: Array = []
 var categories: Array = []
 var timer = 0
 
-const is_disabled = false
+const is_disabled = true
 const VALUE_ADJUST_DELAY = 0.2
 
 func _ready():
