@@ -30,16 +30,16 @@ class Track:
 
 var tracks: Array[Track] = [
     Track.new("start.wav", TrackType.ADVANCE_AUTO, preload("res://Music/start.wav")),
-    # Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
-    # Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
-    # Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
-    # Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
-    # Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
-    # Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
-    # Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
-    # Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
-    # Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
-    # Track.new("song2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2.wav")),
+    Track.new("loop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/loop1.wav"), 900.0),
+    Track.new("loop1toguitarloop1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/loop1toguitarloop1.wav")),
+    Track.new("guitarloop1.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop1.wav"), 1700.0),
+    Track.new("singer1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer1.wav")),
+    Track.new("singer1tosong1.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/singer1tosong1.wav")),
+    Track.new("song1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song1.wav")),
+    Track.new("song1tosahi.wav", TrackType.WAIT_UNTIL_POSITION, preload("res://Music/song1tosahi.wav"), 6700.0),
+    Track.new("sahi1.wav", TrackType.ADVANCE_AUTO, preload("res://Music/sahi1.wav")),
+    Track.new("sahi2.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/sahi2.wav")),
+    Track.new("song2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2.wav")),
     Track.new("song2toguitarloop2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/song2toguitarloop2.wav")),
     Track.new("guitarloop2.wav", TrackType.LOOP_UNTIL_POSITION, preload("res://Music/guitarloop2.wav"), 700.0),
     Track.new("singer2.wav", TrackType.ADVANCE_AUTO, preload("res://Music/singer2.wav")),
@@ -50,7 +50,6 @@ var tracks: Array[Track] = [
 
 var tutorial_tracks: Array[Track] = [
     Track.new("tutorial1.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial1.wav")),
-    Track.new("tutorial1.5.wav", TrackType.WAIT_FOR_JUMP, preload("res://Music/tutorial1.5.wav")),
     Track.new("tutorial2.wav", TrackType.LOOP_UNTIL_TUTORIAL, preload("res://Music/tutorial2.wav")),
 ]
 
@@ -65,6 +64,9 @@ func _ready() -> void:
         advance_track()
     
 func _process(_delta: float) -> void:
+    if Input.is_key_pressed(KEY_R):
+        get_tree().change_scene_to_file("res://Levels/Main/Main.tscn")
+        return
     if Input.is_action_just_pressed("ui_cancel"):
         if is_tutorial:
             get_tree().change_scene_to_file("res://Levels/Main/Main.tscn")
@@ -174,6 +176,7 @@ func advance_track() -> void:
         
         var total_percent = float(total_hits) / float(total_beats) * 100.0
         score_text += "\nScore: %d/%d (%.1f%%)\n\n" % [total_hits, total_beats, total_percent]
+        score_text += "Press R to restart\n\n"
         score_text += "Press ESC to skip walking sections[/center]"
         
         rhythm_label.text = score_text

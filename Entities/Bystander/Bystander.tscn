@@ -194,26 +194,44 @@ animations = [{
 "texture": SubResource("AtlasTexture_yrfjx")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_iwgem")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rfh0q")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dv6p8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xl7fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aseq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3umkm")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4aseq")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xl7fn")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dv6p8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rfh0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwgem")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yrfjx")
 }],
 "loop": false,
 "name": &"shout_fast",
-"speed": 18.0
+"speed": 20.0
 }]
 
 [node name="Bystander" type="Node2D"]
@@ -223,5 +241,7 @@ script = ExtResource("1_vei4y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_53u4p")
 sprite_frames = SubResource("SpriteFrames_pbm60")
+animation = &"shout_fast"
 autoplay = "default"
-frame_progress = 0.3531
+frame = 12
+frame_progress = 1.0
