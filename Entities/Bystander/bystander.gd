@@ -51,7 +51,7 @@ func setup_palette_swap() -> void:
     shader_material.set_shader_parameter("original_7", Color("9d3949"))
     shader_material.set_shader_parameter("original_8", Color("d84345"))
     
-    shader_material.set_shader_parameter("original_9", Color("d84345"))
+    shader_material.set_shader_parameter("original_9", Color("3e3f61"))
     shader_material.set_shader_parameter("original_10", Color("3e5caa"))
     shader_material.set_shader_parameter("original_11", Color("4688d5"))
     
@@ -101,6 +101,8 @@ func _ready() -> void:
     sequencer.add_trigger("sahi1.wav", "shout", 6)
     sequencer.add_trigger("sahi2.wav", "shout_fast", 3.6)
 
+    dj.track_changed.connect(_on_track_changed)
+
 func _process(_delta: float) -> void:
     var playback_pos = dj.get_playback_position()
     
@@ -119,3 +121,10 @@ func _on_animation_finished() -> void:
     match current_anim:
         "shout_fast": play_animation("default")
         "shout": play_animation("default")
+
+func _on_track_changed(track_name: String) -> void:
+    if track_name == "song4.wav":
+        global_position.x = randi() % 4400
+        global_position.y = 288 + randi() % 16
+        animated_sprite_2d.play("dance")
+        animated_sprite_2d.frame = randi() % animated_sprite_2d.sprite_frames.get_frame_count("dance")

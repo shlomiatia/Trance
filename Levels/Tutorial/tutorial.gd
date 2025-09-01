@@ -13,7 +13,7 @@ func _ready() -> void:
     dj.playlist_finished.connect(func():
         get_tree().change_scene_to_file("res://Levels/Main/Main.tscn")
     )
-    label.text = "A/D to walk"
+    label.text = "AD/arrows/gamepad to walk"
 
 func _process(delta: float) -> void:
     if _tutorial_step == 0:
@@ -24,12 +24,13 @@ func _process(delta: float) -> void:
             _tutorial_step += 1
             _step_timer = 0.0
             dj.advance_track()
-            label.text = "Hit shift on the beat"
+            label.text = "Hit shift/left mouse button/gamepad x on the beat"
             player.change_state(PlayerStateEnum.Type.SPRINT)
 
 
 func _on_track_changed(track_name: String) -> void:
     if track_name == "tutorial1.5.wav":
-        label.text = "Hit space when time stops"
+        label.hide()
+        label.text = "Hit space/right mouse button/gamepad a"
     if track_name == "tutorial2.wav":
-        label.text = "Hit shift + A/D on the beat"
+        label.text = "Hit direction + shift/left mouse button/gamepad x on the beat"

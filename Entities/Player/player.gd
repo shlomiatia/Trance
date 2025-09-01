@@ -48,11 +48,14 @@ func _physics_process(delta: float) -> void:
             camera_2d.offset = lerp(Vector2(90, 0), Vector2(0, -90), progress)
             rotation_degrees = lerpf(90, 0.0, progress)
             animated_sprite_2d.rotation_degrees = lerpf(-90, 0.0, progress)
-            prints(progress, camera_2d.offset, rotation_degrees, animated_sprite_2d.rotation_degrees)
         else:
             camera_2d.offset = Vector2(90, 0)
             rotation_degrees = 90
             animated_sprite_2d.rotation_degrees = -90
+    else:
+        camera_2d.offset = Vector2(0, -90)
+        rotation_degrees = 0
+        animated_sprite_2d.rotation_degrees = 0
     
     if current_track == "song2.wav":
         gravity = Vector2(0, -250)
@@ -78,7 +81,7 @@ func _on_track_changed(track_name: String) -> void:
     elif track_name == "song4.wav":
         velocity.y = 125
         
-
+        
 func get_beat() -> Beat:
     var beats = get_tree().get_nodes_in_group("beats").filter(func(b): return b.can_hit())
     beats.sort_custom(func(a: Beat, b: Beat): return a.target_time < b.target_time)
