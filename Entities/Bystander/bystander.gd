@@ -24,6 +24,7 @@ const COLOR_SETS = {
 
 const HAIR_COLOR_SETS = ["black", "orange", "brown", "grey"]
 const SKIN_COLOR_SETS = ["brown", "pink"]
+const EYES_COLOR_SETS = ["brown", "green", "blue"]
 
 func get_random_color_sequence(shade_name: String, count: int = 3) -> Array:
     var colors = COLOR_SETS[shade_name]
@@ -54,7 +55,14 @@ func setup_palette_swap() -> void:
     shader_material.set_shader_parameter("original_9", Color("3e3f61"))
     shader_material.set_shader_parameter("original_10", Color("3e5caa"))
     shader_material.set_shader_parameter("original_11", Color("4688d5"))
-    
+
+    shader_material.set_shader_parameter("original_12", Color("4a3936"))
+
+    var eyes_shade = EYES_COLOR_SETS[randi() % EYES_COLOR_SETS.size()]
+    if global_position.y < 0:
+        eyes_shade = pick_unique_shade()
+    var eye_color = get_random_color_sequence(eyes_shade)[0]
+
     var hair_shade = HAIR_COLOR_SETS[randi() % HAIR_COLOR_SETS.size()]
     if global_position.y < 0:
         hair_shade = pick_unique_shade()
@@ -86,6 +94,8 @@ func setup_palette_swap() -> void:
     shader_material.set_shader_parameter("replace_9", Color(pants_colors[0]))
     shader_material.set_shader_parameter("replace_10", Color(pants_colors[1]))
     shader_material.set_shader_parameter("replace_11", Color(pants_colors[2]))
+
+    shader_material.set_shader_parameter("replace_12", Color(eye_color))
 
 func _ready() -> void:
     dj = get_node("/root/Main/DJ")

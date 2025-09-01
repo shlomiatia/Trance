@@ -20,6 +20,7 @@ shader_parameter/original_8 = null
 shader_parameter/original_9 = null
 shader_parameter/original_10 = null
 shader_parameter/original_11 = null
+shader_parameter/original_12 = null
 shader_parameter/replace_0 = null
 shader_parameter/replace_1 = null
 shader_parameter/replace_2 = null
@@ -32,6 +33,7 @@ shader_parameter/replace_8 = null
 shader_parameter/replace_9 = null
 shader_parameter/replace_10 = null
 shader_parameter/replace_11 = null
+shader_parameter/replace_12 = null
 shader_parameter/modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txvp1"]
@@ -215,10 +217,11 @@ animations = [{
 }]
 
 [node name="Bystander" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_vei4y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_53u4p")
 sprite_frames = SubResource("SpriteFrames_pbm60")
 autoplay = "default"
-frame_progress = 0.80488
+frame_progress = 0.3531
