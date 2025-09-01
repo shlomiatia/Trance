@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://12qrpdet2kua"]
 
-[ext_resource type="Script" path="res://Entities/Sahi/sahi.gd" id="1_8pyyy"]
+[ext_resource type="Script" uid="uid://c05ovy1qg8poh" path="res://Entities/Sahi/sahi.gd" id="1_8pyyy"]
 [ext_resource type="Texture2D" uid="uid://qjonneid54hh" path="res://Textures/sahi.png" id="1_10b0f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkrvf"]

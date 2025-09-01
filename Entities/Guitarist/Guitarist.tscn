@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b37vrm7c6epfv"]
 
 [ext_resource type="Texture2D" uid="uid://bsfl87us55wlx" path="res://Textures/guitar.png" id="1_colml"]
-[ext_resource type="Script" path="res://Entities/Guitarist/guitarist.gd" id="1_qhsn7"]
+[ext_resource type="Script" uid="uid://5lap30gob87h" path="res://Entities/Guitarist/guitarist.gd" id="1_qhsn7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8bj4"]
 atlas = ExtResource("1_colml")

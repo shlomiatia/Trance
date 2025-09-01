@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://clhybq0rr5bky"]
 
-[ext_resource type="Script" path="res://Entities/Beat/beat.gd" id="1_e2716"]
+[ext_resource type="Script" uid="uid://c8n8solqq531g" path="res://Entities/Beat/beat.gd" id="1_e2716"]
 [ext_resource type="Texture2D" uid="uid://115b60kage5d" path="res://Textures/ball.png" id="2_gc78a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wka0"]

@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
     var current_time = dj.get_playback_position_relative_to(track_name)
-
+    
     modulate = Color(1, 1, 1, 0.5)
     if can_hit():
         modulate = Color(1, 1, 1, 1)

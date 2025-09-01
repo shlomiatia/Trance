@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c2uddxnwq70fo"]
 
-[ext_resource type="Script" path="res://Entities/Singer/singer.gd" id="1_dxs8p"]
+[ext_resource type="Script" uid="uid://bjutu2yeuslw3" path="res://Entities/Singer/singer.gd" id="1_dxs8p"]
 [ext_resource type="Texture2D" uid="uid://e3e3sxdslndu" path="res://Textures/singer.png" id="1_iow6v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4bmw"]

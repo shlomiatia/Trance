@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhg5mhxagc76c"]
 
-[ext_resource type="Script" path="res://Entities/Rhythm/rhythm.gd" id="1_0kcqn"]
+[ext_resource type="Script" uid="uid://qdfxyk0k1wwo" path="res://Entities/Rhythm/rhythm.gd" id="1_0kcqn"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0kcqn")

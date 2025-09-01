@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bhrn8pbxg0v5j"]
 
 [ext_resource type="Texture2D" uid="uid://4bdiquj5ith0" path="res://Textures/bird.png" id="1_d33d4"]
-[ext_resource type="Script" path="res://Entities/Bird/bird.gd" id="1_fkbdi"]
+[ext_resource type="Script" uid="uid://dt8q3hvk47ebu" path="res://Entities/Bird/bird.gd" id="1_fkbdi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2nnc"]
 atlas = ExtResource("1_d33d4")
@@ -93,8 +93,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y71g1"]
 _data = {
-"Default": SubResource("Animation_o5d7l"),
-"RESET": SubResource("Animation_vivwt")
+&"Default": SubResource("Animation_o5d7l"),
+&"RESET": SubResource("Animation_vivwt")
 }
 
 [node name="Bird" type="Node2D"]

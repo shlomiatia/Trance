@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bvlxt7wiqng7i"]
 
 [ext_resource type="Texture2D" uid="uid://bkmvgf302ktkk" path="res://Textures/drums.png" id="1_o37ni"]
-[ext_resource type="Script" path="res://Entities/Drummer/drummer.gd" id="1_yofpt"]
+[ext_resource type="Script" uid="uid://d2nnpemfjlhth" path="res://Entities/Drummer/drummer.gd" id="1_yofpt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yrui"]
 atlas = ExtResource("1_o37ni")

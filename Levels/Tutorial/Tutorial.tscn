@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dh8u4p6q7r2gx"]
 
-[ext_resource type="Script" path="res://Levels/Tutorial/tutorial.gd" id="1_r4k3l"]
+[ext_resource type="Script" uid="uid://dcibtpov7lxoj" path="res://Levels/Tutorial/tutorial.gd" id="1_r4k3l"]
 [ext_resource type="PackedScene" uid="uid://0mx4dhul5yvp" path="res://Entities/Player/Player.tscn" id="2_njh7k"]
 [ext_resource type="PackedScene" uid="uid://cvmakink4dywe" path="res://Entities/DJ/DJ.tscn" id="3_5p8kq"]
 [ext_resource type="PackedScene" uid="uid://bhg5mhxagc76c" path="res://Entities/Rhythm/Rhythm.tscn" id="4_sia0j"]
