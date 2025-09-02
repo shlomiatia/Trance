@@ -23,7 +23,7 @@ var track_beats = {
         13.60: "none", 13.75: "none", 13.90: "none", 14.05: "none"
     },
     "song1.wav": {
-        3.87: "right", 4.30: "left", 4.74: "right", 5.17: "left", 5.61: "right", 6.06: "left", 6.50: "right", 6.91: "right",
+        3.97: "right", 4.40: "left", 4.74: "right", 5.17: "left", 5.61: "right", 6.06: "left", 6.50: "right", 6.91: "right",
         7.34: "left", 7.78: "right", 8.21: "left", 8.65: "right", 9.09: "left", 9.53: "right", 9.95: "left", 10.41: "left",
         10.82: "right", 11.28: "left", 11.69: "right", 12.13: "left", 12.56: "right",
         14.73: "right", 14.95: "right", 15.59: "left", 15.82: "left", 16.36: "right", 16.68: "right", 17.33: "left", 17.57: "left", 18.20: "right", 18.43: "right", 19.07: "left", 19.31: "left", 19.93: "right", 20.18: "right", 20.80: "left", 21.04: "left",
@@ -80,7 +80,7 @@ var track_beats = {
         50.5: "center", 51.4: "center", 52.3: "center", 53.2: "center",
         54.3: "center", 54.69: "center", 55.08: "center", 55.47: "center", 55.86: "center", 56.25: "center", 56.64: "center", 57.03: "center",
         57.5: "center", 57.65: "center", 57.8: "center", 57.95: "center", 58.1: "center", 58.25: "center", 58.4: "center", 58.55: "center", 58.7: "center", 58.85: "center", 59: "center", 59.15: "center", 59.3: "center", 59.45: "center", 59.6: "center", 59.75: "center", 59.9: "center", 60.05: "center", 60.2: "center", 60.35: "center", 60.5: "center", 60.65: "center", 60.8: "center", 60.95: "center", 61.1: "center", 61.25: "center", 61.4: "center", 61.55: "center", 61.7: "center", 61.85: "center", 62: "center", 62.15: "center", 62.3: "center", 62.45: "center", 62.6: "center", 62.75: "center", 62.9: "center", 63: "center",
-        63.1: "center", 63.2: "center", 63.3: "center", 63.4: "center", 63.5: "center", 63.6: "center", 63.7: "center", 63.8: "center", 63.9: "center", 64: "center"
+        63.15: "center", 63.3: "center", 63.45: "center", 63.6: "center", 63.75: "center", 63.9: "center"
     }
 }
 

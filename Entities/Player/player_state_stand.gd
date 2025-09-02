@@ -9,6 +9,11 @@ func _physics_process(_delta: float) -> void:
 		return
 		
 	var direction := Input.get_axis("left", "right")
+	
+	if Input.is_action_pressed("dash"):
+		var touch_pos = player.get_viewport().get_mouse_position()
+		direction = 1.0 if touch_pos.x > player.get_viewport().get_visible_rect().size.x / 2.0 else -1.0
+	
 	if direction:
 		player.change_state(PlayerStateEnum.Type.WALK)
 		return

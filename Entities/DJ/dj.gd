@@ -5,6 +5,15 @@ class_name DJ extends AudioStreamPlayer
 @export var is_tutorial: bool
 @export var rhythm_label: RichTextLabel
 
+var _playback_timer: float = 0.0
+
+func _notification(what: int) -> void:
+    if what == NOTIFICATION_INTERNAL_PROCESS:
+        if playing:
+            _playback_timer += get_process_delta_time()
+    elif what == NOTIFICATION_READY:
+        set_process_internal(true)
+
 signal track_changed(track_name: String)
 signal playlist_finished()
 
@@ -58,6 +67,7 @@ var waiting_for_jump: bool = false
 
 func _ready() -> void:
     finished.connect(_on_finished)
+    set_process_internal(true)
     if is_tutorial:
         tracks = tutorial_tracks
     else:
@@ -79,7 +89,7 @@ func _process(_delta: float) -> void:
             var target_pos = tracks[target_track].audio_stream.get_length() - 2.0
             current_track_index = target_track - 1
             advance_track()
-            seek(target_pos)
+            custom_seek(target_pos)
                 
     if current_track_index >= 0 and current_track_index < tracks.size():
         var current_track = tracks[current_track_index]
@@ -113,7 +123,7 @@ func _on_finished() -> void:
         
         TrackType.LOOP_UNTIL_POSITION:
             if player.global_position.x <= current_track.position_threshold:
-                play()
+                custom_play()
             else:
                 advance_track()
         
@@ -130,7 +140,10 @@ func _on_finished() -> void:
                 advance_track()
             else:
                 rhythm.create_track_beats(track_name)
-                play()
+                custom_play()
+
+func get_current_playback_time() -> float:
+    return _playback_timer
 
 func get_playback_position_relative_to(track_name: String) -> float:
     var track_index = -1
@@ -142,13 +155,21 @@ func get_playback_position_relative_to(track_name: String) -> float:
         return -INF
     
     if current_track_index == track_index:
-        return get_playback_position()
+        return get_current_playback_time()
     elif current_track_index == track_index - 1:
-        return -stream.get_length() + get_playback_position()
+        return -stream.get_length() + get_current_playback_time()
     elif current_track_index == track_index + 1:
-        return tracks[track_index].audio_stream.get_length() + get_playback_position()
+        return tracks[track_index].audio_stream.get_length() + get_current_playback_time()
     else:
         return -INF
+
+func custom_play(from_position: float = 0.0) -> void:
+    _playback_timer = from_position
+    play(from_position)
+
+func custom_seek(to_position: float) -> void:
+    _playback_timer = to_position
+    seek(to_position)
 
 func advance_track() -> void:
     current_track_index += 1
@@ -159,7 +180,7 @@ func advance_track() -> void:
     var track = tracks[current_track_index]
     stream_paused = false
     stream = track.audio_stream
-    play()
+    custom_play()
     track_changed.emit(track.file_name)
     
     if track.file_name == "song4.wav":

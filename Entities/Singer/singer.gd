@@ -34,7 +34,7 @@ func _ready() -> void:
     sequencer.add_trigger("singer2.wav", "end_sing", 28)
 
 func _process(_delta: float) -> void:
-    var playback_pos = dj.get_playback_position()
+    var playback_pos = dj.get_current_playback_time()
     
     if animated_sprite_2d.animation in ["default", "sing"]:
         var animation = sequencer.process_triggers(dj.get_current_track(), playback_pos)

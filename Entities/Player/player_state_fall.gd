@@ -38,10 +38,14 @@ func handle_input() -> void:
     var current_direction := Input.get_axis("left", "right")
     var time := Time.get_ticks_msec() / 1000.0
     
+    if Input.is_action_pressed("dash"):
+        var touch_pos = player.get_viewport().get_mouse_position()
+        current_direction = 1.0 if touch_pos.x > player.get_viewport().get_visible_rect().size.x / 2.0 else -1.0
+    
     if current_direction != 0:
         last_direction = current_direction
         last_direction_time = time
-        
+    
     if Input.is_action_just_pressed("dash"):
         var direction := current_direction
         if direction == 0 && time - last_direction_time <= DIRECTION_BUFFER_TIME:
