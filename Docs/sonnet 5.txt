@@ -1,0 +1,220 @@
+TRANCE - SOLO DEV COMMERCIAL RELEASE ESTIMATE
+================================================
+Date: 2026-08-10
+Basis: Design doc ("Trance design document") + current repo POC (Chakra track prototype, Godot)
+
+SCOPE ASSUMPTIONS (confirm before relying on this doc)
+--------------------------------------------------------
+- Target release: ~1 hour of music-track content = 7 tracks (doc's smallest option)
+- Track complexity mix: 3 "Chakra-level" bespoke tracks (first, last, day->night transition)
+  + 4 simpler Guitar-Hero-style tracks (single-loop, less scripted, less unique art)
+- Includes building a procedural character generator (layered parts, palette variants) for
+  the player and festival NPCs, rather than a small fixed hand-drawn cast
+- Art and audio (SFX) are OUTSOURCED (freelancers / asset packs); estimate below splits
+  YOUR dev hours (integration, tooling, direction, implementation) from the OUTSOURCE
+  BUDGET (what you'd pay someone else to produce the assets)
+- You already have the music tracks (not estimated here) and are an experienced Godot
+  developer (based on the existing POC quality)
+- No voice acting assumed (dialogue is text-based, per the doc's UI section)
+- No fail state / no lives / no game-over system needed (per design pillar) - this
+  meaningfully reduces scope vs a typical rhythm game
+
+Numbers are ranges because solo-dev estimates are inherently uncertain. Treat the
+"best guess" as the planning number and the range as your risk buffer.
+
+
+PART 1 - TOTAL WORK ESTIMATE (SINGLE DEVELOPER)
+================================================
+
+  Bucket                          Low h   High h   Best guess
+  ------------------------------  ------  -------  -----------
+  Common / shared systems          800     1,100      950
+  3 complex tracks (net of POC)    320       550        435
+  4 simple tracks                  160       280        220
+  Contingency (15-20%)             190       385        250
+  ------------------------------  ------  -------  -----------
+  TOTAL DEV HOURS                1,470    2,315      1,855
+
+Calendar time:
+  - Full-time solo (40 h/week, no other job):        ~37-58 weeks   -> ~9-13 months
+  - Sustainable side-project pace (~20 h/week):       ~74-116 weeks -> ~17-27 months
+
+This is dev time only. It does NOT include:
+  - Time you spend art-directing / reviewing outsourced work (add ~10-15% on top of the
+    outsourced-art line items below - budget it as your hours, not money)
+  - Store page setup, trailer editing, marketing, community building
+  - Post-launch patching
+
+Outsourced asset budget (see Part 3 for the itemized list): roughly $8,000-$19,000 total,
+best guess ~$13,000. This is a rough market-rate range for freelance 2D pixel/hand-drawn
+art and SFX at indie-commercial quality - get real quotes before committing to numbers.
+
+
+PART 2 - COMMON SYSTEMS vs. PER-TRACK BREAKDOWN
+================================================
+
+2A. COMMON / SHARED SYSTEMS (built once, used by all tracks + the festival hub)
+---------------------------------------------------------------------------------
+  System                                                          Hours
+  ---------------------------------------------------------------------------------
+  Player controller refactor (generalize the current hardcoded     70
+    per-track-name branching in player.gd into data-driven config)
+  Rhythm engine core (generalize rhythm.gd/beat.gd: scoring,       80
+    combo/grade, difficulty windows, no-fail feedback rules)
+  Beatmap authoring tool (waveform-synced timeline editor to      100
+    place/edit beats - CRITICAL: the POC currently hand-types
+    raw timestamp dictionaries, which does not scale to 7 songs)
+  Camera / screen-FX framework (rotation, parallax, palette        60
+    shifts, real-world <-> fantasy transition effects)
+  Dialogue & conversation system (UI, portraits, trigger           80
+    volumes, branching-lite, text data pipeline, indicator icons)
+  Festival hub systems (day/night/dawn cycle, location triggers,  120
+    NPC placement, track unlock/sequencing logic)
+  Procedural character generator (layered sprite parts, color     120
+    variants, animation retargeting, assembly tooling)
+  Save/load (autosave per completed track, persist hub state)      20
+  Menus & UI shell (main/pause/options incl. rebinding,            60
+    credits, track-complete screen, tutorial prompts)
+  Audio system (sync-accurate playback, proximity/ambient          40
+    stage volume, SFX hooks, mixing/ducking)
+  Controller + keyboard input polish, glyph swapping                20
+  Itch.io build/export pipeline, settings persistence               20
+  Cross-system integration, bug-fixing, polish pass                 80
+  Store page, key art direction, trailer capture/edit               40
+  ---------------------------------------------------------------------------------
+  SUBTOTAL                                                        ~910 h
+
+2B. PER COMPLEX TRACK (Chakra-tier: multi-part, bespoke world transformation,
+    scripted set-pieces, unique creatures - as illustrated by the Chakra design)
+---------------------------------------------------------------------------------
+  Task                                                          Hours
+  ---------------------------------------------------------------------------------
+  Level scripting (10-14 scripted parts/transitions, loop-point    60
+    tuning, physics gimmicks e.g. fall/fly/rotate sections)
+  Beatmap authoring + feel-tuning for an ~8.5 min track             30
+  Art direction + integration of outsourced bespoke environment    40
+    art (3-4 distinct "worlds" within one track) and creature
+    animation (e.g. the giant bird)
+  Story-relevant dialogue writing + hookup                          10
+  Playtesting / tuning / polish                                     20
+  ---------------------------------------------------------------------------------
+  SUBTOTAL PER TRACK                                              ~160 h  (x3 = 480 h)
+
+  NOTE: Track 1 (Chakra) already has a working POC in this repo covering rough
+  mechanics and layout. Credit ~50-70 h against its total for that head start -
+  hence "480 h - ~60 h credit = ~420 h" used in Part 1's "net of POC" figure.
+  The POC's placeholder art/hardcoded logic still needs to be rebuilt to
+  production quality, so the credit is partial, not full.
+
+  Outsourced art/audio budget per complex track: ~$800-$2,000
+    (multiple background/environment paintings, one creature animation set, SFX)
+
+2C. PER SIMPLE TRACK (Guitar-Hero-style: single continuous run, minimal unique art)
+---------------------------------------------------------------------------------
+  Task                                                          Hours
+  ---------------------------------------------------------------------------------
+  Level scripting (mostly one auto-scroll/loop section)             15
+  Beatmap authoring + feel-tuning (~8.5 min track)                  20
+  Art direction + integration of a minor reused/recolored           10
+    background variant
+  Playtesting / tuning / polish                                      8
+  ---------------------------------------------------------------------------------
+  SUBTOTAL PER TRACK                                               ~53 h  (x4 = ~220 h)
+
+  Outsourced art/audio budget per simple track: ~$150-$350
+    (one background variant/recolor, minor SFX)
+
+
+PART 3 - ART & AUDIO ASSET LIST (excludes the music tracks - you have those)
+=============================================================================
+
+3A. CHARACTER ART
+---------------------------------------------------------------------------------
+  - Player character generator base: modular body/hair/clothing/skin-tone layers,
+    for both male and female base bodies
+    Animations needed per build: idle/stand, walk, run/sprint, jump, fall/land, dash,
+    (duck/slide if added), talk/react pose
+  - Sahi (named, fixed design): idle, walk, talk/gesture, driving pose (car scenes)
+  - Kara (named, fixed design): idle, walk, dance, talk
+  - Barry (named, fixed design): idle, walk, dance (2x speed variant), talk
+  - Unnamed (named, fixed design): dance-heavy animation set (primary interaction), idle
+  - Blackness (abstract entity, track-only): morph/shapeshift animation or
+    particle-driven form, no fixed silhouette needed
+  - Generic festival NPC crowd variants via the character generator: walking, standing,
+    dancing, sitting poses x several palette/outfit combinations
+  - Musician NPCs (Drummer, Guitarist, Singer, DJ - already scaffolded in repo):
+    polished beat-synced performance loop animations
+  - Giant bird creature (Chakra Part 11): flight loop, swoop-in animation
+  - Crowd reaction animation (Chakra Part 7: synced group shout/response)
+
+3B. ENVIRONMENT / BACKGROUND ART
+---------------------------------------------------------------------------------
+  - Festival hub tileset + parallax backgrounds for each named location: entrance,
+    hill + small lake, tent area, adjacent desert, bigger lake + boat, stage(s),
+    food court, plus generic festival dressing (tents, stalls, signage, lighting rigs)
+  - Day / dusk / night / dawn lighting treatment (palette swaps, light sprites,
+    atmospheric particles - dust, glow, string lights at night)
+  - Fantasy "track world" backgrounds per complex track (psychedelic sky, clouds,
+    space/stars, jungle, abstract void for Blackness scenes) - parallax layers
+  - Real-world <-> fantasy transition/transformation VFX (distortion, morph wipes)
+  - Car interior/exterior background (opening + ending cutscene)
+
+3C. UI / UX ART
+---------------------------------------------------------------------------------
+  - Beat-lane indicator icons/arrows (direction buttons) + hit/miss visual states
+  - Dialogue box frame, portrait frames, speaker nameplate
+  - "Can talk" interaction prompt icon
+  - Track-complete screen: grade badges (S/A/B/etc.), score panel, retry button
+  - Main menu background, logo/title art, buttons
+  - Pause menu panel, options screen icons (volume sliders, keyboard + gamepad
+    control-rebind glyph set)
+  - Tutorial prompt icons matching input scheme
+  - Loading/splash screen art, credits screen layout
+
+3D. PARTICLES / VFX
+---------------------------------------------------------------------------------
+  - Beat-hit success particle effect (possibly themed per track's fantasy visuals)
+  - Ambient particles per fantasy environment (sparkles, embers, mist, stardust)
+  - Player dash/trail effect (repo already has a starting trail material to extend)
+  - Environmental FX: water splash (lake jump), dust kick-up (run/land), landing impact
+
+3E. AUDIO - SFX (non-music)
+---------------------------------------------------------------------------------
+  - Footsteps per surface (grass, sand/desert, wood/stage floor)
+  - Jump / land sounds
+  - Dash sound
+  - UI sounds: navigate, confirm/select, back, pause open/close
+  - Conversation "blip" sound per named character (optionally pitch-varied)
+  - Ambient loops: crowd murmur, wind, water/lake, distant stage bleed-through music
+    (lower volume per doc), desert wind, campfire/tent ambience
+  - Synced crowd reaction shout (Chakra Part 7)
+  - Transition whoosh/morph sounds for real-world <-> fantasy shifts
+  - Car door/engine/drive ambience (opening + ending)
+  - Water splash (lake jump)
+
+  NOTE: per the design doc, beat hits/misses get NO audio feedback (visual only,
+  maybe a slight volume dip on misses) - don't over-budget SFX for the rhythm
+  sections themselves; the SFX list above is almost entirely for the festival
+  hub / exploration side of the game.
+
+3F. MARKETING (for the itch.io store page)
+---------------------------------------------------------------------------------
+  - Key art / cover image
+  - Store capsule/banner art
+  - Trailer footage (captured from the game) + edit
+
+
+BIGGEST RISKS TO THIS ESTIMATE
+================================================
+  - Beatmap authoring is currently done by hand-typing timestamp dictionaries in code
+    (see Entities/Rhythm/rhythm.gd) - this does not scale past one song. Building the
+    authoring tool (Part 2A) is on the critical path before efficient track production
+    can start; skipping it will blow the per-track hours far past the estimate above.
+  - The procedural character generator is a classic scope-creep magnet - "good enough"
+    variety (a handful of palette-swapped, part-swapped builds) is much cheaper than a
+    fully general system. Recommend capping generator ambition early.
+  - Outsourcing adds coordination overhead (spec writing, revision rounds) not counted
+    in the dollar budget - budget real hours for it, not zero.
+  - "No fail state" and text-only dialogue keep scope down; reintroducing either
+    (e.g. voice acting, branching dialogue trees, a scoring/lives system) would add
+    meaningfully to both the hours and the outsource budget above.

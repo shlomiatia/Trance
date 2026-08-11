@@ -1,0 +1,243 @@
+TRANCE — DEVELOPMENT ESTIMATE (v2)
+Estimator: Claude Fable 5 | Date: 2026-08-11
+Supersedes fable5.txt after reviewing the five other LLM estimates in Docs/
+(opus5.md, gpt5.6.txt, sonnet 5.txt, Gemini_3_1_Pro.txt, Gemini_3_6_Flash.md)
+
+This file has three parts:
+  A. Self-review — what the other estimates caught that v1 missed, and fixes.
+  B. Summary + critique of all six estimates.
+  C. Combined best guess, weighting stronger models more.
+
+The v1 asset lists remain valid; Part A lists only the additions. For the full art/audio
+inventory, use fable5.txt sections 4–5, plus the additions below (GPT 5.6's inventory is
+the most exhaustive single list if you want a commissioning-brief starting point).
+
+============================================================
+A. SELF-REVIEW — CORRECTIONS AND ADDITIONS TO v1
+============================================================
+
+Things others included that v1 missed or under-weighted:
+
+1. ACCESSIBILITY (from GPT 5.6) — v1 omitted it entirely. For a deliberately psychedelic,
+   screen-rotating, flashing game this is not optional for a commercial release:
+   reduced-flash/reduced-motion alternatives, color-safe beat cues, photosensitivity care.
+   ADD: ~30–50 h to common work, plus "reduced-effect variants" as an art line item.
+
+2. LATENCY CALIBRATION AS A FIRST-CLASS FEATURE (GPT 5.6, mentioned in passing in v1).
+   Audio latency varies wildly (Bluetooth headphones especially). A rhythm game needs a
+   manual calibration screen and testing across audio devices/frame rates. Also: the POC's
+   delta-accumulated `_playback_timer` will drift over an 8-minute track — the rewrite must
+   use the AudioServer clock. v1 said this; keeping it, with more emphasis.
+
+3. TESTING TOOLS FOR LONG SONGS (GPT 5.6) — an 8.5-minute track makes every tuning pass
+   expensive. In-editor seek, section restart, autoplay/bot playback, and chart validation
+   belong in the tooling budget. The POC's ESC-to-skip is the embryo of this.
+   ADD: ~20–30 h to the tooling line (tooling: 60–110 h total).
+
+4. MUSIC DELIVERABLES SPEC (GPT 5.6 — best catch in any doc). For EACH licensed track you
+   need, from the artist/label or your own DAW work: lossless master at consistent loudness,
+   BPM/tempo map with downbeat markers, click-free loop files with reverb tails for every
+   looping section, a low-volume/filtered "festival PA" version — and note the license may
+   not automatically permit modified/ambient use of the track. Fold this into the licensing
+   conversation NOW, not after signing.
+
+5. MID-TIER SONG CATEGORY (GPT 5.6). Some tracks will be "simple plus one gimmick" and cost
+   between the two buckets. Budget any such track at roughly 2× a simple track rather than
+   forcing it into the simple bucket. Every casually-added unique mechanic is +40–100 h.
+
+6. COMPLEX-TRACK COUNT SCALES WITH SET SIZE (Opus 5; Gemini Pro independently used 4
+   complex at 14 tracks). The doc's "at least 3" is a floor. At 14 tracks expect 3–4
+   complex; at 28 expect 5–6. v1's larger-scenario totals assumed a fixed 3; corrected
+   in Part C.
+
+7. POST-LAUNCH TRACKS ARE CHEAP (Opus 5) — good commercial framing: after shipping, each
+   additional simple track is ~1.5–2 weeks. Ship 7, sell, then expand — content updates are
+   incremental work, not a rebuild. Also from Opus: consider the Dialogic plugin instead of
+   a from-scratch dialogue system (could save ~30–50 h).
+
+8. WORKING MONTHS ≠ CALENDAR MONTHS (GPT 5.6). Hour totals convert to full-time weeks, but
+   vacations, illness, admin, artist-turnaround waits stretch calendar time ~15–25%.
+   v1's "12–13 months" was working time; the calendar number is longer.
+
+9. RE-ESTIMATE AFTER A VERTICAL SLICE (GPT 5.6's production gates). After finishing one
+   simple track + a production-quality Chakra slice on the new engine, measure actual
+   hours-per-track and rebuild the forecast. That measurement is worth more than all six
+   of these documents combined.
+
+10. OUTSOURCE CASH BUDGET (Sonnet 5 itemized it per-track). Sonnet's total ($8k–19k) and
+    v1's ($12k–40k) bracket the truth; per-track art framing is useful for briefs:
+    complex track ≈ $800–2,000 of bespoke art; simple track ≈ $150–350. Get real quotes.
+
+11. SMALL ADDITIONS to asset lists from others: controller hot-plug handling; vibration
+    option; portraits with 2–3 expressions per speaking character; score-tally count-up
+    SFX; wind SFX for freefall; giant-bird cry; crowd call-and-response one-shots
+    (Chakra part 7); parked cars incl. Sahi's car as a hub prop; post-launch patch
+    allowance (~20–40 h).
+
+12. MIDI-IMPORT CHARTING OPTION (Gemini Flash — its one standout idea). Instead of (or
+    before) building a full waveform-timeline editor UI, author beat charts as MIDI in a
+    DAW against the actual track and import them (note pitch = direction, note time =
+    beat time). For a music-literate developer this could cut the editor build to an
+    importer + in-game preview/nudge tool, and DAW editing beats any homemade timeline UI.
+    Worth prototyping FIRST — if it works, it trims 30–60 h off the tooling line and
+    speeds every mapping pass after. Flash also usefully quantifies chart density:
+    an 8.5-min psytrance track at 130–145 BPM is ~800–1,500 mappable beats — that's the
+    real reason hand-typed dictionaries (the POC approach) cannot scale.
+
+Corrections in the other direction (v1 things I'm keeping despite disagreement elsewhere):
+- v1's prominent MUSIC LICENSING warning stays — only GPT 5.6 treated it as the schedule
+  gate it is. It remains the single biggest external risk to a commercial release.
+- v1's recommendation to CUT the procedural character generator to hand-made variants
+  stays (Opus and Sonnet independently flagged it as the classic scope trap; Gemini Pro
+  budgets a "simple modular NPC generator" inside a 2-week line, which is exactly how the
+  trap starts).
+
+Net effect on v1's numbers: common work rises modestly (accessibility, calibration
+emphasis, testing tools, post-launch patch: roughly +70–120 h), and the headline gains a
+working-vs-calendar distinction. Per-song numbers hold.
+
+REVISED FABLE NUMBERS (7 tracks: 3 complex + 4 simple, Chakra credited):
+  Common:            1,180–1,770 h
+  Complex tracks:      480–800 h   (Chakra 120–200 net + 2 × 180–300)
+  Simple tracks:       232–376 h   (4 × 58–94)
+  TOTAL:             1,892–2,946 h  =  47–74 wk  =  ~11–17 working months
+  Best guess:        ~2,300 h ≈ 58 wk ≈ 13–14 working months ≈ 16–17 calendar months
+
+============================================================
+B. THE SIX ESTIMATES, SUMMARIZED AND CRITIQUED
+============================================================
+
+All figures below are for the 7-track scenario (3 complex + 4 simple), single dev, 40 h/wk.
+
+  Model            Common h    Complex/ea   Simple/ea   7-track total      Timeline claim
+  ---------------  ----------  -----------  ----------  -----------------  -----------------
+  GPT 5.6          900–1,300   280–440      100–160     2,568–3,912 (+20%) 15–23 working mo
+                                                                           (plan 18–24 cal.)
+  Opus 5           ~1,160      ~200 (4–6wk) ~56 (1.4wk) ~2,440 (+30%)      ~14 months
+  Fable 5 (v2)     1,180–1,770 180–300      58–94       1,892–2,946        ~13–14 working mo
+  Gemini Pro 3.1   ~640        ~280         ~80         1,800 (+15–20%     ~11 mo stated;
+                                                        buffer ≈ 2,100)    ~12 with buffer
+  Sonnet 5         ~910 (+120  ~160         ~53         1,470–2,315        9–13 months
+                   char-gen)                            (best 1,855, +15–20%)
+  Gemini Flash 3.6 ~550        ~85          ~25         905                ~5.7 months
+
+Critique per model:
+
+GPT 5.6 — The most thorough by far: accessibility, calibration, testing tools, music
+  deliverables, production gates, working-vs-calendar months, post-launch patch. Its asset
+  inventory is effectively a ready commissioning brief. Its numbers are the highest;
+  280–440 h per complex track is defensible if you count the brutal iteration cost of
+  8.5-minute tracks, but the low end of its ranges is probably the honest center. Slight
+  systematic padding (it double-counts some iteration in both per-track "testing" and the
+  20% contingency). Treat it as the P80 (conservative planning) estimate.
+
+Opus 5 — Best structured: clean formula (common + per-track × count − Chakra credit
+  + 30% contingency), correct scaling of complex-track count with set size, sharp read of
+  the POC ("most of the risk, minority of the work"), actionable build order, and the
+  post-launch-content framing. Numbers sit centrally among the strong models. Weakness:
+  thin on licensing and accessibility. Treat it as the P50 (median) estimate.
+
+Fable 5 (v1) — Central numbers, strongest on licensing risk, artist-budget ballpark and
+  the audio-engineering work hidden in "you have the music" (slicing, PA mixdowns). Missed
+  accessibility and calibration-as-feature; both fixed above.
+
+Gemini Pro 3.1 — Credible and well-aligned on per-track costs: 280 h per complex track
+  matches GPT's low end exactly, and 80 h per simple track sits mid-cluster. Sensible
+  scenario math and an explicit 15–20% buffer note (its "~11 months" headline is
+  pre-buffer; ~12 working months buffered). Weaknesses are all in the common bucket —
+  at ~640 h it's the leanest credible foundation: beat tooling is folded into a 4-week
+  "rhythm foundation" line, dialogue system + NPC generator share 2 weeks, UI/menus get
+  2 weeks, and there's no accessibility, calibration, licensing treatment, or Chakra POC
+  credit. Week-level granularity also hides where the risk lives. Treat it as ~P30 —
+  believable if the common systems go unusually smoothly.
+
+Sonnet 5 — Sensible structure and a useful outsource dollar budget, but light: ~160 h per
+  complex track undercounts iteration on an 8.5-minute bespoke level (the POC's Chakra —
+  shorter and placeholder-quality — plausibly consumed a large share of that already), and
+  ~910 h common is lean for commercial-grade menus/options/QA/release. Its 9–13 months
+  reads as the optimistic edge of plausible. Treat as P20 (best case).
+
+Gemini Flash 3.6 (~5.7 months) — Not credible for a COMMERCIAL release. It prices a
+  game-jam build of the feature list: 270 h for ALL core systems is less than the strong
+  models allocate to the rhythm-engine rewrite plus tooling alone; 85 h per complex track
+  doesn't survive contact with the Chakra design's 14 scripted parts; a complete dialogue
+  system in 30 h and full UI/menus/save/release stack in ~90 h are jam numbers; and it
+  carries no contingency while claiming "high polish" in 6 months. Weight its totals near
+  zero. That said, it contributes real ideas the others missed: the MIDI-import charting
+  pipeline (Part A item 12), the beats-per-track quantification (~800–1,500 per song),
+  and a low-pass/dampening miss effect that fits the design's no-rhythm-SFX pillar better
+  than a "miss thud" would.
+
+Consensus across ALL six (worth trusting because it's unanimous):
+  - The POC de-risks the concept but is hardcoded; a data-driven rewrite is prerequisite #1.
+  - A beat-charting pipeline (editor tool and/or MIDI import) is on the critical path
+    before content production can start.
+  - The procedural character generator is the #1 scope trap — timebox or cut to hand-made
+    modular variants.
+  - Ship the 7-track set first (Gemini Pro and Flash now say this explicitly too); more
+    tracks are cheap after the systems exist.
+  - The "no fail state / no rhythm SFX / minimal UI" pillars genuinely reduce scope — the
+    SFX list is almost entirely festival-side.
+
+============================================================
+C. COMBINED BEST GUESS (weighted synthesis)
+============================================================
+
+Weighting: GPT 5.6, Opus 5, Fable 5 heavily (they independently converge); Gemini Pro 3.1
+and Sonnet 5 moderately (they define the credible optimistic band at ~10–12 working
+months); Gemini Flash ~zero on totals (methodologically unsound for commercial scope,
+as argued above), though its tooling ideas are adopted.
+
+PLANNING FORMULA (developer hours, before contingency):
+  Common / one-time:         1,000–1,500 h
+  Per complex track:           200–350 h   (Chakra: ~120–200 net of the POC)
+  Per mid-tier track:          120–180 h   (simple + one unique gimmick)
+  Per simple track:             60–110 h
+  Contingency:                 +20–25% on the sum (solo overrun base rate)
+
+7 TRACKS (3 complex + 4 simple) — RECOMMENDED FIRST RELEASE:
+  Pre-contingency:   ~1,900–2,700 h
+  With contingency:  ~2,300–3,300 h
+  ------------------------------------------------------------------
+  BEST GUESS:        ~2,500 h  ≈  62 weeks  ≈  14–15 working months
+  CALENDAR PLAN:     ~16–18 months (working time + vacations/illness/
+                     admin/artist-turnaround gaps)
+  Optimistic (everything goes right):   ~11–12 months
+  Conservative (planning/funding case): ~22 months
+  ------------------------------------------------------------------
+  (Five credible estimates land at roughly 1,855 / 2,100 / 2,300 / 2,440 / 2,568–3,912 h.
+   ~2,500 h sits just above the median — the median leans optimistic because the lighter
+   estimates also budget the least for release-grade polish, accessibility, and QA.)
+
+14 TRACKS (3–4 complex + 10–11 simple): ~3,300–4,600 h → ~20–26 working months
+28 TRACKS (5–6 complex + 22–23 simple): ~4,800–6,800 h → ~29–39 working months
+  (Confirms every credible model's advice: do NOT target these first. Ship 7, then expand —
+   each post-launch simple track is only ~1.5–2.5 weeks once the pipeline exists.)
+
+EXTERNAL BUDGET (parallel cash stream, not dev hours):
+  Commissioned higher-fidelity pixel art per the v1 inventory: ~$10k–$35k
+  (500–900 artist-hours; controllable via: hand-made NPC variants instead of a generator,
+  palette-swap time-of-day instead of redrawn states, licensed font, batched briefs).
+  SFX: small — a good commercial SFX library subscription or ~$300–1,000 commissioned.
+  Music licensing: unknown until negotiated; START NOW — it is the only item that can
+  invalidate the whole plan, and each track's license should come with the deliverables
+  spec from Part A item 4.
+
+WHY TRUST ~14–15 WORKING MONTHS: four independent estimates using different methods
+(bottom-up hours, formula + 30%, week-based scenarios + buffer, inventory + 20%) land at
+13–14, ~14, ~12, and 15–23 working months. The spread between them is mostly contingency
+philosophy plus how much release-grade polish they budget, not disagreement about the
+work itself. The number to publish is 16–18 calendar months; the number that beats all of
+these is your own measured throughput after the vertical slice (build the new engine,
+re-fit Chakra, finish one simple track — then re-forecast from actuals).
+
+SUGGESTED BUILD ORDER (unchanged from v1, endorsed by Opus and GPT independently):
+  1. Rhythm engine rewrite (data-driven, AudioServer clock, calibration) + beat charting
+     pipeline — prototype the MIDI-import route first, fall back to a custom editor.
+  2. Re-fit Chakra onto it with placeholder art — proves the pipeline end-to-end.
+  3. Festival hub + dialogue + time-of-day (the completely untested half — find the
+     unknowns early).
+  4. Vertical-slice checkpoint: measure hours/track, re-estimate, THEN commission art
+     in batches.
+  5. Remaining tracks in parallel with art integration.
+  6. Menus/save/options/accessibility/release engineering + polish (final ~2–3 months).

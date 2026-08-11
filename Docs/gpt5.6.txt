@@ -1,0 +1,459 @@
+TRANCE — SOLO COMMERCIAL DEVELOPMENT ESTIMATE
+Prepared: 10 August 2026
+
+PURPOSE
+
+Estimate the work for one full-time developer (40 hours/week) to turn the supplied
+Godot prototype and design document into a commercial Windows game released on
+itch.io. The estimate separates reusable/common production work from the cost of
+simple and complex music-track levels and inventories the non-music art and audio
+assets required.
+
+
+EXECUTIVE SUMMARY
+
+Planning formula (before contingency):
+
+  900–1,300 hours common work
+  + 100–160 hours per simple song
+  + 280–440 hours per complex song
+
+Add 20% schedule contingency after selecting the song count and mix. This covers
+normal solo-development uncertainty, iteration after playtests, integration bugs,
+and modest rework; it does not cover a major redesign or delayed music rights.
+
+The design says at least three songs—the first, last, and day-to-night transition—
+receive complex treatment. Using exactly three complex songs gives:
+
+  7 songs / about 1 hour:
+    2,140–3,260 production hours before contingency
+    2,568–3,912 hours including 20% contingency
+    64–98 full-time weeks, approximately 15–23 working months
+
+  14 songs / about 2 hours:
+    2,840–4,380 production hours before contingency
+    3,408–5,256 hours including 20% contingency
+    85–131 full-time weeks, approximately 20–30 working months
+
+  28 songs / about 4 hours:
+    4,240–6,620 production hours before contingency
+    5,088–7,944 hours including 20% contingency
+    127–199 full-time weeks, approximately 29–46 working months
+
+These are work-time conversions (52 working weeks = 12 months), not promises of
+calendar ship dates. Vacations, illness, administration, contractor coordination,
+and waiting for external assets extend calendar time. A practical first commercial
+release is therefore the seven-song version: three showcase songs and four simple
+songs. A sensible public target would be roughly 18–24 calendar months for a solo
+developer, assuming the art style remains production-efficient and the music and
+rights are ready on time.
+
+
+SCOPE AND ASSUMPTIONS
+
+Included:
+
+* Windows PC build distributed through itch.io.
+* Keyboard/mouse and common controller support.
+* One connected 2D festival hub with entrance, hill/small lake, tents/desert,
+  large lake/boat, stages, food area, and dressing/detail sufficient for release.
+* Day, dusk, night, and dawn presentation states; gated conversations/areas/songs.
+* Main cast, crowds, dialogue, tutorial, end sequence, credits, and basic narrative.
+* No-fail rhythm play, timing feedback, score/grade, completion and retry flow.
+* Auto-run, walking/looping, free-movement, freestyle, jumping and directional
+  dash patterns described in the design.
+* Automatic save after songs, settings, pause/main menus, remapping and basic
+  accessibility options.
+* Production tools/data formats so songs are authored as data rather than by
+  repeatedly editing hard-coded scripts.
+* Optimization, playtesting, bug fixing, packaging, itch.io page materials, and a
+  small post-launch patch allowance.
+
+Assumed constraints:
+
+* The developer is already comfortable with Godot, GDScript, 2D content pipelines,
+  and basic audio editing. Learning time would be additional.
+* The developer also performs design, writing, implementation, level design,
+  integration, production, and QA. Specialist-created art/audio time or cost is not
+  estimated; the inventory below describes what must be made or commissioned.
+* The final game stays close to the current pixel-art 2D approach and 640x360 base
+  presentation. A high-frame-count hand-drawn style would substantially increase
+  the asset budget and integration time.
+* Music tracks and permission to use them are supplied. Each song can be delivered
+  as a final master plus any loopable sections/stems needed for seamless transitions.
+* English only. Localization infrastructure is included, but translating, editing,
+  and testing other languages are not.
+* No online services, multiplayer, console ports, achievements, workshop, accounts,
+  or DRM. Signing and store requirements beyond itch.io are excluded.
+* No voice acting and no bespoke musical SFX layered over rhythm levels, consistent
+  with the design.
+* A simple song uses the shared rhythm mechanics and reusable visual systems. A
+  complex song has bespoke choreography, transitions, mechanics/set pieces, and a
+  wordless story comparable in ambition to Chakra.
+* Ratings/compliance, legal review, company setup, taxes, and marketing campaigns
+  are outside development hours, except for preparation of basic itch.io materials.
+
+
+WHAT THE CURRENT PROTOTYPE CONTRIBUTES
+
+The inspected repository is a Godot 4.3 prototype with roughly 1,440 lines of
+GDScript plus scenes and assets. It contains:
+
+* character movement states for standing, walking, sprinting, jumping/falling, and
+  rhythm-specific movement;
+* a segmented audio playlist with automatic, looping, position-gated, and
+  input-gated transitions;
+* timestamped beat prompts, hit windows, directional prompts, hit counting, and a
+  basic final score;
+* synced drummer/guitarist/singer/bystander animations;
+* a tutorial and a staged Chakra proof of concept including the bird/rotation idea;
+* placeholder pixel art, parallax scenery, crowd variation via palette swapping,
+  and Windows export configuration.
+
+This is valuable technical and design validation. However, the sequencing, beat
+maps, and animation cues are largely hard-coded per audio filename. The repository
+does not show production-ready hub progression, dialogue, saves, menus/options,
+song selection/completion flow, robust calibration/remapping, accessibility,
+automated tests, or a reusable authoring pipeline. Existing art/audio appear to be
+prototype assets and should not be assumed final or legally cleared. Accordingly,
+the estimate gives the POC a modest head start (approximately 120–200 hours of
+discovery/prototyping avoided), but retains time to refactor and validate its core.
+
+
+COMMON / ONE-TIME DEVELOPMENT WORK
+
+1. Preproduction and production planning                         60–90 hours
+   Lock scope and song classification; narrative outline; level/asset matrix;
+   technical plan; naming/import rules; risk register; milestones and cut list.
+
+2. Production architecture and POC refactor                    100–150 hours
+   Move song definitions, beat maps, cues, transitions, scoring, and unlock data
+   into reusable resources; scene lifecycle; event/state system; debug tools;
+   error handling; version migration from the prototype.
+
+3. Rhythm/audio foundation and authoring tools                  100–150 hours
+   Stable audio clock and pause/seek behavior; latency calibration; configurable
+   judgement windows; miss handling; score/grade; chart/cue editor or import path;
+   waveform/BPM helpers; loop/transition validation; debug song seeking.
+
+4. Player, camera, controls, and accessibility                   70–110 hours
+   Polish movement and camera; keyboard/controller parity; controller hot-plug;
+   remapping; prompt glyph switching; vibration option; reduced flashes/shake;
+   color-safe cues; text/readability and timing assists.
+
+5. Festival hub and world progression                          130–190 hours
+   Hub layout and traversal; interactables; collision/navigation; song entrances
+   and returns; day/dusk/night/dawn states; availability gates; crowd spawning;
+   final departure/end trigger; performance passes.
+
+6. Dialogue, narrative, and character systems                   70–110 hours
+   Conversation triggers and conditions; text presentation; speaker identity;
+   branching/state flags where needed; main/minor dialogue implementation;
+   cutscene blocking; localization-ready text pipeline.
+
+7. UI, menus, saves, and settings                              100–145 hours
+   Main/pause/options/credits; tutorial prompts; track intro/results/retry;
+   completion tracking and high scores; autosave/versioning/recovery; audio,
+   display, input, and accessibility settings; confirmation and error states.
+
+8. Shared art/effects implementation                            55–90 hours
+   Character/crowd generator integration; reusable particles, psychedelic shader
+   stack, palettes, transitions, UI animation, lighting/time-of-day controls, and
+   performance quality levels. Asset creation itself is not counted here.
+
+9. Shared audio implementation                                  25–45 hours
+   Festival ambience/music zones; buses and volume controls; SFX playback and
+   variation; fades/ducking; loop checks and loudness consistency.
+
+10. Release engineering, QA, and store preparation              90–140 hours
+    Windows builds; clean-machine/controller/resolution testing; save and long-song
+    soak tests; performance/accessibility checks; credits/licenses; itch.io page,
+    screenshots/trailer capture, packaging, upload, and a small launch patch.
+
+COMMON TOTAL                                                   900–1,300 hours
+                                                               22.5–32.5 weeks
+
+The category ranges deliberately overlap in practice; the total is the controlling
+number, not a promise that every line item will independently hit its minimum.
+
+
+PER-SONG ESTIMATES
+
+SIMPLE SONG                                                    100–160 hours
+                                                               2.5–4 weeks
+
+Typical scope: one 8–9 minute song, mainly shared Guitar-Hero-like/autoscroll or
+free-dance play; a small number of reusable scene variants; no unique perspective
+or major mechanic; starts/ends cleanly at the festival.
+
+  Concept, gameplay breakdown, beat/chart design                18–26 hours
+  Chart/cue implementation and first playable                   18–28 hours
+  Scene assembly, reusable visuals, transitions                 24–38 hours
+  Animation/effect/audio integration                            16–26 hours
+  Playtesting, tuning, performance and bug fixing               24–42 hours
+
+COMPLEX SONG                                                   280–440 hours
+                                                               7–11 weeks
+
+Typical scope: bespoke visual journey comparable to Chakra, multiple seamless or
+looping sections, festival-to-fantasy transitions, set pieces, special movement or
+camera behavior, custom choreography, and a wordless narrative. This is development
+and integration time; creating the large custom art inventory is separately an art
+production commitment.
+
+  Concept, storyboard, technical breakdown                      35–55 hours
+  Song segmentation, loop prep, chart and cue design            35–55 hours
+  Bespoke mechanics/set pieces and camera                       60–100 hours
+  Level assembly, transitions, choreography                     55–85 hours
+  Animation, VFX, shader and audio integration                  45–75 hours
+  Repeated full-song tests, tuning, optimization, fixes         50–70 hours
+
+The 8+ minute track length makes iteration expensive: one complete test pass plus
+notes and fixes can consume 15–30 minutes. Every new perspective, controllable
+character, boss-like encounter, or one-off mechanic should add roughly 40–100 hours
+unless it replaces other complex content. A song between the two definitions should
+be budgeted at 180–260 hours rather than forced into the simple category.
+
+
+CONTENT-SCALE SCENARIOS
+
+Scenario A — recommended first commercial scope
+  7 songs: 3 complex + 4 simple
+  Common:                                      900–1,300 hours
+  Complex songs:                              840–1,320 hours
+  Simple songs:                               400–640 hours
+  Subtotal:                                 2,140–3,260 hours (54–82 weeks)
+  With 20% contingency:                    2,568–3,912 hours (64–98 weeks)
+  Approximate working time:                    15–23 months
+
+Scenario B — substantial indie release
+  14 songs: 3 complex + 11 simple
+  Common:                                      900–1,300 hours
+  Complex songs:                              840–1,320 hours
+  Simple songs:                             1,100–1,760 hours
+  Subtotal:                                 2,840–4,380 hours (71–110 weeks)
+  With 20% contingency:                    3,408–5,256 hours (85–131 weeks)
+  Approximate working time:                    20–30 months
+
+Scenario C — very large solo scope
+  28 songs: 3 complex + 25 simple
+  Common:                                      900–1,300 hours
+  Complex songs:                              840–1,320 hours
+  Simple songs:                             2,500–4,000 hours
+  Subtotal:                                 4,240–6,620 hours (106–166 weeks)
+  With 20% contingency:                    5,088–7,944 hours (127–199 weeks)
+  Approximate working time:                    29–46 months
+
+If more than three songs are complex, replace one simple-song allocation with one
+complex-song allocation for each such song. Each replacement adds 180–280 hours,
+or about 5.4–8.4 weeks after the 20% contingency.
+
+
+ART ASSET INVENTORY
+
+The exact counts depend on final visual style and song concepts. Items marked
+"per complex song" should be multiplied by the number of showcase songs.
+
+Branding and storefront
+
+* Final game logo and wordmark; light/dark variants.
+* Windows executable icon at required sizes.
+* itch.io cover, banner, thumbnail, page background, and animated GIF/video crops.
+* Screenshot compositions and trailer title/end cards.
+
+Player
+
+* Male and female player base designs, or a modular body system.
+* Idle, walk, run, jump, fall, land, dash, dance/beat, power move, and contextual
+  interaction animations; facing/directional variants as required.
+* Rhythm-state poses for freefall/flying/hanging and any alternate perspectives.
+* Player customization parts if retained: skin tones, hair, faces, tops, bottoms,
+  shoes/accessories, palettes, and portrait/speaker representation.
+* Shadow, trail, hit/miss feedback, landing/dash particles, and silhouette variants.
+
+Named characters
+
+* Sahi, Kara, Barry, Unnamed, and Blackness final designs.
+* For each festival character: idle, walk where needed, conversation, multiple dance
+  loops, reactions/cheers, and story-specific gestures.
+* Sahi car/end-scene poses and vehicle-seated variants.
+* Dialogue portraits or speaker icons if portraits are chosen for the UI.
+* Blackness shape language, transformations, masks, tendrils/particles, and bespoke
+  interactions required by the showcase songs.
+
+Festival crowd and performers
+
+* Modular attendee bases spanning varied bodies, skin tones, hair, clothing,
+  accessories, mobility aids if represented, and color palettes.
+* Crowd idle/dance/cheer/sit/lie/walk loops; enough variants to avoid obvious clones.
+* Musicians/DJs: drummer and kit, guitarist/instrument, singer/microphone, stage DJ
+  and decks; performance animations synchronized to common beat divisions.
+* Vendors, security/staff, one-off conversation NPCs, and campsite occupants.
+* Crowd LOD/silhouette assets or batched background dancers for performance.
+
+Festival environment
+
+* Modular terrain/tiles: ground, paths, hill/cliffs, desert, shorelines, lake/water,
+  docks and collision/edge variants.
+* Entrance/gates, fences, signs, wristband/check-in props.
+* Small and main stages, speaker stacks, lights, truss, decks, instruments, cables,
+  barriers, banners, and dance-floor decoration.
+* Tent/campsite kit: tents, canopies, rugs, chairs, bags, coolers, vehicles and clutter.
+* Food court/vendor stalls, tables, menus/signage, bins, toilets and utility props.
+* Large-lake boat and dock; small-lake dressing; car for the ending.
+* Trees/plants/rocks, desert dressing, flags, shade structures, sculptures/totems,
+  lanterns and festival art installations.
+* Background/parallax layers for each region and horizon/sky/weather layers.
+* Water animations/reflections, dust, smoke/fog, fire/light sources, insects/birds.
+* Day, dusk, night and dawn palettes/lighting overlays; lit/unlit prop variants.
+
+Shared rhythm presentation and VFX
+
+* Beat-note icons for every supported input/action and direction.
+* Target/receptor, approach trail, timing window, hit, miss, combo/grade, and
+  power-move visuals; keyboard, mouse, Xbox-style and generic controller glyphs.
+* Reusable particles: bursts, trails, sparks, confetti, glow, waves/rings, smoke,
+  stars, clouds, leaves, water splashes, dust and abstract geometry.
+* Reusable full-screen effects/masks/noise textures: palette shifts, distortion,
+  kaleidoscope, mirroring, chromatic effects, rotation, tunnels and transitions.
+* Reduced-flash/reduced-motion alternatives for intense effects.
+
+UI
+
+* Main, pause, options, controls, credits, save/error, confirmation and results
+  layouts; panels, buttons, focus/hover/disabled states, sliders/toggles and cursors.
+* Dialogue box, speaker name/portrait treatment, continue marker, talk indicator.
+* Track intro/outro card; artist/title/length; score, grade, beats hit, high score,
+  completion marker and retry prompt.
+* Tutorial callouts and input glyph atlas.
+* Font family with commercial license and required characters; fallback fonts if
+  localization is planned.
+
+Per simple song
+
+* One visual theme/background set, usually 3–6 layers or modular scene pieces.
+* 2–4 reusable obstacle/set-piece families and any rhythm-aligned animations.
+* Song-specific palette, particles/texture accents, intro/outro transition, title art
+  treatment, and small prop/enemy/character set as the concept requires.
+* Rough planning count: 15–35 final sprites/elements plus shared VFX; more if heavily
+  animated. Atlas frames are not counted as separate assets here.
+
+Per complex song
+
+* Storyboard/animatic and visual-development sheets.
+* 3–6 distinct environment phases with backgrounds, foregrounds, terrain and props.
+* Song-specific characters/creatures/vehicles and their animation sets.
+* Unique set-piece assets and alternate player forms/perspectives where required.
+* Bespoke transition art, full-screen effects, masks, particles and shader textures.
+* Festival start/return variants that visually join the fantasy level to the hub.
+* Rough planning count: 50–120+ final sprites/elements plus animation frames and VFX.
+  Chakra specifically implies performers/instruments, expanded festival terrain,
+  clouds, giant bird, freefall/flying scenery, rotation/hanging states, lake landing,
+  crowd call-and-response, and all transitions between those phases.
+
+
+AUDIO ASSET INVENTORY (EXCLUDING THE MUSIC LIST ITSELF)
+
+Music preparation/deliverables for each licensed track
+
+* Final lossless master at consistent sample rate/bit depth and agreed loudness.
+* Exact BPM and tempo map, including tempo changes; downbeat/bar markers.
+* Cleared artist name, track title, credits, copyright text, and license documentation.
+* Clean loop files or edit points for every loop-until-location section.
+* Transition/tail files so looping sections advance without clicks or lost reverb.
+* Optional stems only where needed for festival distance treatment, adaptive fades,
+  or a specifically designed miss effect; otherwise a final stereo master is enough.
+* Lower-volume/distant festival version or a tested filter/mix preset.
+
+Festival ambience
+
+* Continuous crowd beds at quiet, medium and dense intensities.
+* Distant stage/music wash suitable for use beneath conversation (original or fully
+  licensed; do not assume the featured song license permits modified ambient use).
+* Location loops: entrance, campsite/tents, desert/wind, small lake, large lake/shore,
+  food court, stage vicinity, and dawn/night variants as useful.
+* One-shot crowd cheers, shouts, laughter and call-and-response, with enough variants
+  to avoid repetition.
+* Water laps/splashes, wind, birds/insects, fire/generator/vehicle ambience as needed.
+
+Character and movement SFX
+
+* Footsteps for dirt/sand, grass, wood/stage, rock and shallow water; walk/run sets.
+* Jump, land by intensity/surface, dash/whoosh, slide/duck if implemented, splash,
+  swim/boat interactions, clothing movement and power-move effect.
+* Nonverbal conversation "voice" blips or character-specific chatter sets, if used;
+  separate sets for the main cast and generic attendees.
+* Cheers, breaths/grunts, dance reactions and story-specific vocal one-shots.
+
+World/UI SFX
+
+* Interaction/talk prompt, dialogue advance/open/close, menu navigate/confirm/back,
+  slider/toggle, pause/unpause, save complete, error/disabled, track unlocked,
+  track start, results reveal, grade reveal, retry and game completion.
+* Environmental one-shots: tent/flap, boat/dock creaks, water entry, car door/engine,
+  props and any scripted festival interactions.
+* The design calls for visual rather than audio feedback on rhythm hits/misses. If
+  that changes, add subtle hit/miss/combo sounds and test carefully against music.
+
+Audio production requirements
+
+* Mix/master pass across songs, ambience and SFX; consistent perceived volume.
+* Seamless-loop editing and click-free fades.
+* Audio bus setup/assets for master, music, ambience, SFX and dialogue-blip controls.
+* Credits and license records for every recording, library sound, and font/asset.
+
+
+MAJOR RISKS AND SCOPE CONTROLS
+
+* Song licensing and editable loop material are schedule gates. Clear each track and
+  request loop/transition deliverables before building its level.
+* Complex-song art is likely the largest production bottleneck. Lock storyboard and
+  reuse plan before final asset creation; prototype every set piece with grey boxes.
+* Long songs multiply testing time. Build in-editor seek, section restart, autoplay,
+  chart validation and bot/input simulation early.
+* Audio latency varies by hardware. Ship manual calibration and test Bluetooth,
+  wired audio, several frame rates, and multiple controllers.
+* Avoid adding unique mechanics casually. Treat each as a separately estimated
+  feature and prefer remixing a small polished mechanic set.
+* A 28-song game is possible but carries several years of solo content risk. Design
+  the data pipeline so a polished seven-song release can later expand without
+  committing the first commercial version to all 28.
+* Keep cuts explicit. Good first cuts are alternate perspectives, deep character
+  customization, branching dialogue, numerous interactable minor NPCs, and bespoke
+  mechanics in simple songs—not calibration, remapping, save reliability, or QA.
+
+
+RECOMMENDED PRODUCTION GATES FOR THE SEVEN-SONG VERSION
+
+Gate 1 — Production foundation (roughly months 1–4)
+  Refactor the POC, establish song data/authoring, calibration, saves/settings,
+  final visual target, and a grey-box festival hub.
+
+Gate 2 — Vertical slice (roughly months 5–7)
+  Finish one representative portion of the hub, dialogue, one polished simple song,
+  and a production-quality slice of Chakra with final-quality art/audio workflow.
+  Re-estimate asset throughput from measured results before committing all content.
+
+Gate 3 — Content production (roughly months 8–17)
+  Produce the remaining songs, hub states, narrative, and assets in parallel batches;
+  test each song continuously rather than deferring full playthroughs.
+
+Gate 4 — Alpha to launch (roughly months 18–24)
+  Content lock, complete end-to-end testing, accessibility/performance work, external
+  playtests, fixes, store materials, release candidate, launch and first patch.
+
+The month labels are planning targets for the recommended scope, not a replacement
+for the hour ranges. After the vertical slice, use actual hours per finished minute
+of simple and complex song content to rebuild the forecast.
+
+
+BOTTOM LINE
+
+For planning and funding, use 900–1,300 hours of shared production work, 100–160
+hours for each simple song, and 280–440 hours for each complex song, then add 20%.
+Start with seven songs and protect three showcase tracks. That yields a commercially
+credible target of about 2,568–3,912 hours, or 15–23 working months at 40 hours/week;
+plan approximately 18–24 calendar months and reassess after a final-quality vertical
+slice. The estimate excludes the labor/cost of actually creating commissioned art,
+audio, music, localization, and marketing, but the required art and non-music audio
+deliverables are inventoried above.

@@ -1,0 +1,241 @@
+TRANCE — DEVELOPMENT ESTIMATE (v1)
+Estimator: Claude Fable 5 | Date: 2026-08-10
+Basis: Design doc (Google Drive) + Chakra POC in this repository
+
+ASSUMPTIONS
+- Single developer, full time (40 h/week), experienced with Godot (evidenced by POC).
+- Target: commercial itch.io release, PC (Windows; Linux/Mac builds are cheap extras in Godot).
+- Scope: 7 tracks (~1 hour set) = 3 complex tracks (first, last, day-to-night) + 4 simpler tracks.
+- Art style: higher-fidelity pixel art, COMMISSIONED from an artist. Developer hours below cover
+  art direction, briefs, review and integration — not producing the art itself. Artist cost is a
+  separate external budget (rough ballpark at the end).
+- Music exists (user has the track list), but commercial licensing is NOT yet secured — flagged as
+  a schedule/scope risk, not estimated as dev hours.
+- The POC is a genuine vertical slice (playlist-driven DJ, beat spawning with hit windows, player
+  state machine, tutorial, gravity flip, screen rotation, scoring). It proves the concept but is
+  hardcoded (beat maps as inline dictionaries, track-name string checks in player logic) and will
+  need a data-driven rewrite for production.
+
+============================================================
+1. COMMON / SHARED WORK (one-time, all scenarios)
+============================================================
+
+                                                        Hours (low–high)
+Core rhythm engine productization                          120–160
+  Data-driven beat maps + track sequencing, precise audio
+  clock (AudioServer time + latency compensation — the POC's
+  delta-accumulated timer will drift), calibration screen.
+Beat-mapping tooling & workflow                             40–80
+  Authoring beats outside code (e.g. DAW/Audacity label
+  export -> importer), in-game preview, hot reload.
+  This pays for itself by track #2.
+Player controller expansion & game feel                     80–120
+  Dash, power move, duck/slide, per-track movement modes
+  (auto-run, free-fall, fly, hang), coyote/buffer polish.
+Festival hub world                                         100–140
+  Open map: entrance, hill, small lake, tents/desert, big
+  lake + boat, stages, food court; camera, collision.
+NPC & character generation system                           80–120
+  Modular sprite assembly for attendants + player M/F,
+  crowd dance/idle behaviors, drummer/guitarist/singer
+  sync-to-beat performers.
+Conversation system                                         60–80
+  Dialogue data format, text box UI, speaker indicators,
+  talk-prompt indicator, location-triggered auto
+  conversations, gating by story/time state.
+Time-of-day progression                                     40–60
+  Day/dusk/night/dawn states, palette/lighting shifts,
+  content gating, key-track advancement logic.
+Menus & options                                             60–80
+  Main/pause menus, audio/video options, input remapping,
+  controller + KB/M glyphs (game is controller-first).
+Save/load                                                   20–30
+  Auto-save after each track, track completion + high
+  scores, time-of-day state.
+Results/scoring flow                                        30–40
+  Per-track results (artist, title, length, beats hit,
+  grade), high score persistence, retry flow.
+Hit/miss feedback framework                                 40–60
+  Beat highlight, particles/VFX hooks, miss marking,
+  volume ducking on misses, "too many misses" grey-out.
+Tutorial                                                    30–40
+  Productize POC tutorial: prompts for all verbs, both
+  input schemes.
+Audio systems & mixing                                      40–60
+  Festival background music zones (low volume, louder near
+  stages), SFX integration, bus mixing.
+Opening/ending & game flow glue                             30–40
+  Arrival with Sahi, car ending scene, final conversation,
+  credits.
+Art outsourcing management                                  80–120
+  Style guide, asset briefs, artist feedback rounds,
+  import/slicing pipeline, palette-variant coordination.
+Writing (dialogue script)                                   60–100
+  Sahi, Kara, Barry, Unnamed arcs + minor one-offs +
+  track-story tie-ins.
+itch.io release engineering                                 40–80
+  Store page, butler CI, builds, itch-app testing,
+  controller QA on real hardware, trailer/screenshot
+  capture coordination, launch.
+Playtesting, bugfixing, optimization, polish buffer        160–240
+  (~15% of everything above; solo dev has no QA team.)
+
+COMMON SUBTOTAL:                                        1,110–1,650 h
+                                                        (28–41 weeks)
+
+============================================================
+2. PER-SONG ESTIMATES
+============================================================
+
+COMPLEX TRACK (Chakra-level: bespoke story, custom mechanics, ~8.5 min, ~10–14 parts)
+                                                        Hours (low–high)
+  Part-by-part design / storyboard                          20–30
+  Audio slicing into parts + seamless loop engineering      15–25
+  Beat mapping + difficulty tuning (~8.5 min of beats)      20–30
+  Level construction + scripted sequences                   60–100
+  Custom mechanics (1–2 unique per track, e.g. rotation,
+  gravity flip, giant bird)                                 30–50
+  Bespoke art integration + VFX                             20–40
+  Playtest + polish                                         15–25
+  TOTAL PER COMPLEX TRACK:                                 180–300 h  (4.5–7.5 weeks)
+
+  Note: Chakra itself gets a POC credit — design, slicing and much beat mapping exist.
+  Remaining for Chakra: ~120–200 h (it still needs final art, refactor onto the production
+  engine, and polish).
+
+SIMPLE TRACK (Guitar-Hero-style: templated mechanics, backdrop variation)
+                                                        Hours (low–high)
+  Audio slicing / loop points                                8–12
+  Beat mapping + tuning                                     12–20
+  Level layout from existing templates                      20–30
+  Light visual variation (backdrop, palette, performers)    10–20
+  Playtest + polish                                          8–12
+  TOTAL PER SIMPLE TRACK:                                   58–94 h  (1.5–2.5 weeks)
+
+============================================================
+3. SCENARIO TOTALS (developer hours)
+============================================================
+
+7 TRACKS (primary target: 3 complex + 4 simple, Chakra credited)
+  Common:                       1,110–1,650
+  Complex: Chakra 120–200 + 2 × (180–300) = 480–800
+  Simple:  4 × (58–94)        =   232–376
+  TOTAL:                        1,822–2,826 h  =  46–71 weeks  =  ~11–16 months
+
+  BEST GUESS: ~2,200 h ≈ 55 weeks ≈ 12–13 months full time.
+
+14 TRACKS (3–4 complex + 10–11 simple): +~700–900 h  → ~17–21 months
+28 TRACKS (3–4 complex + 24–25 simple): +~1,900–2,400 h → ~24–30 months
+
+Estimation confidence notes:
+- Biggest risk multipliers: beat-mapping/feel iteration (rhythm games live or die on feel and
+  usually need more tuning passes than planned), the character generation system (easy to
+  over-scope — consider cutting to hand-made NPC variants), and art iteration latency with an
+  external artist (their turnaround gates your integration).
+- Solo-dev estimates historically run 1.5–2x optimistic; the high end of the range is the honest
+  planning number. Budget 12 months, communicate 15.
+
+============================================================
+4. ART ASSET LIST (for the artist's brief)
+============================================================
+
+CHARACTERS (higher-fidelity pixel art, side view; each named character needs a portrait too)
+- Player character, male + female variants (or modular): idle, walk, run, jump, fall, land, dash,
+  power move, dance x2–3, talk, sit, swim/splash, hang, fly/float, car-seat pose.
+  (Largest single character sheet — every rhythm verb needs readable animation.)
+- Sahi: idle, walk, dance, talk, shout (Part 7 call-and-response), car driving pose, portrait.
+- Kara: idle, walk, dance, talk, portrait.
+- Barry: idle, walk, talk, portrait, dance at DOUBLE tempo (extra frames or 2x playback design).
+- Unnamed: idle, walk, talk (rare), portrait, 3–4 distinct dance animations (she communicates
+  through dance — her animation set is her dialogue).
+- Blackness (amorphous, tracks only): amorphous idle/flow, engulf/appear/disappear, 2–3
+  track-specific behaviors. Likely shader + sprite hybrid.
+- Performers: drummer (kit + play-on-beat cycle), guitarist, singer — each with on-beat
+  accent frames so they visibly sync to the music.
+- NPC festival-goers: modular parts (bodies × heads × hair × clothing) OR ~10–15 hand-made
+  variants, each with idle, walk, 2–3 dance loops. (Recommend hand-made variants over a
+  generator — much cheaper and the doc only needs "many NPCs, most not interactable".)
+- Minor one-off characters: ~3–5 with idle/talk/portrait.
+
+ENVIRONMENT — FESTIVAL HUB
+- Ground/terrain tileset: grass, dirt path, sand/desert, lakeshore.
+- Location set pieces: festival entrance/gate, hill, small lake (jumpable), tent cluster, desert
+  backdrop, big lake + boat, 2+ stages (speaker stacks, lighting rigs, DJ booth), food court
+  stalls, misc: flags, tapestries, shade sails, campfires, trash cans, art installations,
+  portable toilets, parked cars.
+- Parallax background layers: distant mountains/desert horizon, sky.
+- TIME-OF-DAY: all of the above in 4 lighting states (day/dusk/night/dawn) — via palette swap or
+  lighting/shader if the art is built for it (agree on the approach with the artist EARLY; it
+  roughly multiplies environment cost otherwise).
+- Sky sets: day, dusk, night (stars), dawn; moon/sun; stage lights and laser effects at night.
+
+ENVIRONMENT — TRACK LEVELS (bespoke, per complex track)
+- Chakra: exaggerated entrance/hill/lake versions, cloudscape world, giant bird (flying,
+  swooping), free-fall sky backgrounds, rotation-safe environment pieces.
+- Other 2 complex tracks: comparable bespoke sets (space/jungle/etc. per final design) —
+  budget ~1 environment set + 1–2 unique creatures/characters each.
+- Simple tracks: 1 backdrop variation + palette shift each, reusing performers/VFX.
+
+UI
+- Beat indicators: neutral, left, right, center (+ up/down if added), hit state, miss state,
+  approach/highlight states.
+- Target line / hit zone marker; power-move prompt.
+- Dialogue box (9-slice), speaker name/color tags, portrait frame, talk-availability indicator,
+  conversation-continue arrow.
+- Results screen layout: track title/artist/length, score, grade (S/A/B/C…), retry prompt.
+- Main/pause menu backgrounds, buttons, sliders, focus states; controller + KB/M button glyphs.
+- Title/logo art, credits layout, font(s) licensed for commercial use.
+
+VFX (artist and/or shader work by dev)
+- On-beat hit particles/burst, miss marker, combo/streak accents.
+- Player trail (POC has one), dash effect, landing dust, water splash.
+- Psychedelic track effects: background pulse-to-BPM, kaleidoscope/color-cycling shaders,
+  screen-rotation transition, grey-out effect for miss streaks, day-night transition effect.
+- Crowd ambience animation (bobbing silhouettes), stage lights/lasers/smoke.
+
+MARKETING / STORE
+- itch.io cover image (630×500), banner, 6–10 screenshots, animated GIFs, trailer (30–60 s),
+  game icon, press-kit sheet.
+
+ROUGH ARTIST BUDGET (external cost, not dev hours):
+The list above is plausibly 500–900 artist-hours for good higher-fidelity pixel art.
+At typical commissioned pixel-art rates ($20–50/h or per-asset equivalent): ~$12k–$40k.
+Cutting the NPC generator, buying a font, and limiting time-of-day to palette swaps pulls this
+toward the low end. This is the biggest cash cost of the project — get quotes early.
+
+============================================================
+5. AUDIO ASSET LIST (music excluded — you have the list)
+============================================================
+
+Design constraint from the doc: track levels use ONLY the music; hit/miss feedback is visual.
+So the SFX list is small and hub-focused:
+
+- Footsteps: grass, sand, dirt (2–4 variations each); run variants.
+- Jump, land (soft/hard), dash whoosh.
+- Water: small splash (lake jump), big splash, swimming loop.
+- Conversation blips: per-character voice-tone blips (Sahi, Kara, Barry, player; Unnamed gets
+  none or a hummed tone) — cheap way to add personality.
+- UI: menu move/select/back, pause in/out, results screen sting (optional — doc says minimal).
+- Festival ambience: crowd walla loop (day + night variants), wind/desert, water lapping,
+  night crickets, birds (dawn), campfire crackle.
+- Car: engine idle/driving loop for the ending scene.
+- Music-system audio engineering (dev/producer time, already partly counted in per-song rows):
+  slicing each track into loopable parts, loudness normalization across tracks, low-volume
+  "festival PA" mixdowns of tracks for hub background, muffled/filtered versions for
+  distance-from-stage effect.
+
+MUSIC LICENSING (flag, not estimated): commercial release requires written sync licenses from
+every artist/label. Psytrance labels often control masters. This can take weeks-to-months of
+calendar time and may cost per track — start now, in parallel with development, and have backup
+tracks in case a license falls through. Do not build 3 complex bespoke tracks around music you
+don't have rights to yet.
+
+============================================================
+6. SUGGESTED BUILD ORDER
+============================================================
+1. Rhythm engine rewrite + beat tooling (everything depends on it).
+2. Finish Chakra on the new engine with placeholder art (proves the pipeline end-to-end).
+3. Festival hub + conversation + time-of-day with 2–3 tracks.
+4. Commission art once systems are stable (avoid re-briefing).
+5. Remaining tracks in parallel with art integration.
+6. Menus/save/options/release engineering last 2 months + polish.

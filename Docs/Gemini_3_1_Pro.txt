@@ -1,0 +1,82 @@
+# Trance - Game Development Estimation & Asset List
+
+## 1. Development Time Estimation (Single Developer, 40 hrs/week)
+
+These estimates are based on building the game in Godot for an itch.io commercial release. The work is divided into "Common Systems" (the foundation) and "Per-Track" content. All estimates assume a single developer handling programming and integration (not necessarily creating all art/music from scratch during this time).
+
+### Common Stuff (Core Systems & Festival Hub)
+The foundational elements required before or alongside track production.
+* **Core Player Controller:** Movement, jumping, running, dashing, and physics tweaking. (2 weeks)
+* **Rhythm System Foundation:** Note spawning, beat mapping workflow/tools (crucial for a rhythm game), input syncing, hit/miss detection, scoring logic. (4 weeks)
+* **Festival Hub & Exploration:** World setup, camera systems, day/night cycle logic, stage transitions. (2 weeks)
+* **Dialogue & NPC System:** NPC interaction, dialogue UI, branching/trigger logic, and a simple modular NPC generator. (2 weeks)
+* **UI & Menus:** Main menu, pause menu, track end screens, settings, tutorial integration. (2 weeks)
+* **Save/Load & Game Flow:** Tracking progress, unlocking tracks, transitioning between festival and music tracks. (1 week)
+* **Polish, Bug Fixing & Juice (Base Game):** Audio mixing, screen shake, particles, standard shaders. (3 weeks)
+* **Sub-Total for Common Systems:** ~16 weeks (approx. 4 months)
+
+### Estimation Per Simpler Song
+A simpler track involves straight-forward rhythm platforming (like an auto-runner) with standard notes and no complex mid-level mechanical shifts.
+* **Beat Mapping & Level Design:** Syncing the notes to the music and laying out the platforming path. (1 week)
+* **Visuals & Integration:** Setting up the background, placing standard props, integrating effects. (0.5 weeks)
+* **Testing & Tweaking:** Playtesting for rhythm feel and fixing bugs. (0.5 weeks)
+* **Sub-Total per Simpler Song:** ~2 weeks
+
+### Estimation Per Complex Song (e.g., Chakra)
+A complex track involves multiple phases (e.g., the 14 parts of Chakra), custom mechanics (free fall, screen rotation), and specific narrative moments.
+* **Beat Mapping & Level Design:** Mapping the 8+ minute track, designing multiple distinct phases and transitions. (2 weeks)
+* **Custom Scripting & Mechanics:** Programming bespoke events (e.g., rotating screen, specific boss/character behaviors like the Giant Bird). (2 weeks)
+* **Visuals & Story Integration:** Integrating custom art assets, syncing narrative beats to the music, complex shader/particle work. (2 weeks)
+* **Testing & Tweaking:** Intensive playtesting for transitions, difficulty curve, and rhythm accuracy. (1 week)
+* **Sub-Total per Complex Song:** ~7 weeks
+
+### Total Project Estimation Examples
+* **1-Hour Game (7 Tracks: 3 Complex, 4 Simple):**
+  Common (16) + Complex (21) + Simple (8) = **45 weeks (~11 months)**
+* **2-Hour Game (14 Tracks: 4 Complex, 10 Simple):**
+  Common (16) + Complex (28) + Simple (20) = **64 weeks (~15 months)**
+*(Note: Add a 15-20% buffer for unexpected technical issues, marketing tasks, or itch.io release preparation).*
+
+---
+
+## 2. Asset List (Art & Audio)
+
+### Art Assets (2D Sprites, Animations, Shaders)
+
+**Characters (Animations: Idle, Walk, Run, Jump, Fall, Dash, Dance/Interact, Power Move)**
+* **Player Character:** Full animation set + dialogue portraits.
+* **Key NPCs:** Sahi, Kara, Barry, Unnamed (Animations: Idle, Dance/Special Dance, Dialogue portraits).
+* **The "Blackness":** Amorphous entity animations (Idle, Move, Morph, Dissipate).
+* **Track-Specific Characters:** Drummer, Guitarist, Singer, Giant Bird, Aliens, Angels, etc.
+* **Festival Crowd NPCs:** Modular parts (heads, bodies, legs) to randomly generate the crowd, plus basic idle/dance animations.
+
+**Environments & Backgrounds**
+* **Festival Hub:** 
+  * Entrance gates, tents, food court, stages.
+  * Foreground elements (trees, hills, dirt/grass paths).
+  * Backgrounds (desert, small lake, big lake + boat).
+  * Lighting overlays for Day, Dusk, Night, Dawn.
+* **Rhythm Tracks (Surreal/Abstract):**
+  * Custom backgrounds per track (Clouds, Space, Jungle, Abstract geometry).
+  * Platform tilesets for auto-runner sections (Earth, floating rocks, neon lines, etc.).
+
+**UI & Visual Effects (VFX)**
+* **Rhythm UI:** Beat indicators (falling notes), hit/miss particle bursts, target zone highlight.
+* **System UI:** Dialogue boxes, Main/Pause menu backgrounds and buttons, Score/Grade screens.
+* **VFX:** Screen transition effects, dashing trails, speed lines (for running/falling), psychedelic shaders (color shifting, screen distortion/rotation).
+
+### Audio Assets (SFX & Ambient)
+*(Music tracks are already handled)*
+
+**Sound Effects (SFX)**
+* **Player Movement:** Footsteps (dirt, grass, hard surface), jumping, landing.
+* **Actions:** Dash swoosh, Power Move activation sound.
+* **Rhythm Feedback:** 
+  * Positive: Crisp, satisfying hit sounds (maybe varying pitch based on combo).
+  * Negative: Dull thud or subtle miss indicator (as per doc, no harsh audio).
+* **UI & Menus:** Hover, click, open/close, score tally counting up.
+* **Dialogue:** "Mumble" or "blip" sounds for character speech.
+
+**Ambient Audio**
+* **Festival Ambience:** Muffled/low-volume psytrance looping in the background (getting louder near stages), crowd chatter, distant cheering.
+* **Environmental Ambience:** Wind (especially for free-fall sections), nature sounds (crickets at night, water lapping at the lake).
